@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flying_burger/constants.dart';
+import 'package:flying_burger/login-screen.dart';
+import 'package:flying_burger/create-account.dart';
 
 class StartScreen extends StatelessWidget{
+  const StartScreen({super.key});
+
   @override
   Widget build(BuildContext context){
     var theme = Theme.of(context);
@@ -26,7 +30,9 @@ class StartScreen extends StatelessWidget{
               ),
               SizedBox(height: 20),
               ElevatedButton(
-                onPressed: (){},
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const LogInScreen()));
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: bluePrimaryColor),
                 child: Padding(
@@ -36,7 +42,9 @@ class StartScreen extends StatelessWidget{
               ),
               SizedBox(height: 10),
               ElevatedButton(
-                onPressed: (){},
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const CreateAccountScreen()));
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: bluePrimaryColor),
                 child: Padding(
