@@ -1,0 +1,12 @@
+*************** FOOD JUNKIES DATABASE INFORMATION ***********************
+Server info:
+              Endpoint: fb-sea.cvxlhwhgsrmr.us-east-2.rds.amazonaws.com
+              Password: *ask Sara*
+              Port: 5432
+
+              DB instance Identifier: postgres-1
+              Master username: postgres
+              
+              Table Name: UserInformation
+
+***********************************************************************
