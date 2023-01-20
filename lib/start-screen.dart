@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flying_burger/constants.dart';
 import 'package:flying_burger/login-screen.dart';
+import 'package:flying_burger/create-account.dart';
 
 class StartScreen extends StatelessWidget{
   const StartScreen({super.key});
@@ -41,7 +42,9 @@ class StartScreen extends StatelessWidget{
               ),
               SizedBox(height: 10),
               ElevatedButton(
-                onPressed: (){},
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const CreateAccountScreen()));
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: bluePrimaryColor),
                 child: Padding(
