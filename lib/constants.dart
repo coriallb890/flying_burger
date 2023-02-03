@@ -7,4 +7,5 @@ const appBarTitle = TextStyle(
     color: redPrimaryColor,
     fontFamily: 'Bowlby',
     fontSize: 50,
-    letterSpacing: 2);
+    letterSpacing: 2
+);
