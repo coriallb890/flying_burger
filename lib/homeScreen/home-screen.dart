@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flying_burger/constants.dart';
+import 'package:flying_burger/homeScreen/components/bottomNav.dart';
 
 class HomeScreen extends StatelessWidget{
   @override
@@ -29,7 +30,7 @@ class HomeScreen extends StatelessWidget{
                 )
               ],
             ),
-          body: Center(
+            body: Center(
             child: Column(
               children: <Widget>[
                 Text(
@@ -63,6 +64,7 @@ class HomeScreen extends StatelessWidget{
               ],
             ),
           ),
+            bottomNavigationBar: navHome(),
         ),
     );
   }
