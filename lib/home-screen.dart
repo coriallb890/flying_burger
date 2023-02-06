@@ -1,7 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flying_burger/constants.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
-class HomeScreen extends StatelessWidget{
+List<String> photos = ["https://www.flyingburgerandseafood.com/images/slider/082626-slideTacos.png",
+"https://www.flyingburgerandseafood.com/images/slider/082514-slideBurger.png",
+"https://www.flyingburgerandseafood.com/images/slider/082600-slideSeafood.png"];
+
+class HomeScreen extends StatefulWidget{
+  const HomeScreen({Key? key}) : super(key: key);
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context){
     var theme = Theme.of(context);
@@ -47,17 +58,35 @@ class HomeScreen extends StatelessWidget{
                     )
                 ),
                 SizedBox(height: 150),
-                ElevatedButton(
-                    onPressed: (){},
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.transparent),
-                    child: Padding(
-                        padding: EdgeInsets.all(5),
-                        child: Image.asset(
-                            "assets/images/ADBurger.png",
-                            width: 390,
-                            fit: BoxFit.fitWidth
-                        )
+                CarouselSlider(
+                  items: photos.map((i) {
+                    return Builder(
+                      builder: (BuildContext context) {
+                        return Container(
+                            width: MediaQuery.of(context).size.width,
+                            margin: EdgeInsets.symmetric(horizontal: 5.0),
+                            decoration: BoxDecoration(
+                                color: Colors.transparent
+                            ),
+                            child: Image.network(i)
+                        );
+                      },
+                    );
+                  }).toList(),
+                    options: CarouselOptions(
+                      height: 400,
+                      aspectRatio: 16/9,
+                      viewportFraction: 0.8,
+                      initialPage: 0,
+                      enableInfiniteScroll: true,
+                      reverse: false,
+                      autoPlay: true,
+                      autoPlayInterval: Duration(seconds: 5),
+                      autoPlayAnimationDuration: Duration(milliseconds: 800),
+                      autoPlayCurve: Curves.fastOutSlowIn,
+                      enlargeCenterPage: true,
+                      enlargeFactor: 0.3,
+                      scrollDirection: Axis.horizontal,
                     )
                 )
               ],
