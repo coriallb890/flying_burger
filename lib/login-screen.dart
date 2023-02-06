@@ -48,7 +48,7 @@ class LogInScreen extends StatelessWidget {
                             backgroundColor: Colors.transparent),
                         child:  const Text('Forgot your password?', style: TextStyle(color: redPrimaryColor))
                     ),
-                    const SizedBox(height: 55),
+                    const SizedBox(height: 10),
                     ElevatedButton(
                         onPressed: () {
                           Navigator.push(context, MaterialPageRoute(builder: (context)=> const StartScreen()));

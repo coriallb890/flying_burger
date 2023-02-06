@@ -9,3 +9,10 @@ const appBarTitle = TextStyle(
     fontSize: 50,
     letterSpacing: 2
 );
+
+const redTitle = TextStyle(
+  color: redPrimaryColor,
+  fontFamily: 'Bowlby',
+  fontSize: 30,
+  letterSpacing: 2
+);
