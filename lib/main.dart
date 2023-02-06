@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flying_burger/menuScreen/menuItemPages/itemScreen.dart';
 import 'package:flying_burger/start-screen.dart';
 import 'package:flying_burger/menuScreen/menu.dart';
 
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: StartScreen(),
+      home: MenuScreen(),
     );
   }
 }
