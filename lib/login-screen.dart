@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flying_burger/constants.dart';
+import 'package:flying_burger/homeScreen/home-screen.dart';
 import 'package:flying_burger/forgot-password.dart';
 
 class LogInScreen extends StatelessWidget {
@@ -53,7 +54,7 @@ class LogInScreen extends StatelessWidget {
                     const SizedBox(height: 55),
                     ElevatedButton(
                         onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=> const LogInScreen()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
                         },
                         style: ElevatedButton.styleFrom(
                             backgroundColor: bluePrimaryColor),
