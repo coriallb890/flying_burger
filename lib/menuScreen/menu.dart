@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flying_burger/constants.dart';
+import 'package:flying_burger/menuScreen/components/bottomNav.dart';
 import 'package:flying_burger/menuScreen/components/menuItems.dart';
 import '../components/appbar.dart';
 
-class Menu extends StatelessWidget{
+
+class MenuScreen extends StatelessWidget{
+
   @override
   Widget build(BuildContext context){
     return Container(
@@ -36,8 +39,9 @@ class Menu extends StatelessWidget{
             menuItem('Desserts', 'assets/images/desserts.jpg'),
             menuItem('Drinks', 'assets/images/drinks.jpg'),
           ]
-        )
-      )
+        ),
+        bottomNavigationBar: navMenu(),
+      ),
     );
   }
 }

@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import '../constants.dart';
+import 'package:flying_burger/constants.dart';
 
-class simpleAppBar extends StatelessWidget implements PreferredSizeWidget{
+class menuAppBar extends StatelessWidget implements PreferredSizeWidget{
 
-  final String title;
-
-  const simpleAppBar(this.title);
+  const menuAppBar();
 
   @override
   Size get preferredSize => const Size.fromHeight(75);
@@ -13,7 +11,13 @@ class simpleAppBar extends StatelessWidget implements PreferredSizeWidget{
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text(title),
+      leading: Padding(
+        padding: EdgeInsets.only(left: 10),
+        child: IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.arrow_circle_left_rounded, color: redPrimaryColor, size: 55),
+        )
+      ),
       centerTitle: true,
       elevation: 0,
       backgroundColor: Colors.transparent,
