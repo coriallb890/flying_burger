@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flying_burger/constants.dart';
-import 'package:flying_burger/start-screen.dart';
+import 'package:flying_burger/homeScreen/home-screen.dart';
+import 'package:flying_burger/forgot-password.dart';
 
 class LogInScreen extends StatelessWidget {
   const LogInScreen({super.key});
@@ -43,7 +44,9 @@ class LogInScreen extends StatelessWidget {
                     )),
                     const SizedBox(height: 5),
                     TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> const ForgotPassword()));
+                        },
                         style: TextButton.styleFrom(
                             backgroundColor: Colors.transparent),
                         child:  const Text('Forgot your password?', style: TextStyle(color: redPrimaryColor))
@@ -51,7 +54,7 @@ class LogInScreen extends StatelessWidget {
                     const SizedBox(height: 10),
                     ElevatedButton(
                         onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=> const StartScreen()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
                         },
                         style: ElevatedButton.styleFrom(
                             backgroundColor: bluePrimaryColor),
