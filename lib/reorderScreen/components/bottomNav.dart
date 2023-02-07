@@ -47,7 +47,7 @@ class navMenu extends StatelessWidget{
               SizedBox(height: 3),
               IconButton(
                 icon: const Icon(Icons.fastfood),
-                onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));},
+                onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=> MenuScreen()));},
                 color: Colors.white,
                 iconSize: 50,
                 padding: EdgeInsets.zero,

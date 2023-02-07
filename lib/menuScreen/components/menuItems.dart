@@ -36,7 +36,7 @@ class menuItem extends StatelessWidget {
                   image:  AssetImage(imagePath)),
             ),
             SizedBox(height: 10,),
-            Text(name, style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+            Text(name, style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold)),
           ],
         ),
       ),
