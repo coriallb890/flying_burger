@@ -15,6 +15,7 @@ class _ItemScreenState extends State<ItemScreen> {
 
   DrinkChoice? _drink;
   SideChoice? _side;
+  SizeChoice? _size;
 
   @override
   Widget build(BuildContext context) {
@@ -86,26 +87,22 @@ class _ItemScreenState extends State<ItemScreen> {
                   children: <Widget>[
                     const Text('Drink Choice', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
                     const Text('Must choose 1', style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.black54)),
+                    Row(
+                      children: <Widget> [
+                        sizeChoice("Regular", SizeChoice.reg),
+                        sizeChoice("Large +\$1.25", SizeChoice.lrg),
+                      ]
+                    ),
                     drinkRadioItem("Coke", DrinkChoice.coke),
-                    drinkCheck(DrinkChoice.coke),
                     drinkRadioItem("Diet Coke", DrinkChoice.dietcoke),
-                    drinkCheck(DrinkChoice.dietcoke),
                     drinkRadioItem("Dr.Pepper", DrinkChoice.drpep),
-                    drinkCheck(DrinkChoice.drpep),
                     drinkRadioItem("Diet Dr.Pepper", DrinkChoice.dietdrpep),
-                    drinkCheck(DrinkChoice.dietdrpep),
                     drinkRadioItem("Lemonade", DrinkChoice.lemon),
-                    drinkCheck(DrinkChoice.lemon),
                     drinkRadioItem("Sprite", DrinkChoice.sprite),
-                    drinkCheck(DrinkChoice.sprite),
                     drinkRadioItem("Strawberry Fanta", DrinkChoice.strfanta),
-                    drinkCheck(DrinkChoice.strfanta),
                     drinkRadioItem("Sweet Tea", DrinkChoice.swttea),
-                    drinkCheck(DrinkChoice.swttea),
                     drinkRadioItem("Unsweet Tea", DrinkChoice.untea),
-                    drinkCheck(DrinkChoice.untea),
                     drinkRadioItem("Coffee", DrinkChoice.coffee),
-                    drinkCheck(DrinkChoice.coffee),
                   ],
                 ),
                 const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
@@ -271,10 +268,23 @@ class _ItemScreenState extends State<ItemScreen> {
     );
   }
 
-  Widget drinkCheck(DrinkChoice choice){
-    if (_drink == choice){
-      return Text('Drink chosen');
-    }
-    return SizedBox(height: 0);
+  Widget sizeChoice(String text, SizeChoice choice){
+    return ElevatedButton(
+      onPressed: (){
+        setState(() {
+          _size = choice;
+        });
+      },
+      child: Text(
+        text,
+        style: TextStyle(
+          color: (_size == choice) ? Colors.white : Colors.black,
+        ),
+      ),
+      style: ElevatedButton.styleFrom(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
+        backgroundColor: (_size == choice) ? bluePrimaryColor : Colors.white)
+    );
   }
 }
+
