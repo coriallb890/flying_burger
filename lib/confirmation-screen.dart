@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flying_burger/constants.dart';
 import 'package:flying_burger/create-account.dart';
-import 'package:flying_burger/home-screen.dart';
+
 
 class ConfirmationScreen extends StatelessWidget{
   @override
