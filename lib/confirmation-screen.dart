@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flying_burger/create-account.dart';
+import 'package:flying_burger/homeScreen/home-screen.dart';
+import 'package:flying_burger/constants.dart';
 
 
 class ConfirmationScreen extends StatelessWidget{
@@ -40,6 +42,16 @@ class ConfirmationScreen extends StatelessWidget{
               SizedBox(height: 50),
               Text('Thank you for dinning with us. Your order will be ready in a few minutes',
                   textAlign: TextAlign.center, style: TextStyle(fontSize: 30, color: Colors.red)),
+              SizedBox(height: 50),
+              ElevatedButton(
+                  onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> const HomeScreen()));},
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: bluePrimaryColor),
+                  child: Padding(
+                      padding: EdgeInsets.all(5),
+                      child: Text('Return to Home', style: style)
+                  )
+              ),
             ],
           ),
         ),
