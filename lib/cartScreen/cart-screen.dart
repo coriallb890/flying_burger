@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flying_burger/components/appbar.dart';
 import 'package:flying_burger/constants.dart';
-
+import 'package:flying_burger/cartScreen/components/bottomNav.dart';
 Widget myLayoutWidget() {
   return Align(
     alignment: Alignment.topCenter,
@@ -8,7 +9,7 @@ Widget myLayoutWidget() {
           child: Column (
             children: <Widget>[
               const SizedBox(height: 20),
-              const Text ('#1 Combos with Spicy Fries       \$10.99',textAlign: TextAlign.left, style: TextStyle(fontSize: 20, color: bluePrimaryColor,
+              const Text ('#1 Combos with Spicy Fries       \$10.99', textAlign: TextAlign.left, style: TextStyle(fontSize: 20, color: bluePrimaryColor,
                   fontWeight: FontWeight.bold)),
               const SizedBox(height: 20),
               const Text ('#1 Single Combo with Fries       \$10.99',textAlign: TextAlign.left , style: TextStyle(fontSize: 20, color: bluePrimaryColor,
@@ -57,22 +58,11 @@ class CartScreen extends StatelessWidget {
                 repeat: ImageRepeat.repeat)),
         child: Scaffold (
             backgroundColor: Colors.transparent,
-            appBar: AppBar(
-            title: Center(
-            child: Text('Cart', style:style),
-            ), actions: <Widget>[
-              IconButton(
-                icon: Icon(
-                  Icons.menu,
-                  color: Colors.white,
-                ),
-                onPressed: (){},
-              )
-            ],
-            ),
+            appBar: const simpleAppBar('CART'),
               body: myLayoutWidget(
 
-            )
+            ),
+            bottomNavigationBar: navMenu(),
             )
 
     );
