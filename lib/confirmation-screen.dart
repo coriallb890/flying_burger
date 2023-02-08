@@ -5,6 +5,8 @@ import 'package:flying_burger/constants.dart';
 
 
 class ConfirmationScreen extends StatelessWidget{
+  const ConfirmationScreen({super.key});
+
   @override
   Widget build(BuildContext context){
     var theme = Theme.of(context);
