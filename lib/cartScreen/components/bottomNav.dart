@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flying_burger/cartScreen/cart-screen.dart';
 import 'package:flying_burger/constants.dart';
 import 'package:flying_burger/homeScreen/home-screen.dart';
 import 'package:flying_burger/menuScreen/menu.dart';
@@ -75,7 +76,7 @@ class navMenu extends StatelessWidget{
               SizedBox(height: 3),
               IconButton(
                 icon: const Icon(Icons.shopping_cart_outlined),
-                onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));},
+                onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=> CartScreen()));},
                 color: redPrimaryColor,
                 iconSize: 50,
                 padding: EdgeInsets.zero,

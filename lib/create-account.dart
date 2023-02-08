@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flying_burger/cartScreen/cart-screen.dart';
 import 'package:flying_burger/constants.dart';
-import 'package:flying_burger/menuScreen/combos-menu.dart';
 
 
 class CreateAccountScreen extends StatefulWidget {
@@ -64,9 +64,9 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                           children: <Widget>[
                             Checkbox(
                               value: agree,
-                              onChanged: (agree){
+                              onChanged: (newValue){
                                 setState(() {
-                                  agree != agree;
+                                  newValue != agree;
                                 });
                               }
                                 ),
@@ -79,7 +79,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                                 const SizedBox(height: 55),
                                 ElevatedButton(
                                 onPressed: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=> const CombosMenuScreen()));
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=> const CartScreen()));
                                 },
                                 style: ElevatedButton.styleFrom(
                                 backgroundColor: bluePrimaryColor),
