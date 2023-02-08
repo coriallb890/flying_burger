@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flying_burger/cartScreen/cart-screen.dart';
 import 'package:flying_burger/constants.dart';
 import 'package:flying_burger/menuScreen/components/bottomNav.dart';
 import 'package:flying_burger/menuScreen/menuItemPages/components/customizationLists.dart';
@@ -15,6 +16,7 @@ class _ItemScreenState extends State<ItemScreen> {
 
   DrinkChoice? _drink;
   SideChoice? _side;
+  SizeChoice? _size;
 
   @override
   Widget build(BuildContext context) {
@@ -40,8 +42,8 @@ class _ItemScreenState extends State<ItemScreen> {
                       "assets/images/combos.jpg",
                       fit: BoxFit.fitWidth
                     ),
-                    SizedBox(height: 10),
-                    Text("SINGLE BURGER COMBO",style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold), textAlign: TextAlign.start,),
+                    const SizedBox(height: 10),
+                    const Text("SINGLE BURGER COMBO",style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold), textAlign: TextAlign.start,),
                   ]
                 ),
                 const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness:2),
@@ -52,25 +54,7 @@ class _ItemScreenState extends State<ItemScreen> {
                   child: ElevatedButton(
                     onPressed: () => showDialog<String>(
                       context: context,
-                      builder: (BuildContext context) => Dialog(
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              const Text('Customization for rest of item'),
-                              const SizedBox(height: 15),
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                child: const Text('Close'),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
+                      builder: (BuildContext context) => mainDialog()
                     ),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: bluePrimaryColor,
@@ -152,25 +136,7 @@ class _ItemScreenState extends State<ItemScreen> {
                                 if (_side == SideChoice.sdsalad){
                                   return showDialog<String>(
                                     context: context,
-                                    builder: (BuildContext context) => Dialog(
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.min,
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                          children: <Widget>[
-                                            const Text('Salad Customizations here.'),
-                                            const SizedBox(height: 150),
-                                            TextButton(
-                                              onPressed: () {
-                                                Navigator.pop(context);
-                                              },
-                                              child: const Text('Close'),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
+                                    builder: (BuildContext context) => saladDialog()
                                   );
                                 }
                                 print("Nothing happened");
@@ -204,7 +170,9 @@ class _ItemScreenState extends State<ItemScreen> {
                 Padding(
                   padding: const EdgeInsets.only(top:6, bottom: 12),
                   child: ElevatedButton(
-                    onPressed: (){},
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> CartScreen()));
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: bluePrimaryColor,
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
@@ -273,8 +241,249 @@ class _ItemScreenState extends State<ItemScreen> {
 
   Widget drinkCheck(DrinkChoice choice){
     if (_drink == choice){
-      return Text('Drink chosen');
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget> [
+          sizeChoice("Regular", SizeChoice.reg),
+          sizeChoice("Large +\$1.25", SizeChoice.lrg),
+        ],
+      );
     }
-    return SizedBox(height: 0);
+    return SizedBox(height:0);
   }
+
+  Widget sizeChoice(String text, SizeChoice choice){
+    return ElevatedButton(
+      onPressed: (){
+        setState(() {
+          _size = choice;
+        });
+      },
+      style: ElevatedButton.styleFrom(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
+        backgroundColor: (_size == choice) ? bluePrimaryColor : Colors.white),
+      child: Text(
+      text,
+      style: TextStyle(
+        color: (_size == choice) ? Colors.white : Colors.black,
+      ),
+    ),
+    );
+  }
+}
+
+class mainDialog extends StatefulWidget {
+  const mainDialog({Key? key}) : super(key: key);
+
+  @override
+  State<mainDialog> createState() => _mainDialogState();
+}
+
+class _mainDialogState extends State<mainDialog> {
+
+  final burgerOptions = [
+    CheckBoxState(title: "Lettuce", price: 0.0, value: true),
+    CheckBoxState(title: "Pickles", price: 0.0,  value: true),
+    CheckBoxState(title: "Tomatoes", price: 0.0, value: true),
+    CheckBoxState(title: "Onions", price: 0.0 ,value: true),
+    CheckBoxState(title: "Extra Patty", price: 4.0, value: false),
+    CheckBoxState(title: "Bacon", price: 2.0, value: false),
+    CheckBoxState(title: "American Cheese", price: 1.59, value: false),
+    CheckBoxState(title: "Pepper Jack Cheese", price: 1.59, value: false),
+    CheckBoxState(title: "Grilled Onion", price: 1.0, value: false),
+    CheckBoxState(title: "Grilled Mushroom", price: 1.0, value: false),
+    CheckBoxState(title: "Jalepenos", price: 1.0, value: false),
+  ];
+  final sauceOptions = [
+    CheckBoxState(title: "Ketchup", price: 0.0, value: true),
+    CheckBoxState(title: "Mustard", price: 0.0, value: true),
+    CheckBoxState(title: "Mayo", price: 0.0, value: true),
+    CheckBoxState(title: "Tautar Sauce", price: 0.5, value: false),
+    CheckBoxState(title: "BBQ", price: 0.5, value: false),
+    CheckBoxState(title: "Ranch", price: 0.5, value: false),
+    CheckBoxState(title: "Honey Muster", price: 0.5, value: false),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+              child: SingleChildScrollView(
+                child:Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Column(
+                      children: <Widget>[
+                        Text("Toppings", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+                        ...burgerOptions.map(customOption).toList(),
+                      ],
+                    ),
+                    const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
+                    Column(
+                      children: <Widget>[
+                        Text("Sauces", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+                        ...sauceOptions.map(customOption).toList(),
+                      ],
+                    ),
+                    const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: const Text('Apply', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+                    ),
+                  ],
+                ),
+              )
+          )
+      ),
+    );
+  }
+
+  Widget customOption(CheckBoxState checkbox){
+
+    return Row(
+      children: <Widget>[
+        Checkbox(
+            value: checkbox.value,
+            onChanged: (bool? value){
+              setState(() {
+                checkbox.value = value!;
+              });
+            }
+        ),
+        Text(checkbox.title, style: const TextStyle(fontSize: 20)),
+        Text(
+            (() {
+              if (checkbox.price > 0){
+                return "  +\$" + checkbox.price.toStringAsFixed(2);
+              }
+              return " ";
+            }()),
+            style: TextStyle(fontSize: 20, fontStyle: FontStyle.italic)
+
+        )
+      ],
+    );
+  }
+}
+
+class saladDialog extends StatefulWidget {
+  const saladDialog({Key? key}) : super(key: key);
+
+  @override
+  State<saladDialog> createState() => _saladDialogState();
+}
+
+class _saladDialogState extends State<saladDialog> {
+
+  final saladOptions = [
+    CheckBoxState(title: "Tomatoes", price: 0.0, value: true),
+    CheckBoxState(title: "Cucumber", price: 0.0,  value: true),
+    CheckBoxState(title: "Croutons", price: 0.0, value: true),
+    CheckBoxState(title: "Dried Cranberries", price: 0.0 ,value: true),
+    CheckBoxState(title: "Hushpuppies", price: 0.0, value: true),
+    CheckBoxState(title: "Onion", price: 0.0, value: false),
+    CheckBoxState(title: "Jalapeno", price: 0.49, value: false),
+    CheckBoxState(title: "Bacon", price: 1.49, value: false),
+    CheckBoxState(title: "Grilled Onion", price: 0.39, value: false),
+    CheckBoxState(title: "Grilled Mushroom", price: 0.89, value: false),
+    CheckBoxState(title: "Grilled Chicken", price: 5.0, value: false),
+    CheckBoxState(title: "Chicken Strip", price: 1.5, value: false),
+    CheckBoxState(title: "3 Chicken Strip", price: 4.5, value: false),
+    CheckBoxState(title: "Shrimp", price: 1.5, value: false),
+    CheckBoxState(title: "3 Shrimp", price: 4.5, value: false),
+    CheckBoxState(title: "6 Shrimp", price: 7.5, value: false),
+  ];
+  final dressingOptions = [
+    CheckBoxState(title: "Ranch", price: 0.23, value: false),
+    CheckBoxState(title: "House Italian", price: 0.23, value: false),
+    CheckBoxState(title: "Caesar", price: 0.23, value: false),
+    CheckBoxState(title: "Bleu Cheese", price: 0.23, value: false),
+    CheckBoxState(title: "1000 Island", price: 0.23, value: false),
+    CheckBoxState(title: "Balsamic Vinegar", price: 0.23, value: false),
+    CheckBoxState(title: "Honey Muster", price: 0.23, value: false),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+              child: SingleChildScrollView(
+                child:Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Column(
+                      children: <Widget>[
+                        Text("Ingredients", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+                        ...saladOptions.map(customOption).toList(),
+                      ],
+                    ),
+                    const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
+                    Column(
+                      children: <Widget>[
+                        Text("Dressings", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+                        ...dressingOptions.map(customOption).toList(),
+                      ],
+                    ),
+                    const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: const Text('Apply', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+                    ),
+                  ],
+                ),
+              )
+          )
+      ),
+    );
+  }
+
+  Widget customOption(CheckBoxState checkbox){
+
+    return Row(
+      children: <Widget>[
+        Checkbox(
+            value: checkbox.value,
+            onChanged: (bool? value){
+              setState(() {
+                checkbox.value = value!;
+              });
+            }
+        ),
+        Text(checkbox.title, style: const TextStyle(fontSize: 20)),
+        Text(
+            (() {
+              if (checkbox.price > 0){
+                return "  +\$" + checkbox.price.toStringAsFixed(2);
+              }
+              return " ";
+            }()),
+            style: TextStyle(fontSize: 20, fontStyle: FontStyle.italic)
+
+        )
+      ],
+    );
+  }
+}
+
+class CheckBoxState{
+  final String title;
+  final double price;
+  bool value;
+
+  CheckBoxState({
+    required this.title,
+    required this.price,
+    required this.value,
+
+});
 }

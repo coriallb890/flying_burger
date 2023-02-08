@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../cartScreen/components/bottomNav.dart';
+import '../menuScreen/components/bottomNav.dart';
 import '../components/appbar.dart';
 import 'components/menuItems.dart';
 

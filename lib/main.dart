@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flying_burger/start-screen.dart';
 import 'package:flying_burger/menuScreen/menuItemPages/itemScreen.dart';
 
+import 'menuScreen/combos-menu.dart';
+import 'menuScreen/menu.dart';
+import 'menuScreen/menuItemPages/itemScreen.dart';
+
 
 void main() {
   runApp(const MyApp());

@@ -4,7 +4,10 @@ import 'package:flying_burger/constants.dart';
 import 'package:flying_burger/homeScreen/home-screen.dart';
 import 'package:flying_burger/menuScreen/menu.dart';
 
-class navMenu extends StatelessWidget{
+import '../../cartScreen/cart-screen.dart';
+import '../recentorder-screen.dart';
+
+class navReorder extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +64,7 @@ class navMenu extends StatelessWidget{
               SizedBox(height: 3),
               IconButton(
                 icon: const Icon(Icons.receipt_long_outlined),
-                onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=> MenuScreen()));},
+                onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=> RecentOrderScreen()));},
                 color: redPrimaryColor,
                 iconSize: 50,
                 padding: EdgeInsets.zero,
@@ -75,7 +78,7 @@ class navMenu extends StatelessWidget{
               SizedBox(height: 3),
               IconButton(
                 icon: const Icon(Icons.shopping_cart_outlined),
-                onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));},
+                onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=> CartScreen()));},
                 color: Colors.white,
                 iconSize: 50,
                 padding: EdgeInsets.zero,

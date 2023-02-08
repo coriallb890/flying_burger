@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flying_burger/menuScreen/menuItemPages/itemScreen.dart';
 
 import '../../constants.dart';
+import '../combos-menu.dart';
 
 class menuItem extends StatelessWidget {
   final String name;
@@ -19,7 +21,14 @@ class menuItem extends StatelessWidget {
       color: Colors.transparent,
       // Add image & text
       child: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          if(name == "COMBOS"){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> CombosMenuScreen()));
+          }
+          if(name == '#1 SINGLE BURGER (1/3) COMBO MEAL'){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> ItemScreen()));
+          }
+        },
         // Add image & text
         child: Column(
           children: [
