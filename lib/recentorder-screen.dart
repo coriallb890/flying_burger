@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flying_burger/constants.dart';
+import 'package:flying_burger/create-account.dart';
+import 'package:flying_burger/menuScreen/components/bottomNav.dart';
 
 class RecentOrderScreen extends StatelessWidget{
   @override
@@ -25,7 +27,7 @@ class RecentOrderScreen extends StatelessWidget{
                 Icons.account_circle_outlined,
                 color: Colors.white,
               ),
-              onPressed: (){},
+              onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> const CreateAccountScreen()));},
             )
           ],
         ),
@@ -96,6 +98,7 @@ class RecentOrderScreen extends StatelessWidget{
             ],
           ),
         ),
+        bottomNavigationBar: navMenu(),
       ),
     );
   }

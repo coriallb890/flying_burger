@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flying_burger/constants.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flying_burger/homeScreen/components/bottomNav.dart';
+import 'package:flying_burger/create-account.dart';
 
 List<String> photos = ["https://www.flyingburgerandseafood.com/images/slider/082626-slideTacos.png",
 "https://www.flyingburgerandseafood.com/images/slider/082514-slideBurger.png",
@@ -27,16 +29,18 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Scaffold(
             backgroundColor: Colors.transparent,
             appBar: AppBar(
+              centerTitle: true,
               title: Center(
                 child: Text('Flying Burger', style:style),
               ),
+              automaticallyImplyLeading: false,
               actions: <Widget>[
                 IconButton(
                   icon: Icon(
-                   Icons.menu,
+                   Icons.account_circle_outlined,
                     color: Colors.white,
                   ),
-                  onPressed: (){},
+                  onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> const CreateAccountScreen()));},
                 )
               ],
             ),
@@ -57,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Text('Pick Location', style: style)
                     )
                 ),
-                SizedBox(height: 150),
+                SizedBox(height: 100),
                 CarouselSlider(
                   items: photos.map((i) {
                     return Builder(
@@ -92,6 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
+          bottomNavigationBar: navHome(),
         ),
     );
   }
