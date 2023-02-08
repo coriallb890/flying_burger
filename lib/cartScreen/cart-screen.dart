@@ -62,7 +62,7 @@ class CartScreen extends StatelessWidget {
               body: myLayoutWidget(
 
             ),
-            bottomNavigationBar: navMenu(),
+            bottomNavigationBar: navCart(),
             )
 
     );

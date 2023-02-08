@@ -3,6 +3,8 @@ import 'package:flying_burger/constants.dart';
 import 'package:flying_burger/create-account.dart';
 import 'package:flying_burger/menuScreen/components/bottomNav.dart';
 
+import 'components/bottomNav.dart';
+
 class RecentOrderScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context){
@@ -98,7 +100,7 @@ class RecentOrderScreen extends StatelessWidget{
             ],
           ),
         ),
-        bottomNavigationBar: navMenu(),
+        bottomNavigationBar: navReorder(),
       ),
     );
   }

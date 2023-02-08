@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flying_burger/cartScreen/cart-screen.dart';
 import 'package:flying_burger/constants.dart';
 import 'package:flying_burger/menuScreen/components/bottomNav.dart';
 import 'package:flying_burger/menuScreen/menuItemPages/components/customizationLists.dart';
@@ -169,7 +170,9 @@ class _ItemScreenState extends State<ItemScreen> {
                 Padding(
                   padding: const EdgeInsets.only(top:6, bottom: 12),
                   child: ElevatedButton(
-                    onPressed: (){},
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> CartScreen()));
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: bluePrimaryColor,
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),

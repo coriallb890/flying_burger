@@ -5,6 +5,8 @@ import 'package:flying_burger/constants.dart';
 import 'package:flying_burger/homeScreen/home-screen.dart';
 import 'package:flying_burger/menuScreen/menu.dart';
 
+import '../../reorderScreen/recentorder-screen.dart';
+
 class navCart extends StatelessWidget{
 
   @override
@@ -62,7 +64,7 @@ class navCart extends StatelessWidget{
               SizedBox(height: 3),
               IconButton(
                 icon: const Icon(Icons.receipt_long_outlined),
-                onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=> MenuScreen()));},
+                onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=> RecentOrderScreen()));},
                 color: Colors.white,
                 iconSize: 50,
                 padding: EdgeInsets.zero,
