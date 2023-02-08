@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flying_burger/start-screen.dart';
 
+import 'menuScreen/combos-menu.dart';
+import 'menuScreen/menu.dart';
+import 'menuScreen/menuItemPages/itemScreen.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +30,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: StartScreen(),
+      home: ItemScreen(),
 
     );
   }

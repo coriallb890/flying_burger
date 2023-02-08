@@ -4,7 +4,7 @@ import 'package:flying_burger/constants.dart';
 import 'package:flying_burger/homeScreen/home-screen.dart';
 import 'package:flying_burger/menuScreen/menu.dart';
 
-class navMenu extends StatelessWidget{
+class navReorder extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
