@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flying_burger/cartScreen/cart-screen.dart';
 import 'package:flying_burger/start-screen.dart';
 import 'package:flying_burger/menuScreen/menuItemPages/itemScreen.dart';
 
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: StartScreen(),
+      home: CartScreen(),
 
     );
   }
