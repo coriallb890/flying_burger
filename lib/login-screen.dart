@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flying_burger/constants.dart';
 import 'package:flying_burger/homeScreen/home-screen.dart';
 import 'package:flying_burger/forgot-password.dart';
+import 'package:flying_burger/start-screen.dart';
 
 class LogInScreen extends StatelessWidget {
   const LogInScreen({super.key});
@@ -25,6 +26,16 @@ class LogInScreen extends StatelessWidget {
             body: Center (
                 child: Column (
                   children: <Widget>[
+                    AppBar(
+                        leading: Padding(
+                            padding: EdgeInsets.only(left: 7),
+                            child: IconButton(
+                              onPressed: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=> const StartScreen()));
+                              },
+                              icon: const Icon(Icons.arrow_circle_left_rounded, color: redPrimaryColor, size: 50),
+                            )
+                        )),
                     const SizedBox(height: 250),
                     const Text ('Welcome Back', style: TextStyle(fontSize: 32, color: bluePrimaryColor,
                         fontWeight: FontWeight.bold)),
