@@ -139,7 +139,6 @@ class _ItemScreenState extends State<ItemScreen> {
                                     builder: (BuildContext context) => saladDialog()
                                   );
                                 }
-                                print("Nothing happened");
                               }());
                             },
                             child: const Text('Customize', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
