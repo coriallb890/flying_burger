@@ -139,7 +139,6 @@ class _ItemScreenState extends State<ItemScreen> {
                                     builder: (BuildContext context) => saladDialog()
                                   );
                                 }
-                                print("Nothing happened");
                               }());
                             },
                             child: const Text('Customize', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
@@ -452,12 +451,12 @@ class _saladDialogState extends State<saladDialog> {
     return Row(
       children: <Widget>[
         Checkbox(
-            value: checkbox.value,
-            onChanged: (bool? value){
-              setState(() {
-                checkbox.value = value!;
-              });
-            }
+          value: checkbox.value,
+          onChanged: (bool? value){
+            setState(() {
+              checkbox.value = value!;
+            });
+          }
         ),
         Text(checkbox.title, style: const TextStyle(fontSize: 20)),
         Text(
