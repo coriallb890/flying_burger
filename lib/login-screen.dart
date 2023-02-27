@@ -4,13 +4,19 @@ import 'package:flying_burger/homeScreen/home-screen.dart';
 import 'package:flying_burger/forgot-password.dart';
 import 'package:flying_burger/start-screen.dart';
 
-class LogInScreen extends StatelessWidget {
-  const LogInScreen({super.key});
+class LogInScreen extends StatefulWidget {
+  const LogInScreen({Key? key}) : super(key: key);
+  @override
+  State<LogInScreen> createState() => _LogInScreen();
+}
+
+class _LogInScreen extends State<LogInScreen> {
+  var _passwordVisible;
 
   @override
-  //void initState() {
-  //  _passwordVisible = false;
-  //}
+  void initState() {
+    _passwordVisible = false;
+  }
 
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
@@ -47,12 +53,26 @@ class LogInScreen extends StatelessWidget {
                       ),
                     )),
                     const SizedBox(height: 25),
-                    const SizedBox(width: 300, child: TextField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: 'Enter your password',
+                    Container(width: 300,
+                      padding: EdgeInsets.all(0.0),
+                      child: TextField(
+                        obscureText: _passwordVisible,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: 'Enter your password', //Password box
+                          suffixIcon: IconButton(
+                              icon: Icon(_passwordVisible
+                                  ? Icons.visibility_off
+                                  : Icons.visibility),
+                              onPressed:(){
+                                setState(() {
+                                  _passwordVisible =! _passwordVisible;
+                                });
+                              }
+                          ),
+                        ),
                       ),
-                    )),
+                    ),
                     const SizedBox(height: 5),
                     TextButton(
                         onPressed: () {
