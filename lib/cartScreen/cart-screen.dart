@@ -233,8 +233,8 @@ class _CartScreenState extends State<CartScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text("Subtotal", style: TextStyle(fontSize: 33, fontWeight: FontWeight.bold)),
-                    Text("\$16.97", style: TextStyle(fontSize: 33, fontWeight: FontWeight.bold))
+                    Text("  Subtotal", style: TextStyle(fontSize: 33, fontWeight: FontWeight.bold)),
+                    Text("\$16.97  ", style: TextStyle(fontSize: 33, fontWeight: FontWeight.bold))
                   ]
                 ),
                 const SizedBox(height: 30),
