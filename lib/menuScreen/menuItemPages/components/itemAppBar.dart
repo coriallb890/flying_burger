@@ -14,7 +14,9 @@ class menuAppBar extends StatelessWidget implements PreferredSizeWidget{
       leading: Padding(
         padding: EdgeInsets.only(left: 7),
         child: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           icon: const Icon(Icons.arrow_circle_left_rounded, color: redPrimaryColor, size: 50),
         )
       ),
