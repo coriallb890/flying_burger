@@ -1,6 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flying_burger/menuScreen/appetizers-menu.dart';
+import 'package:flying_burger/menuScreen/baskets-menu.dart';
+import 'package:flying_burger/menuScreen/big-orders-menu.dart';
+import 'package:flying_burger/menuScreen/boiled-menu.dart';
+import 'package:flying_burger/menuScreen/desserts-menu.dart';
+import 'package:flying_burger/menuScreen/drink-menu.dart';
+import 'package:flying_burger/menuScreen/grilled-menu.dart';
 import 'package:flying_burger/menuScreen/menuItemPages/itemScreen.dart';
+import 'package:flying_burger/menuScreen/poorboys-menu.dart';
+import 'package:flying_burger/menuScreen/salads-menu.dart';
+import 'package:flying_burger/menuScreen/sides-menu.dart';
+import 'package:flying_burger/menuScreen/tacos-menu.dart';
 
 import '../../constants.dart';
 import '../combos-menu.dart';
@@ -25,7 +36,43 @@ class menuItem extends StatelessWidget {
           if(name == "COMBOS"){
             Navigator.push(context, MaterialPageRoute(builder: (context)=> CombosMenuScreen()));
           }
-          if(name == '#1 SINGLE BURGER (1/3) COMBO MEAL'){
+          else if (name == 'BIG ORDERS'){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> BigOrdersMenu()));
+          }
+          else if (name == 'BOILED PLATTER'){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> BoiledMenu()));
+          }
+          else if (name == 'BASKETS'){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> BasketsMenu()));
+          }
+          else if (name == 'APPETIZERS'){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> AppetMenu()));
+          }
+          else if (name == 'DESSERTS'){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> DessertsMenu()));
+          }
+          else if (name == 'DRINKS'){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> DrinkMenu()));
+          }
+          else if (name == 'GRILLED PLATES'){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> GrilledMenu()));
+          }
+          else if (name == 'SIDES'){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> SidesMenu()));
+          }
+          else if (name == 'KIDS MEALS'){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> SidesMenu()));
+          }
+          else if (name == 'POORBOYS'){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> PoorboysMenu()));
+          }
+          else if (name == 'SALADS'){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> SaladsMenu()));
+          }
+          else if (name == 'TACOS'){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> TacosMenu()));
+          }
+          if(name == 'Single Burger'){
             Navigator.push(context, MaterialPageRoute(builder: (context)=> ItemScreen()));
           }
         },
