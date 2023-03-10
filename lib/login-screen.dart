@@ -12,10 +12,12 @@ class LogInScreen extends StatefulWidget {
 
 class _LogInScreen extends State<LogInScreen> {
   var _passwordVisible;
+  var _checkedValue;
 
   @override
   void initState() {
     _passwordVisible = false;
+    _checkedValue = false;
   }
 
   Widget build(BuildContext context) {
@@ -72,6 +74,21 @@ class _LogInScreen extends State<LogInScreen> {
                           ),
                         ),
                       ),
+                    ),
+                    const SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Checkbox(
+                            value: _checkedValue,
+                            onChanged: (bool? value){
+                              setState(() {
+                                _checkedValue = value;
+                              });
+                            }),
+                        Text('Remember Me',style: TextStyle(fontSize: 15, color: bluePrimaryColor,
+                            fontWeight: FontWeight.bold),)
+                      ],
                     ),
                     const SizedBox(height: 5),
                     TextButton(

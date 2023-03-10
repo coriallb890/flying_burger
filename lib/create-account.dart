@@ -24,12 +24,14 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
     }
   }
   var _checkedValue;
+  var _checkedValue2;
   bool _isObscured = false;
 
   @override
   void initState() {
     super.initState();
     _checkedValue = false;
+    _checkedValue2 = false;
     _isObscured = true;
 
   }
@@ -105,7 +107,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                                     return null;
                                   }
                                   else{
-                                    return "Password should contain Captial, Lowercase, \nNumber, and Special Character and be \n8 chacters long";
+                                    return "Password should contain Captial, Lowercase, \nNumber, and Special Character and be \n8 characters long";
                                   }
                                 }
                               },
@@ -142,7 +144,22 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                                 fontWeight: FontWeight.bold),)
                           ],
                         ),
-                        const SizedBox(height: 55),
+                        const SizedBox(height: 10),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Checkbox(
+                                value: _checkedValue2,
+                                onChanged: (bool? value){
+                                  setState(() {
+                                    _checkedValue2 = value;
+                                  });
+                                }),
+                            Text('Remember Me',style: TextStyle(fontSize: 15, color: bluePrimaryColor,
+                                fontWeight: FontWeight.bold),)
+                          ],
+                        ),
+                        const SizedBox(height: 30),
                         ElevatedButton(
                             onPressed: () {
                               if(_formKey.currentState!.validate()){
