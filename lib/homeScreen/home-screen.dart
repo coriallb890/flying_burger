@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flying_burger/components/appbar.dart';
 import 'package:flying_burger/constants.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flying_burger/homeScreen/components/bottomNav.dart';
 import 'package:flying_burger/create-account.dart';
 
-List<String> photos = ["https://www.flyingburgerandseafood.com/images/slider/082626-slideTacos.png",
-"https://www.flyingburgerandseafood.com/images/slider/082514-slideBurger.png",
-"https://www.flyingburgerandseafood.com/images/slider/082600-slideSeafood.png"];
+List<String> photos = ["https://i.imgur.com/345Ieky.jpg",
+"https://i.imgur.com/KnTXgao.jpg",
+"https://i.imgur.com/ZqsMPwm.jpg",
+"https://i.imgur.com/67pejBv.jpg"];
 
 class HomeScreen extends StatefulWidget{
   const HomeScreen({Key? key}) : super(key: key);
@@ -20,66 +22,56 @@ class _HomeScreenState extends State<HomeScreen> {
     var theme = Theme.of(context);
     var style = theme.textTheme.headlineMedium!.copyWith(color: Colors.white);
     return Container(
-        constraints: const BoxConstraints.expand(),
-        decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage(
-                    "assets/images/bgBody.jpg"),
-                repeat:ImageRepeat.repeat)),
-        child: Scaffold(
-            backgroundColor: Colors.transparent,
-            appBar: AppBar(
-              centerTitle: true,
-              title: Center(
-                child: Text('Flying Burger', style:style),
-              ),
-              automaticallyImplyLeading: false,
-              actions: <Widget>[
-                IconButton(
-                  icon: Icon(
-                   Icons.account_circle_outlined,
-                    color: Colors.white,
-                  ),
-                  onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> const CreateAccountScreen()));},
-                )
-              ],
-            ),
-          body: Center(
+      constraints: const BoxConstraints.expand(),
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(
+            "assets/images/bgBody.jpg"),
+          repeat:ImageRepeat.repeat)),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: const simpleAppBar("Home"),
+        body: SingleChildScrollView(
+          child: Center(
             child: Column(
               children: <Widget>[
                 Text(
-                  'Welcome to Flying Burger! Click the button below to pick the correct location.',
+                  'Welcome to Flying Burger [NAME]!',
                   textAlign: TextAlign.center, style: TextStyle(fontSize: 25, color: Colors.red),
                 ),
-                SizedBox(height: 5),
+                Text(
+                  'You are currently ordering from: Ruston, LA',
+                  textAlign: TextAlign.center, style: TextStyle(fontSize: 25, color: Colors.red),
+                ),
+                SizedBox(height: 10),
                 ElevatedButton(
                     onPressed: (){},
                     style: ElevatedButton.styleFrom(
                         backgroundColor: bluePrimaryColor),
                     child: Padding(
                         padding: EdgeInsets.all(5),
-                        child: Text('Pick Location', style: style)
+                        child: Text('Change Location', style: style)
                     )
                 ),
-                SizedBox(height: 100),
+                SizedBox(height: 5),
                 CarouselSlider(
-                  items: photos.map((i) {
-                    return Builder(
-                      builder: (BuildContext context) {
-                        return Container(
-                            width: MediaQuery.of(context).size.width,
-                            margin: EdgeInsets.symmetric(horizontal: 5.0),
-                            decoration: BoxDecoration(
-                                color: Colors.transparent
-                            ),
-                            child: Image.network(i)
-                        );
-                      },
-                    );
-                  }).toList(),
+                    items: photos.map((i) {
+                      return Builder(
+                        builder: (BuildContext context) {
+                          return Container(
+                              width: MediaQuery.of(context).size.width,
+                              margin: EdgeInsets.symmetric(horizontal: 5.0),
+                              decoration: BoxDecoration(
+                                  color: Colors.transparent
+                              ),
+                              child: Image.network(i)
+                          );
+                        },
+                      );
+                    }).toList(),
                     options: CarouselOptions(
-                      height: 400,
-                      aspectRatio: 16/9,
+                      height: 500,
+                      aspectRatio: 2/3,
                       viewportFraction: 0.8,
                       initialPage: 0,
                       enableInfiniteScroll: true,
@@ -96,8 +88,9 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-          bottomNavigationBar: navHome(),
         ),
+        bottomNavigationBar: navHome(),
+      ),
     );
   }
 }
