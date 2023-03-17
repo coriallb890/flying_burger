@@ -1,0 +1,1 @@
+enum LocationChoice { bossier, dorado, caddo, longview, magnolia, ruston, texarkana }

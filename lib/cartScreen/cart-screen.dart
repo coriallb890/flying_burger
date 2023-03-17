@@ -6,7 +6,6 @@ import 'package:flying_burger/components/appbar.dart';
 import 'package:flying_burger/constants.dart';
 import 'package:flying_burger/menuScreen/menuItemPages/itemScreen.dart';
 import 'package:input_quantity/input_quantity.dart';
-import 'package:quantity_input/quantity_input.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({Key? key}) : super(key: key);
@@ -53,29 +52,29 @@ class _CartScreenState extends State<CartScreen> {
                     Expanded(
                       flex: 1,
                       child: OutlinedButton(
-                          onPressed: (){
-                            (() {
-                              return showDialog<String>(
-                                  context: context,
-                                  builder: (BuildContext context) => quantityDialog(img: "assets/images/combos.jpg", text: "Single Burger Combo", quantity: 1)
-                              );
-                            }());
-                          },
-                          child: Text("1", style: TextStyle(
-                              fontSize: 25,
-                              color: bluePrimaryColor
-                          )),
-                          style: ButtonStyle (
-                            backgroundColor: MaterialStatePropertyAll<Color>(Colors.white),
-                            padding: MaterialStatePropertyAll<EdgeInsetsGeometry>(EdgeInsets.zero),
-                            minimumSize: MaterialStatePropertyAll<Size>(Size(50, 50)),
-                            maximumSize: MaterialStatePropertyAll<Size>(Size(50, 50)),
-                            side: MaterialStatePropertyAll<BorderSide>(BorderSide(width: 3, color: bluePrimaryColor)),
-                          )
+                        onPressed: (){
+                          (() {
+                            return showDialog<String>(
+                              context: context,
+                              builder: (BuildContext context) => quantityDialog(img: "assets/images/combos.jpg", text: "Single Burger Combo", quantity: 1)
+                            );
+                          }());
+                        },
+                        child: Text("1", style: TextStyle(
+                          fontSize: 25,
+                          color: bluePrimaryColor
+                        )),
+                        style: ButtonStyle (
+                          backgroundColor: MaterialStatePropertyAll<Color>(Colors.white),
+                          padding: MaterialStatePropertyAll<EdgeInsetsGeometry>(EdgeInsets.zero),
+                          minimumSize: MaterialStatePropertyAll<Size>(Size(50, 50)),
+                          maximumSize: MaterialStatePropertyAll<Size>(Size(50, 50)),
+                          side: MaterialStatePropertyAll<BorderSide>(BorderSide(width: 3, color: bluePrimaryColor)),
+                        )
                       ),
                     ),
                     const SizedBox(
-                        width: 15
+                      width: 15
                     ),
                     Expanded(
                       flex: 6,
@@ -138,95 +137,95 @@ class _CartScreenState extends State<CartScreen> {
                 ),
                 const Divider(color: Colors.black38, indent: 10.0, endIndent: 10.0, thickness: 2,),
                 Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      const SizedBox(
-                          width: 15
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: OutlinedButton(
-                            onPressed: (){
-                              (() {
-                                return showDialog<String>(
-                                    context: context,
-                                    builder: (BuildContext context) => quantityDialog(img: "assets/images/desserts.jpg", text: "Cinnamon Roll", quantity: 2)
-                                );
-                              }());
-                            },
-                            child: Text("2", style: TextStyle(
-                                fontSize: 25,
-                                color: bluePrimaryColor
-                            )),
-                            style: ButtonStyle (
-                              backgroundColor: MaterialStatePropertyAll<Color>(Colors.white),
-                              padding: MaterialStatePropertyAll<EdgeInsetsGeometry>(EdgeInsets.zero),
-                              minimumSize: MaterialStatePropertyAll<Size>(Size(50, 50)),
-                              maximumSize: MaterialStatePropertyAll<Size>(Size(50, 50)),
-                              side: MaterialStatePropertyAll<BorderSide>(BorderSide(width: 3, color: bluePrimaryColor)),
-                            )
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                  const SizedBox(
+                    width: 15
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: OutlinedButton(
+                      onPressed: (){
+                        (() {
+                          return showDialog<String>(
+                            context: context,
+                            builder: (BuildContext context) => quantityDialog(img: "assets/images/desserts.jpg", text: "Cinnamon Roll", quantity: 2)
+                          );
+                        }());
+                      },
+                      child: Text("2", style: TextStyle(
+                        fontSize: 25,
+                        color: bluePrimaryColor
+                      )),
+                      style: ButtonStyle (
+                        backgroundColor: MaterialStatePropertyAll<Color>(Colors.white),
+                        padding: MaterialStatePropertyAll<EdgeInsetsGeometry>(EdgeInsets.zero),
+                        minimumSize: MaterialStatePropertyAll<Size>(Size(50, 50)),
+                        maximumSize: MaterialStatePropertyAll<Size>(Size(50, 50)),
+                        side: MaterialStatePropertyAll<BorderSide>(BorderSide(width: 3, color: bluePrimaryColor)),
+                      )
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 15
+                  ),
+                  Expanded(
+                    flex: 6,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Flexible(
+                          child: new Text(
+                              "Cinnamon Roll",
+                              style: TextStyle(fontSize: 33, fontWeight: FontWeight.bold)
+                          )
                         ),
-                      ),
-                      const SizedBox(
-                          width: 15
-                      ),
-                      Expanded(
-                        flex: 6,
-                        child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            mainAxisSize: MainAxisSize.min,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Flexible(
-                                  child: new Text(
-                                      "Cinnamon Roll",
-                                      style: TextStyle(fontSize: 33, fontWeight: FontWeight.bold)
-                                  )
+                        Row(
+                          children: <Widget>[
+                            ElevatedButton(
+                              onPressed: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => const ItemScreen()));
+                              },
+                              child: const Text('Edit', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: bluePrimaryColor,
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0))
                               ),
-                              Row(
-                                children: <Widget>[
-                                  ElevatedButton(
-                                    onPressed: (){
-                                      Navigator.push(context, MaterialPageRoute(builder: (context) => const ItemScreen()));
-                                    },
-                                    child: const Text('Edit', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
-                                    style: ElevatedButton.styleFrom(
-                                        backgroundColor: bluePrimaryColor,
-                                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0))
-                                    ),
-                                  ),
-                                  SizedBox(width: 15),
-                                  ElevatedButton(
-                                    onPressed: (){
-                                      (() {
-                                        return showDialog<String>(
-                                            context: context,
-                                            builder: (BuildContext context) => removeDialog(text: "Cinnamon Roll")
-                                        );
-                                      }());
-                                    },
-                                    child: const Text('Remove', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
-                                    style: ElevatedButton.styleFrom(
-                                        backgroundColor: redPrimaryColor,
-                                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0))
-                                    ),
-                                  ),
-                                ],
-                              )
-                            ]
-                        ),
+                            ),
+                            SizedBox(width: 15),
+                            ElevatedButton(
+                              onPressed: (){
+                                (() {
+                                  return showDialog<String>(
+                                    context: context,
+                                    builder: (BuildContext context) => removeDialog(text: "Cinnamon Roll")
+                                  );
+                                }());
+                              },
+                              child: const Text('Remove', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: redPrimaryColor,
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0))
+                              ),
+                            ),
+                          ],
+                        )
+                      ]
+                    ),
+                  ),
+                  Expanded(
+                    flex: 3,
+                    child: Text(
+                      "\$5.98",
+                      style: TextStyle(
+                          fontSize: 30
                       ),
-                      Expanded(
-                        flex: 3,
-                        child: Text(
-                          "\$5.98",
-                          style: TextStyle(
-                              fontSize: 30
-                          ),
-                        ),
-                      ),
-                    ]
+                    ),
+                  ),
+                  ]
                 ),
                 const Divider(color: Colors.black38, indent: 10.0, endIndent: 10.0, thickness: 2,),
                 const SizedBox(height: 20),
