@@ -5,11 +5,15 @@ import 'package:flying_burger/constants.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flying_burger/homeScreen/components/bottomNav.dart';
 import 'package:flying_burger/create-account.dart';
+import 'package:flying_burger/homeScreen/components/locationList.dart';
 
-final List<String> photos = ["https://i.imgur.com/345Ieky.jpg",
-"https://i.imgur.com/KnTXgao.jpg",
-"https://i.imgur.com/ZqsMPwm.jpg",
-"https://i.imgur.com/67pejBv.jpg"];
+final List<String> photos = ["assets/images/banner1.jpg",
+  "assets/images/banner2.jpg",
+  "assets/images/banner3.jpg",
+  "assets/images/banner4.jpg"];
+
+
+LocationChoice? _location = LocationChoice.ruston;
 
 class HomeScreen extends StatefulWidget{
   const HomeScreen({Key? key}) : super(key: key);
@@ -18,21 +22,23 @@ class HomeScreen extends StatefulWidget{
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
   int _current = 0;
   final CarouselController _controller = CarouselController();
   final List<Widget> imageSliders = photos.map((item) => Container(
-    child: Container(
-      margin: EdgeInsets.all(5.0),
-      child: ClipRRect(
-        borderRadius: BorderRadius.all(Radius.circular(5.0)),
-        child: Stack(
-          children: <Widget>[
-            Image.network(item, fit: BoxFit.cover, width: 1000.0),
-          ],
-        )),
+    margin: EdgeInsets.all(5.0),
+    child: ClipRRect(
+      borderRadius: BorderRadius.all(Radius.circular(5.0)),
+      child: Stack(
+        children: <Widget>[
+          Image.asset(
+            item,
+            fit: BoxFit.cover,
+          ),
+        ],
+      )
     ),
-  ))
-      .toList();
+  )).toList();
 
   @override
   Widget build(BuildContext context){
@@ -62,7 +68,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 SizedBox(height: 10),
                 ElevatedButton(
-                  onPressed: (){},
+                  onPressed: (){
+                    (() {
+                      return showDialog<String>(
+                          context: context,
+                          builder: (BuildContext context) => locationDialog()
+                      );
+                    }());
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: bluePrimaryColor),
                   child: Padding(
@@ -76,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   items: imageSliders,
                   carouselController: _controller,
                   options: CarouselOptions(
-                    height: 500,
+                    height: 450,
                     autoPlay: true,
                     enlargeCenterPage: true,
                     aspectRatio: 2/3,
@@ -133,8 +146,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         onPressed: (){
                           (() {
                             return showDialog<String>(
-                                context: context,
-                                builder: (BuildContext context) => termsDialog()
+                              context: context,
+                              builder: (BuildContext context) => termsDialog()
                             );
                           }());
                         },
@@ -148,6 +161,63 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         bottomNavigationBar: navHome(),
       ),
+    );
+  }
+}
+
+class locationDialog extends StatefulWidget {
+  const locationDialog({Key? key}) : super(key: key);
+
+  @override
+  State<locationDialog> createState() => _locationDialogState();
+}
+
+class _locationDialogState extends State<locationDialog> {
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      child: Padding(
+        padding: const EdgeInsets.all(5),
+        child: Container(
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                Text("Locations", style: redTitle),
+                SizedBox(height: 15),
+                locationRadio("Bossier", LocationChoice.bossier, "3127 Airline Dr \n Bossier City"),
+                locationRadio("El Dorado", LocationChoice.dorado, "3127 Airline Dr \n Bossier City"),
+                locationRadio("Caddo", LocationChoice.caddo, "3127 Airline Dr \n Bossier City"),
+                locationRadio("Longview", LocationChoice.longview, "3127 Airline Dr \n Bossier City"),
+                locationRadio("Magnolia", LocationChoice.magnolia, "3127 Airline Dr \n Bossier City"),
+                locationRadio("Ruston", LocationChoice.ruston, "3127 Airline Dr \n Bossier City"),
+                locationRadio("Texarkana", LocationChoice.texarkana, "3127 Airline Dr \n Bossier City"),
+
+              ],
+            )
+          )
+        )
+      )
+    );
+  }
+
+  Widget locationRadio(String city, LocationChoice choice, String address){
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        Radio<LocationChoice>(
+          activeColor: bluePrimaryColor,
+          value: choice,
+          groupValue: _location,
+          onChanged: (LocationChoice? value){
+            setState(() {
+              _location = value;
+            });
+          },
+        ),
+        Text(city, style: TextStyle(fontSize: 25)),
+        SizedBox(width: 10,),
+        Text(address,style: TextStyle(fontSize: 20)),
+      ],
     );
   }
 }

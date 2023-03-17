@@ -6,7 +6,6 @@ import 'package:flying_burger/components/appbar.dart';
 import 'package:flying_burger/constants.dart';
 import 'package:flying_burger/menuScreen/menuItemPages/itemScreen.dart';
 import 'package:input_quantity/input_quantity.dart';
-import 'package:quantity_input/quantity_input.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({Key? key}) : super(key: key);
