@@ -3,6 +3,7 @@ import 'package:flying_burger/constants.dart';
 import 'package:flying_burger/create-account.dart';
 import 'package:flying_burger/menuScreen/components/bottomNav.dart';
 
+import '../components/appbar.dart';
 import 'components/bottomNav.dart';
 
 class RecentOrderScreen extends StatelessWidget{
@@ -19,20 +20,7 @@ class RecentOrderScreen extends StatelessWidget{
               repeat:ImageRepeat.repeat)),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          title: Center(
-            child: Text('Recent Orders', style:style),
-          ),
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(
-                Icons.account_circle_outlined,
-                color: Colors.white,
-              ),
-              onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> const CreateAccountScreen()));},
-            )
-          ],
-        ),
+        appBar: const simpleAppBar("REORDER"),
         body: Center(
           child: Column(
             children: <Widget>[

@@ -40,7 +40,6 @@ class _CartScreenState extends State<CartScreen> {
           child: SingleChildScrollView(
             child: Column (
               children: <Widget>[
-                const SizedBox(height: 30),
                 const Divider(color: Colors.black38, indent: 10.0, endIndent: 10.0, thickness: 2,),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -303,27 +302,27 @@ class _quantityDialogState extends State<quantityDialog> {
                 fontFamily: 'Bowlby',
                 fontSize: 35,),
               textAlign: TextAlign.center,),
-            SizedBox(height:10),
+            const SizedBox(height:10),
             Row(
               children: <Widget>[
                 Image(
                   image: AssetImage(widget.img),
                   height: 90,
                   fit: BoxFit.cover,),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Flexible(
                   child: Text(
                     widget.text,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: bluePrimaryColor,
                       fontSize: 30
                     ))
                 ),
               ]
             ),
-            SizedBox(height:10),
+            const SizedBox(height:10),
             Padding(
-              padding: EdgeInsets.only(right: 10),
+              padding: const EdgeInsets.only(right: 10),
               child: InputQty(
                 initVal: widget.quantity,
                 minVal: 0,
@@ -340,7 +339,7 @@ class _quantityDialogState extends State<quantityDialog> {
                 }
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             TextButton(
               onPressed: () {
                 Navigator.pop(context);
@@ -368,8 +367,8 @@ class removeDialog extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Text(
-              "Remove " + text + "?",
-              style: TextStyle(
+              "Remove $text?",
+              style: const TextStyle(
                 color: redPrimaryColor,
                 fontFamily: 'Bowlby',
                 fontSize: 30,),
@@ -388,7 +387,7 @@ class removeDialog extends StatelessWidget {
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0))
                   ),
                 ),
-                SizedBox(width: 15),
+                const SizedBox(width: 15),
                 ElevatedButton(
                   onPressed: (){
                     Navigator.pop(context);

@@ -32,7 +32,7 @@ class _ItemScreenState extends State<ItemScreen> {
           repeat: ImageRepeat.repeat)),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: const menuAppBar(),
+        appBar: const menuAppBar(""),
         body: GestureDetector(
           onTap: () {
             FocusScope.of(context).requestFocus(FocusNode());

@@ -3,10 +3,12 @@ import 'package:flying_burger/constants.dart';
 
 class menuAppBar extends StatelessWidget implements PreferredSizeWidget{
 
-  const menuAppBar();
+  final String title;
+
+  const menuAppBar(this.title);
 
   @override
-  Size get preferredSize => const Size.fromHeight(63);
+  Size get preferredSize => const Size.fromHeight(75);
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +22,12 @@ class menuAppBar extends StatelessWidget implements PreferredSizeWidget{
           icon: const Icon(Icons.arrow_circle_left_rounded, color: redPrimaryColor, size: 50),
         )
       ),
+      title: Flexible(
+          child: Text(title)),
       centerTitle: true,
       elevation: 0,
       backgroundColor: Colors.transparent,
-      titleTextStyle: appBarTitle,
+      titleTextStyle: menuTitle,
       toolbarHeight: 63,
       actions: <Widget>[
         Padding(

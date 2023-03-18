@@ -7,6 +7,8 @@ import 'package:flying_burger/homeScreen/components/bottomNav.dart';
 import 'package:flying_burger/create-account.dart';
 import 'package:flying_burger/homeScreen/components/locationList.dart';
 
+import '../reorderScreen/recentorder-screen.dart';
+
 final List<String> photos = ["assets/images/banner1.jpg",
   "assets/images/banner2.jpg",
   "assets/images/banner3.jpg",
@@ -53,26 +55,26 @@ class _HomeScreenState extends State<HomeScreen> {
           repeat:ImageRepeat.repeat)),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: const simpleAppBar("Home"),
+        appBar: const simpleAppBar("HOME"),
         body: SingleChildScrollView(
           child: Center(
             child: Column(
               children: <Widget>[
                 Text(
                   'Welcome to Flying Burger [NAME]!',
-                  textAlign: TextAlign.center, style: TextStyle(fontSize: 25, color: Colors.red),
+                  textAlign: TextAlign.center, style: TextStyle(fontSize: 25, color: redPrimaryColor),
                 ),
                 Text(
-                  'You are currently ordering from: $_location',
-                  textAlign: TextAlign.center, style: TextStyle(fontSize: 25, color: Colors.red),
+                  'You are currently ordering from: \n$_location',
+                  textAlign: TextAlign.center, style: TextStyle(fontSize: 25, color: redPrimaryColor),
                 ),
                 SizedBox(height: 10),
                 ElevatedButton(
                   onPressed: (){
                     (() {
                       return showDialog<String>(
-                          context: context,
-                          builder: (BuildContext context) => locationDialog()
+                        context: context,
+                        builder: (BuildContext context) => locationDialog()
                       );
                     }());
                   },
@@ -121,6 +123,29 @@ class _HomeScreenState extends State<HomeScreen> {
                   }).toList(),
                 ),
                 SizedBox(height: 10),
+                const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
+                Card(
+                  margin: EdgeInsets.all(15),
+                  elevation: 0,
+                  color: bluePrimaryColor,
+                  child: GestureDetector(
+                    onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> RecentOrderScreen()));},
+                    child: Row(
+                      children: const [
+                        SizedBox(width: 5,),
+                        Image(
+                          image: AssetImage('assets/images/single-burger.jpg'),
+                          height: 65,
+                          fit: BoxFit.cover,
+                        ),
+                        SizedBox(width: 10,),
+                        Text("Order your recent \nfaves again!",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.white)),
+                      ],
+                    )
+                  ),
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
