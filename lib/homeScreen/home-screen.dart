@@ -13,7 +13,7 @@ final List<String> photos = ["assets/images/banner1.jpg",
   "assets/images/banner4.jpg"];
 
 
-LocationChoice? _location = LocationChoice.ruston;
+String? _location = "Ruston";
 
 class HomeScreen extends StatefulWidget{
   const HomeScreen({Key? key}) : super(key: key);
@@ -63,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   textAlign: TextAlign.center, style: TextStyle(fontSize: 25, color: Colors.red),
                 ),
                 Text(
-                  'You are currently ordering from: Ruston, LA',
+                  'You are currently ordering from: $_location',
                   textAlign: TextAlign.center, style: TextStyle(fontSize: 25, color: Colors.red),
                 ),
                 SizedBox(height: 10),
@@ -183,15 +183,28 @@ class _locationDialogState extends State<locationDialog> {
             child: Column(
               children: <Widget>[
                 Text("Locations", style: redTitle),
-                SizedBox(height: 15),
-                locationRadio("Bossier", LocationChoice.bossier, "3127 Airline Dr \n Bossier City"),
-                locationRadio("El Dorado", LocationChoice.dorado, "3127 Airline Dr \n Bossier City"),
-                locationRadio("Caddo", LocationChoice.caddo, "3127 Airline Dr \n Bossier City"),
-                locationRadio("Longview", LocationChoice.longview, "3127 Airline Dr \n Bossier City"),
-                locationRadio("Magnolia", LocationChoice.magnolia, "3127 Airline Dr \n Bossier City"),
-                locationRadio("Ruston", LocationChoice.ruston, "3127 Airline Dr \n Bossier City"),
-                locationRadio("Texarkana", LocationChoice.texarkana, "3127 Airline Dr \n Bossier City"),
-
+                const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
+                locationRadio("Bossier",  "3127 Airline Dr \n Bossier City, LA"),
+                SizedBox(height:5),
+                locationRadio("El Dorado",  "704 S. Timberlane Dr \n El Dorado, AR"),
+                SizedBox(height:5),
+                locationRadio("Caddo Valley",  "167 Valley St. \n Caddo Valley, AR"),
+                SizedBox(height:5),
+                locationRadio("Longview", "322 E. Hawkins Pkwy \n Longview, TX"),
+                SizedBox(height:5),
+                locationRadio("Magnolia", "1898 E University St. \n Magnolia, AR"),
+                SizedBox(height:5),
+                locationRadio("Ruston", "1108 Tech Dr \n Ruston, LA"),
+                SizedBox(height:5),
+                locationRadio("Texarkana", "5302 Summerhill \n Texarkana, TX"),
+                SizedBox(height:5),
+                const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text('Select', style: TextStyle(color: bluePrimaryColor, fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+                )
               ],
             )
           )
@@ -200,23 +213,22 @@ class _locationDialogState extends State<locationDialog> {
     );
   }
 
-  Widget locationRadio(String city, LocationChoice choice, String address){
+  Widget locationRadio(String city, String address){
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
-        Radio<LocationChoice>(
+        Radio(
           activeColor: bluePrimaryColor,
-          value: choice,
+          value: city,
           groupValue: _location,
-          onChanged: (LocationChoice? value){
+          onChanged: (String? value){
             setState(() {
               _location = value;
             });
           },
         ),
-        Text(city, style: TextStyle(fontSize: 25)),
+        Text(city, style: TextStyle(fontSize: 23)),
         SizedBox(width: 10,),
-        Text(address,style: TextStyle(fontSize: 20)),
+        Text(address,style: TextStyle(fontSize: 16)),
       ],
     );
   }
