@@ -54,16 +54,20 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                     child: Column (
                       children: <Widget>[
                         AppBar(
-                            leading: Padding(
-                                padding: EdgeInsets.only(left: 7),
-                                child: IconButton(
-                                  onPressed: () {
-                                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const StartScreen()));
-                                  },
-                                  icon: const Icon(Icons.arrow_circle_left_rounded, color: redPrimaryColor, size: 50),
-                                )
-                            )),
-                        const SizedBox(height: 125), //How high or low the text will lie on the page
+                          leading: Padding(
+                              padding: EdgeInsets.only(left: 7),
+                              child: IconButton(
+                                onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const StartScreen()));
+                                },
+                                icon: const Icon(Icons.arrow_circle_left_rounded, color: redPrimaryColor, size: 75),
+                              )
+                          ),
+                          toolbarHeight: 85,
+                          elevation: 0,
+                          backgroundColor: Colors.transparent,
+                        ),
+                        const SizedBox(height: 50), //How high or low the text will lie on the page
                         const Text ('Create an Account', style: TextStyle(fontSize: 40, color: bluePrimaryColor,
                             fontWeight: FontWeight.bold)),
                         const SizedBox(height: 25),
