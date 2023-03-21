@@ -19,6 +19,7 @@ class simpleAppBar extends StatelessWidget implements PreferredSizeWidget{
       backgroundColor: Colors.transparent,
       titleTextStyle: appBarTitle,
       toolbarHeight: 75,
+      automaticallyImplyLeading: false,
       actions: <Widget>[
         Padding(
             padding: EdgeInsets.only(right: 25),

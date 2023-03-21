@@ -12,3 +12,7 @@ enum SeasoningChoice { regular, spicy, none }
 
 enum IceCreamChoice { vanilla, chocolate, strawberry }
 
+enum ShrimpChoice { fried, boiled, bbq }
+
+enum WingChoice { mixed, drums, flats }
+

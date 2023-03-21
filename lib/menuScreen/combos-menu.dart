@@ -18,7 +18,7 @@ import 'components/menuItems.dart';
                 repeat: ImageRepeat.repeat)),
         child: Scaffold (
           backgroundColor: Colors.transparent,
-          appBar: const menuAppBar(),
+          appBar: const menuAppBar("COMBOS"),
           body: GridView.count(
               crossAxisCount: 2,
               crossAxisSpacing: 10,

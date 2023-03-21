@@ -6,7 +6,7 @@ const redPrimaryColor = Color(0xFFb4171E);
 const appBarTitle = TextStyle(
     color: redPrimaryColor,
     fontFamily: 'Bowlby',
-    fontSize: 50,
+    fontSize: 45,
     letterSpacing: 2
 );
 
@@ -15,4 +15,11 @@ const redTitle = TextStyle(
   fontFamily: 'Bowlby',
   fontSize: 30,
   letterSpacing: 2
+);
+
+const menuTitle = TextStyle(
+    color: redPrimaryColor,
+    fontFamily: 'Bowlby',
+    fontSize: 24,
+    letterSpacing: 2
 );

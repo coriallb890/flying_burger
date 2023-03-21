@@ -20,6 +20,8 @@ class _ItemScreenState extends State<ItemScreen> {
   SauceChoice? _sauce;
   SeasoningChoice? _seasoning;
   IceCreamChoice? _icecream;
+  ShrimpChoice? _shrimp;
+  WingChoice? _wing;
   bool? halfChecked = false;
 
   @override
@@ -32,7 +34,7 @@ class _ItemScreenState extends State<ItemScreen> {
           repeat: ImageRepeat.repeat)),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: const menuAppBar(),
+        appBar: const menuAppBar(""),
         body: GestureDetector(
           onTap: () {
             FocusScope.of(context).requestFocus(FocusNode());
@@ -227,6 +229,27 @@ class _ItemScreenState extends State<ItemScreen> {
                   ],
                 ),
                 const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
+                // Radio options for wings
+                Column(
+                  children: <Widget>[
+                    const Text('Wings Choice', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                    const Text('Must choose 1', style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.black54)),
+                    wingRadioItem("Mixed", WingChoice.mixed),
+                    wingRadioItem("Flats Only", WingChoice.flats),
+                    wingRadioItem("Drums Only", WingChoice.drums),
+                  ],
+                ),
+                const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
+                Column(
+                  children: <Widget>[
+                    const Text('Shrimp Choice', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                    const Text('Must choose 1', style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.black54)),
+                    shrimpRadioItem("Fried", ShrimpChoice.fried),
+                    shrimpRadioItem("Boiled", ShrimpChoice.boiled),
+                    shrimpRadioItem("BBQ", ShrimpChoice.bbq),
+                  ],
+                ),
+                const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
                 const Text('Special Instructions', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
@@ -411,6 +434,44 @@ class _ItemScreenState extends State<ItemScreen> {
         ]
     );
   }
+
+  // Widget to build the wings radio items
+  Widget wingRadioItem(String title, WingChoice choice){
+    return Row(
+        children: <Widget>[
+          Radio<WingChoice>(
+            activeColor: bluePrimaryColor,
+            value: choice,
+            groupValue: _wing,
+            onChanged: (WingChoice? value){
+              setState(() {
+                _wing = value;
+              });
+            },
+          ),
+          Text(title, style: const TextStyle(fontSize: 24)),
+        ]
+    );
+  }
+
+  // Widget to build the shrimp radio items
+  Widget shrimpRadioItem(String title, ShrimpChoice choice){
+    return Row(
+        children: <Widget>[
+          Radio<ShrimpChoice>(
+            activeColor: bluePrimaryColor,
+            value: choice,
+            groupValue: _shrimp,
+            onChanged: (ShrimpChoice? value){
+              setState(() {
+                _shrimp = value;
+              });
+            },
+          ),
+          Text(title, style: const TextStyle(fontSize: 24)),
+        ]
+    );
+  }
 }
 
 class mainDialog extends StatefulWidget {
@@ -478,6 +539,12 @@ class _mainDialogState extends State<mainDialog> {
     CheckBoxState(title: "Cole Slaw", price: 0.0, extraPrice: 0.5, value: true),
     CheckBoxState(title: "Pico de Gallo", price: 0.0, extraPrice: 0.5, value: true),
     CheckBoxState(title: "Chives", price: 0.0, extraPrice: 0.5, value: true),
+  ];
+  
+  final extraScoopOptions = [
+    CheckBoxState(title: "Vanilla", price: 1.0, extraPrice: 1.0, value: false),
+    CheckBoxState(title: "Chocolate", price: 1.0, extraPrice: 1.0, value: false),
+    CheckBoxState(title: "Strawberry", price: 1.0, extraPrice: 1.0, value: false),
   ];
 
   @override
