@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flying_burger/menuScreen/menuItemPages/components/itemAppBar.dart';
+import 'package:flying_burger/menuScreen/menuItemPages/components/itemButton.dart';
 import '../menuScreen/components/bottomNav.dart';
 import 'components/menuItems.dart';
 
@@ -23,8 +24,8 @@ import 'components/menuItems.dart';
               crossAxisCount: 2,
               crossAxisSpacing: 10,
               padding: const EdgeInsets.all(15),
-              children: const <Widget>[
-                menuItem('Single Burger', 'assets/images/single-burger.jpg'),
+              children: <Widget>[
+                itemButton('Single Burger', 'assets/images/single-burger.jpg', 8.99, ['Drink', 'Side'], ['Burger', 'Condiments']),
                 menuItem('Double Burger', 'assets/images/double-burger.jpg'),
                 menuItem('Crispy Chicken', 'assets/images/crispy-chicken.jpg'),
                 menuItem('Grilled Chicken', 'assets/images/grilled-chicken.jpg'),
