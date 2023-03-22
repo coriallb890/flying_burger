@@ -29,6 +29,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  email_validator: ^2.1.16
   carousel_slider: ^4.2.1
   flutter_pw_validator: ^1.5.0
   flutter:
@@ -53,6 +54,7 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
   carousel_slider: ^4.2.1
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -3,6 +3,8 @@ import 'package:flying_burger/constants.dart';
 import 'package:flying_burger/homeScreen/home-screen.dart';
 import 'package:flying_burger/forgot-password.dart';
 import 'package:flying_burger/start-screen.dart';
+import 'package:email_validator/email_validator.dart';
+
 
 class LogInScreen extends StatefulWidget {
   const LogInScreen({Key? key}) : super(key: key);
@@ -13,6 +15,19 @@ class LogInScreen extends StatefulWidget {
 class _LogInScreen extends State<LogInScreen> {
   var _passwordVisible;
   var _checkedValue;
+  final _emailKey = GlobalKey<FormState>();
+  final _passKey = GlobalKey<FormState>();
+  final TextEditingController _pass = TextEditingController();
+  RegExp pass_valid = RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
+  bool validatePassword(String pass){
+    String _password = pass.trim();
+    if(pass_valid.hasMatch(_password)){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
 
   @override
   void initState() {
@@ -35,46 +50,86 @@ class _LogInScreen extends State<LogInScreen> {
                 child: Column (
                   children: <Widget>[
                     AppBar(
-                      leading: Padding(
-                        padding: EdgeInsets.only(left: 7),
-                        child: IconButton(
-                          onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=> const StartScreen()));
-                          },
-                          icon: const Icon(Icons.arrow_circle_left_rounded, color: redPrimaryColor, size: 75),
-                        )
-                      ),
-                      toolbarHeight: 85,
-                      elevation: 0,
-                      backgroundColor: Colors.transparent,
-                    ),
-                    const SizedBox(height: 100),
-                    const Text ('Welcome Back', style: TextStyle(fontSize: 40, color: bluePrimaryColor,
+                        leading: Padding(
+                            padding: EdgeInsets.only(left: 7),
+                            child: IconButton(
+                              onPressed: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=> const StartScreen()));
+                              },
+                              icon: const Icon(Icons.arrow_circle_left_rounded, color: redPrimaryColor, size: 50),
+                            )
+                        )),
+                    const SizedBox(height: 150),
+                    const Text ('Welcome Back', style: TextStyle(fontSize: 32, color: bluePrimaryColor,
                         fontWeight: FontWeight.bold)),
-                    const SizedBox(height: 40),
-                    const SizedBox(width: 300, child: TextField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: 'Enter your email address',
-                      ),
-                    )),
-                    const SizedBox(height: 25),
-                    Container(width: 300,
+                    const SizedBox(height: 50),
+                    Container(
+                      width: 300,
                       padding: EdgeInsets.all(0.0),
-                      child: TextField(
-                        obscureText: _passwordVisible,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: 'Enter your password', //Password box
-                          suffixIcon: IconButton(
-                              icon: Icon(_passwordVisible
-                                  ? Icons.visibility_off
-                                  : Icons.visibility),
-                              onPressed:(){
-                                setState(() {
-                                  _passwordVisible =! _passwordVisible;
-                                });
+                      child: Form(
+                        key: _emailKey,
+                        child: TextFormField(
+                          validator: (value){
+                            if(value!.isEmpty){
+                              return "Please enter your email";
+                            }
+
+                            else{
+                              bool result = EmailValidator.validate(value);
+                              if(result){
+                                //create account event
+                                return null;
                               }
+                              else{
+                                return "Invalid email";
+                              }
+                            }
+                          },
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              hintText: 'Enter a valid Email Adress'
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 25),
+                    Container(
+                      width: 300,
+                      padding: EdgeInsets.all(0.0),
+                      child: Form(
+                        key: _passKey,
+                        child: TextFormField(
+                          controller: _pass,
+                          obscureText: _passwordVisible,
+                          validator: (value){
+                            if(value!.isEmpty){
+                              return "Please enter password";
+                            }
+
+                            else{
+                              bool result = validatePassword(value);
+                              if(result){
+                                //create account event
+                                return null;
+                              }
+                              else{
+                                return "Password should contain Captial, Lowercase, \nNumber, and Special Character and be \n8 characters long";
+                              }
+                            }
+                          },
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            hintText: 'Enter your password', //Password box
+                            suffixIcon: IconButton(
+                                icon: Icon(_passwordVisible
+                                    ? Icons.visibility_off
+                                    : Icons.visibility),
+                                onPressed:(){
+                                  setState(() {
+                                    _passwordVisible =! _passwordVisible;
+                                  });
+                                }
+                            ),
                           ),
                         ),
                       ),
@@ -106,7 +161,9 @@ class _LogInScreen extends State<LogInScreen> {
                     const SizedBox(height: 10),
                     ElevatedButton(
                         onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+                          if(_passKey.currentState!.validate() & _emailKey.currentState!.validate()) {
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=> const HomeScreen()));
+                          };
                         },
                         style: ElevatedButton.styleFrom(
                             backgroundColor: bluePrimaryColor),
