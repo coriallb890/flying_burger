@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flying_burger/constants.dart';
 import 'package:flying_burger/homeScreen/home-screen.dart';
 import 'package:flying_burger/start-screen.dart';
+import 'package:email_validator/email_validator.dart';
 
 
 class CreateAccountScreen extends StatefulWidget {
@@ -12,7 +13,15 @@ class CreateAccountScreen extends StatefulWidget {
 
 class _CreateAccountScreenState extends State<CreateAccountScreen> {
 
-  final _formKey = GlobalKey<FormState>();
+  final _firstNameKey = GlobalKey<FormState>();
+  final _lastNameKey = GlobalKey<FormState>();
+  final _emailKey = GlobalKey<FormState>();
+  final _passKey = GlobalKey<FormState>();
+  final _confirmPassKey = GlobalKey<FormState>();
+  final TextEditingController _firstName = TextEditingController();
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _pass = TextEditingController();
+  final TextEditingController _confirmPass = TextEditingController();
   RegExp pass_valid = RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
   bool validatePassword(String pass){
     String _password = pass.trim();
@@ -23,9 +32,12 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
       return false;
     }
   }
+
+  var value;
   var _checkedValue;
   var _checkedValue2;
   bool _isObscured = false;
+  bool _isObscured2 = false;
 
   @override
   void initState() {
@@ -33,6 +45,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
     _checkedValue = false;
     _checkedValue2 = false;
     _isObscured = true;
+    _isObscured2 = true;
 
   }
   @override
@@ -54,61 +67,110 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                     child: Column (
                       children: <Widget>[
                         AppBar(
-                          leading: Padding(
-                              padding: EdgeInsets.only(left: 7),
-                              child: IconButton(
-                                onPressed: () {
-                                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const StartScreen()));
-                                },
-                                icon: const Icon(Icons.arrow_circle_left_rounded, color: redPrimaryColor, size: 75),
-                              )
-                          ),
-                          toolbarHeight: 85,
-                          elevation: 0,
-                          backgroundColor: Colors.transparent,
-                        ),
-                        const SizedBox(height: 50), //How high or low the text will lie on the page
+                            leading: Padding(
+                                padding: EdgeInsets.only(left: 7),
+                                child: IconButton(
+                                  onPressed: () {
+                                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const StartScreen()));
+                                  },
+                                  icon: const Icon(Icons.arrow_circle_left_rounded, color: redPrimaryColor, size: 50),
+                                )
+                            )),
+                        const SizedBox(height: 100), //How high or low the text will lie on the page
                         const Text ('Create an Account', style: TextStyle(fontSize: 40, color: bluePrimaryColor,
                             fontWeight: FontWeight.bold)),
-                        const SizedBox(height: 25),
-                        const SizedBox(width: 300, child: TextField(
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            hintText: 'First Name', //Box to enter First Name
-                          ),
-                        )),
-                        const SizedBox(height: 25),
-                        const SizedBox(width: 300, child: TextField(
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            hintText: 'Last Name', //Box to enter Last Name
-                          ),
-                        )),
-                        const SizedBox(height: 25),
-                        const SizedBox(width: 300, child: TextField(
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            hintText: 'Enter your email address',
-
-                          ),
-                        )),
                         const SizedBox(height: 25),
                         Container(
                           width: 300,
                           padding: EdgeInsets.all(0.0),
                           child: Form(
-                            key: _formKey,
+                            key: _firstNameKey,
                             child: TextFormField(
+                              controller: _firstName,
+                              validator: (value){
+                                if(value!.isEmpty){
+                                  return "Please enter your first name";
+                                }
+                              },
+                              decoration: InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  hintText: 'First Name'
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 25),
+                        Container(
+                          width: 300,
+                          padding: EdgeInsets.all(0.0),
+                          child: Form(
+                            key: _lastNameKey,
+                            child: TextFormField(
+                              validator: (value){
+                                if(value!.isEmpty){
+                                  return "Please enter your last name";
+                                }
+                              },
+                              decoration: InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  hintText: 'Last Name'
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 25),
+                        Container(
+                          width: 300,
+                          padding: EdgeInsets.all(0.0),
+                          child: Form(
+                            key: _emailKey,
+                            child: TextFormField(
+                              controller: _email,
+                              validator: (value){
+                                if(value!.isEmpty){
+                                  return "Please enter your email";
+                                }
+
+                                else{
+                                  bool result = EmailValidator.validate(value);
+                                  if(result){
+                                    //create account event
+                                    return null;
+                                  }
+                                  else{
+                                    return "Invalid email";
+                                  }
+                                }
+                              },
+                              decoration: InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  hintText: 'Enter a valid Email Adress'
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 25),
+                        Container(
+                          width: 300,
+                          padding: EdgeInsets.all(0.0),
+                          child: Form(
+                            key: _passKey,
+                            child: TextFormField(
+                              controller: _pass,
                               obscureText: _isObscured,
                               validator: (value){
                                 if(value!.isEmpty){
                                   return "Please enter password";
                                 }
+
                                 else{
                                   bool result = validatePassword(value);
-                                  if(result){
+                                  if(result && _pass.text == _confirmPass.text){
                                     //create account event
                                     return null;
+                                  }
+                                  else if(_pass.text != _confirmPass.text){
+                                    return "Passwords must match";
                                   }
                                   else{
                                     return "Password should contain Captial, Lowercase, \nNumber, and Special Character and be \n8 characters long";
@@ -131,7 +193,41 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                               ),
                             ),
                           ),
+                        ),
+                        const SizedBox(height: 25),
+                        Container(
+                          width: 300,
+                          padding: EdgeInsets.all(0.0),
+                          child: Form(
+                            key: _confirmPassKey,
+                            child: TextFormField(
+                              controller: _confirmPass,
+                              obscureText: _isObscured2,
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return "Please enter your password";
+                                }
+                                else if (_confirmPass.text != _pass.text){
+                                  return "Password should match the password used above";
 
+                                }
+                              },
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                hintText: 'Confirm your password', //Password box
+                                suffixIcon: IconButton(
+                                    icon: Icon(_isObscured2
+                                        ? Icons.visibility_off
+                                        : Icons.visibility),
+                                    onPressed:(){
+                                      setState(() {
+                                        _isObscured2 =! _isObscured2;
+                                      });
+                                    }
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
                         const SizedBox(height: 30),
                         Row(
@@ -165,8 +261,9 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                         ),
                         const SizedBox(height: 30),
                         ElevatedButton(
-                            onPressed: () {
-                              if(_formKey.currentState!.validate()){
+                            onPressed: () async {
+                              if(_passKey.currentState!.validate() & _confirmPassKey.currentState!.validate() & _emailKey.currentState!.validate()
+                              & _firstNameKey.currentState!.validate() & _lastNameKey.currentState!.validate()) {
                                 Navigator.push(context, MaterialPageRoute(builder: (context)=> const HomeScreen()));
                               };
                             },
