@@ -23,10 +23,11 @@ class PoorboysMenu extends StatelessWidget {
           body: GridView.count(
             crossAxisCount: 2,
             crossAxisSpacing: 10,
+            childAspectRatio: 9/10,
             padding: const EdgeInsets.all(15),
             children: const <Widget>[
-              menuItem('Fried Catfish', ''), // Short desc unrequested so not added; only sides
-              menuItem('Grilled Catfish', ''), // 'assets/images/jpg_name.jpg' get jpgs.
+              menuItem('Fried Catfish', 'assets/images/poorboys/catfish-poorboy.jpg'),
+              menuItem('Grilled Catfish', ''),
               menuItem('Fried Chicken', ''),
               menuItem('Grilled Chicken', ''),
               menuItem('Crawfish', ''),

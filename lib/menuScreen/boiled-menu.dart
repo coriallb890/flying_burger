@@ -23,11 +23,12 @@ class BoiledMenu extends StatelessWidget {
           body: GridView.count(
             crossAxisCount: 2,
             crossAxisSpacing: 10,
+            childAspectRatio: 9/10,
             padding: const EdgeInsets.all(15),
             children: const <Widget>[
-              menuItem('Boiled Shrimp (1/2lb)', ''), // Short desc unrequested so not added; only sides
-              menuItem('Boiled Shrimp (Lb)', ''), // 'assets/images/jpg_name.jpg' get jpgs.
-              menuItem('Snow Crab (Lb)', ''),
+              menuItem('Boiled Shrimp (1/2lb)', 'assets/images/boiled/boiled-shrimp.jpg'),
+              menuItem('Boiled Shrimp (Lb)', 'assets/images/boiled/boiled-shrimp.jpg'),
+              menuItem('Snow Crab (Lb)', 'assets/images/boiled/crab-legs.jpg'),
             ],
           ),
           bottomNavigationBar: navMenu(),

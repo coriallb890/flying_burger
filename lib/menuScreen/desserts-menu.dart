@@ -23,12 +23,13 @@ class DessertsMenu extends StatelessWidget {
           body: GridView.count(
             crossAxisCount: 2,
             crossAxisSpacing: 10,
+            childAspectRatio: 9/10,
             padding: const EdgeInsets.all(15),
             children: const <Widget>[
-              menuItem('Cake Cone', ''),
-              menuItem('Cinnamon Roll', ''), // Short desc unrequested so not added; only sides
-              menuItem('Ice Cream Cup', ''), // 'assets/images/jpg_name.jpg' get jpgs.
-              menuItem('Waffle Cone', ''),
+              menuItem('Cake Cone', 'assets/images/desserts/cake-waffle-cone.jpg'),
+              menuItem('Cinnamon Roll', 'assets/images/desserts/cinnamon-roll.jpg'),
+              menuItem('Ice Cream Cup', 'assets/images/desserts/cake-waffle-cone.jpg'),
+              menuItem('Waffle Cone', 'assets/images/desserts/cake-waffle-cone.jpg'),
             ],
           ),
           bottomNavigationBar: navMenu(),

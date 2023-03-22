@@ -23,13 +23,14 @@ class KidsMenu extends StatelessWidget {
           body: GridView.count(
             crossAxisCount: 2,
             crossAxisSpacing: 10,
+            childAspectRatio: 9/10,
             padding: const EdgeInsets.all(15),
             children: const <Widget>[
-              menuItem('Kids Burger', ''), // Short desc unrequested so not added; only sides
-              menuItem('Grilled Cheese', ''), // 'assets/images/jpg_name.jpg' get jpgs.
-              menuItem('2 Catfish Fillets', ''),
+              menuItem('Kids Burger', ''),
+              menuItem('Grilled Cheese', ''),
+              menuItem('2 Catfish Fillets', 'assets/images/kids/kids-fish.jpg'),
               menuItem('2 Jumbo Shrimp', ''),
-              menuItem('2 Chicken Strips', ''),
+              menuItem('2 Chicken Strips', 'assets/images/kids/kids-chick.jpg'),
             ],
           ),
           bottomNavigationBar: navMenu(),

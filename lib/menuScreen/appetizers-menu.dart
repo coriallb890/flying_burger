@@ -23,17 +23,21 @@ class AppetMenu extends StatelessWidget {
           body: GridView.count(
             crossAxisCount: 2,
             crossAxisSpacing: 10,
+            childAspectRatio: 9/10,
             padding: const EdgeInsets.all(15),
             children: const <Widget>[
-              menuItem('6 Chilled Shrimp', ''), // Short desc unrequested so not added; only sides
-              menuItem('12 Chilled Shrimp', ''), // 'assets/images/jpg_name.jpg' get jpgs.
-              menuItem('Seafood Gumbo Bowl', ''),
-              menuItem('Seafood Gumbo Cup', ''),
-              menuItem('Crawfish Tails', ''),
-              menuItem('Bacon Cheese Fries', ''),
-              menuItem('Wings (6)', ''),
-              menuItem('Wings (12)',''),
-              menuItem('Wings (24)',''),
+              menuItem('6 Chilled Shrimp', 'assets/images/appetizers/shrimp-app-6.jpg'),
+              menuItem('12 Chilled Shrimp', 'assets/images/appetizers/shrimp-app-12.jpg'),
+              menuItem('Bacon Cheese Fries', 'assets/images/appetizers/bacon-cheese-fries.jpg'),
+              menuItem('Cheese Fries', 'assets/images/appetizers/cheese-fries.jpg'),
+              menuItem('Chili', 'assets/images/appetizers/chili.jpg'),
+              menuItem('Chili Cheese Fries', 'assets/images/appetizers/chili-cheese-fries.jpg'),
+              menuItem('Crawfish Tails', 'assets/images/baskets/crawfish-basket.jpg'), // Need to get an image of crawfish tails without fries
+              menuItem('Seafood Gumbo Bowl', 'assets/images/appetizers/cup-gumbo.jpg'),
+              menuItem('Seafood Gumbo Cup', 'assets/images/appetizers/cup-gumbo.jpg'),
+              menuItem('6 Wings', ''),
+              menuItem('12 Wings',''),
+              menuItem('24 Wings',''),
             ],
           ),
           bottomNavigationBar: navMenu(),
