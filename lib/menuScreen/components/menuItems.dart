@@ -77,8 +77,8 @@ class menuItem extends StatelessWidget {
           else if (name == 'TACOS'){
             Navigator.push(context, MaterialPageRoute(builder: (context)=> TacosMenu()));
           }
-          if(name == '#1 Single Burger Meal'){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> ItemScreen()));
+          if(name == 'Single Burger'){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> ItemScreen(name: 'Double Burger Combo', img: 'assets/images/double-burger.jpg', price: 8.99, mainMods: ['Drink', 'Side'], dialogMods: ['BurgerMod', 'Condiments'])));
           }
         },
         // Add image & text

@@ -94,7 +94,7 @@ class _CartScreenState extends State<CartScreen> {
                             children: <Widget>[
                               ElevatedButton(
                                 onPressed: (){
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) => const ItemScreen()));
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => const ItemScreen(name: 'Double Burger Combo', img: 'assets/images/double-burger.jpg', price: 8.99, mainMods: ['Drink', 'Side'], dialogMods: ['BurgerMod', 'BurgerSauce'])));
                                 },
                                 child: const Text('Edit', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
                                 style: ElevatedButton.styleFrom(
@@ -186,7 +186,7 @@ class _CartScreenState extends State<CartScreen> {
                           children: <Widget>[
                             ElevatedButton(
                               onPressed: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (context) => const ItemScreen()));
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => const ItemScreen(name: 'Double Burger Combo', img: 'assets/images/double-burger.jpg', price: 8.99, mainMods: ['Drink', 'Side'], dialogMods: ['BurgerMod', 'BurgerSauce'])));
                               },
                               child: const Text('Edit', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
                               style: ElevatedButton.styleFrom(
