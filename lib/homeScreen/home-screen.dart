@@ -134,7 +134,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: const [
                         SizedBox(width: 5,),
                         Image(
-                          image: AssetImage('assets/images/single-burger.jpg'),
+                          image: AssetImage('assets/images/combos/single-burger-combo.jpg'),
                           height: 65,
                           fit: BoxFit.cover,
                         ),

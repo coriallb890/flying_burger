@@ -1,6 +1,7 @@
+import 'package:flying_burger/menuScreen/menuItemPages/components/itemButton.dart';
+
 import '../menuScreen/components/bottomNav.dart';
 import 'package:flutter/material.dart';
-import 'components/menuItems.dart';
 import 'package:flying_burger/menuScreen/menuItemPages/components/itemAppBar.dart';
 
 class TacosMenu extends StatelessWidget {
@@ -26,12 +27,12 @@ class TacosMenu extends StatelessWidget {
             childAspectRatio: 9/10,
             padding: const EdgeInsets.all(15),
             children: const <Widget>[
-              menuItem('Fried Catfish Tacos', 'assets/images/tacos/fried-cat-tacos.jpg'),
-              menuItem('Fried Shrimp Tacos', ''),
-              menuItem('Grilled Catfish Tacos', ''),
-              menuItem('Grilled Chicken Tacos', ''),
-              menuItem('Grilled Shrimp Tacos', ''),
-              menuItem('Grilled Tilapia Tacos', 'assets/'),
+              itemButton('Fried Catfish Tacos', 'assets/images/tacos/fried-cat-tacos.jpg', 9.50, ['Side'], ['Taco']),
+              itemButton('Fried Shrimp Tacos', 'assets/images/tacos/fried-cat-tacos.jpg', 9.50, ['Side'], ['Taco']),
+              itemButton('Grilled Catfish Tacos', 'assets/images/tacos/fried-cat-tacos.jpg', 9.50, ['Side'], ['Taco']),
+              itemButton('Grilled Chicken Tacos', 'assets/images/tacos/fried-cat-tacos.jpg', 9.50, ['Side'], ['Taco']),
+              itemButton('Grilled Shrimp Tacos', 'assets/images/tacos/fried-cat-tacos.jpg', 9.50, ['Side'], ['Taco']),
+              itemButton('Grilled Tilapia Tacos', 'assets/images/tacos/fried-cat-tacos.jpg', 9.50, ['Side'], ['Taco']),
             ],
           ),
           bottomNavigationBar: navMenu(),

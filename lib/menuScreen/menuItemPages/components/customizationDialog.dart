@@ -43,13 +43,13 @@ class _mainDialogState extends State<mainDialog> {
   ];
 
   final condimentsOptions = [
-    CheckBoxState(title: "Ketchup", price: 0.0, extraPrice: 0.5, value: true),
-    CheckBoxState(title: "Mustard", price: 0.0, extraPrice: 0.5, value: true),
-    CheckBoxState(title: "Mayo", price: 0.0, extraPrice: 0.5, value: true),
-    CheckBoxState(title: "Tauter Sauce", price: 0.5, extraPrice: 0.5, value: false),
-    CheckBoxState(title: "BBQ", price: 0.5, extraPrice: 0.5, value: false),
-    CheckBoxState(title: "Ranch", price: 0.5, extraPrice: 0.5, value: false),
-    CheckBoxState(title: "Honey Mustard", price: 0.5, extraPrice: 0.5, value: false),
+    CheckBoxState(title: "Ketchup", price: 0.0, extraPrice: 0.0, value: true),
+    CheckBoxState(title: "Mustard", price: 0.0, extraPrice: 0.0, value: true),
+    CheckBoxState(title: "Mayo", price: 0.0, extraPrice: 0.0, value: true),
+    CheckBoxState(title: "Tauter Sauce", price: 0.0, extraPrice: 0.0, value: false),
+    CheckBoxState(title: "BBQ", price: 0.0, extraPrice: 0.0, value: false),
+    CheckBoxState(title: "Ranch", price: 0.0, extraPrice: 0.0, value: false),
+    CheckBoxState(title: "Honey Mustard", price: 0.0, extraPrice: 0.0, value: false),
   ];
 
   final gumboOptions = [
@@ -70,10 +70,10 @@ class _mainDialogState extends State<mainDialog> {
   ];
 
   final tacoOptions = [
-    CheckBoxState(title: "Tartar Sauce", price: 0.0, extraPrice: 0.5, value: true),
-    CheckBoxState(title: "Cole Slaw", price: 0.0, extraPrice: 0.5, value: true),
-    CheckBoxState(title: "Pico de Gallo", price: 0.0, extraPrice: 0.5, value: true),
-    CheckBoxState(title: "Chives", price: 0.0, extraPrice: 0.5, value: true),
+    CheckBoxState(title: "Tartar Sauce", price: 0.0, extraPrice: 0.0, value: true),
+    CheckBoxState(title: "Cole Slaw", price: 0.0, extraPrice: 0.0, value: true),
+    CheckBoxState(title: "Pico de Gallo", price: 0.0, extraPrice: 0.0, value: true),
+    CheckBoxState(title: "Chives", price: 0.0, extraPrice: 0.0, value: true),
   ];
 
   final extraScoopOptions = [
