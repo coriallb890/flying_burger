@@ -7,6 +7,8 @@ import 'package:flying_burger/menuScreen/boiled-menu.dart';
 import 'package:flying_burger/menuScreen/desserts-menu.dart';
 import 'package:flying_burger/menuScreen/drink-menu.dart';
 import 'package:flying_burger/menuScreen/grilled-menu.dart';
+import 'package:flying_burger/menuScreen/kids-menu.dart';
+import 'package:flying_burger/menuScreen/la-carte-menu.dart';
 import 'package:flying_burger/menuScreen/menuItemPages/itemScreen.dart';
 import 'package:flying_burger/menuScreen/poorboys-menu.dart';
 import 'package:flying_burger/menuScreen/salads-menu.dart';
@@ -48,6 +50,9 @@ class menuItem extends StatelessWidget {
           else if (name == 'APPETIZERS'){
             Navigator.push(context, MaterialPageRoute(builder: (context)=> AppetMenu()));
           }
+          else if (name == 'A LA CARTE'){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> LaCarteMenu()));
+          }
           else if (name == 'DESSERTS'){
             Navigator.push(context, MaterialPageRoute(builder: (context)=> DessertsMenu()));
           }
@@ -61,7 +66,7 @@ class menuItem extends StatelessWidget {
             Navigator.push(context, MaterialPageRoute(builder: (context)=> SidesMenu()));
           }
           else if (name == 'KIDS MEALS'){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> SidesMenu()));
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> KidsMenu()));
           }
           else if (name == 'POORBOYS'){
             Navigator.push(context, MaterialPageRoute(builder: (context)=> PoorboysMenu()));

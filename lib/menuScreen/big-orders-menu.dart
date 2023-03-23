@@ -23,10 +23,11 @@ class BigOrdersMenu extends StatelessWidget {
           body: GridView.count(
             crossAxisCount: 2,
             crossAxisSpacing: 10,
+            childAspectRatio: 9/10,
             padding: const EdgeInsets.all(15),
             children: const <Widget>[
-              menuItem('12 Catfish', ''), // Short desc unrequested so not added; only sides
-              menuItem('24 Catfish', ''), // 'assets/images/jpg_name.jpg' get jpgs.
+              menuItem('12 Catfish', ''),
+              menuItem('24 Catfish', ''),
               menuItem('36 Catfish', ''),
               menuItem('12 Chicken', ''),
               menuItem('24 Chicken', ''),
@@ -37,7 +38,7 @@ class BigOrdersMenu extends StatelessWidget {
               menuItem('Pan of Coleslaw (Large)', ''),
               menuItem('Pan of Coleslaw (Small)', ''),
               menuItem('Pan of Tarter', ''),
-              menuItem('Pan of Cinnamon Rolls', ''),
+              menuItem('Pan of Cinnamon Rolls', 'assets/images/big-orders/pan-cinnamon-rolls.jpg'),
               ],
             ),
           bottomNavigationBar: navMenu(),

@@ -23,17 +23,18 @@ class GrilledMenu extends StatelessWidget {
           body: GridView.count(
             crossAxisCount: 2,
             crossAxisSpacing: 10,
+            childAspectRatio: 9/10,
             padding: const EdgeInsets.all(15),
             children: const <Widget>[
-              menuItem('BBQ Shrimp Plate (6)', ''), // Short desc unrequested so not added; only sides
-              menuItem('BBQ Shrimp Plate (12)', ''), // 'assets/images/jpg_name.jpg' get jpgs.
-              menuItem('Catfish Plate', ''),
-              menuItem('Chicken Plate', ''),
-              menuItem('Salmon Plate', ''),
-              menuItem('Shrimp Plate (6)', ''),
-              menuItem('Shrimp Plate (12)', ''),
-              menuItem('Shrimp Kabobs Plate', ''),
-              menuItem('Tilapia Plate', ''),
+              menuItem('6 BBQ Shrimp Plate', 'assets/images/grilled/6-bbq-shrimp.jpg'),
+              menuItem('12 BBQ Shrimp Plate', 'assets/images/grilled/6-bbq-shrimp.jpg'),
+              menuItem('Catfish Plate', 'assets/images/grilled/catfish-plate.jpg'),
+              menuItem('Chicken Plate', 'assets/images/grilled/chicken-plate.jpg'),
+              menuItem('Salmon Plate', 'assets/images/grilled/salmon-plate.jpg'),
+              menuItem('6 Shrimp Plate', 'assets/images/grilled/6-grilled-shrimp.jpg'),
+              menuItem('12 Shrimp Plate', 'assets/images/grilled/6-grilled-shrimp.jpg'),
+              menuItem('Shrimp Kabobs Plate', 'assets/images/grilled/shrimp-kabobs.jpg'),
+              menuItem('Tilapia Plate', 'assets/images/grilled/tilapia-plate.jpg'),
             ],
           ),
           bottomNavigationBar: navMenu(),
