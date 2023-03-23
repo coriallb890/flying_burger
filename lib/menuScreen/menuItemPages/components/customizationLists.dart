@@ -8,7 +8,7 @@ enum CustomChoice {regular, extra, onSide}
 
 enum SauceChoice { meltbutter, ranch, mayo, whtgravy, brwngravy, cocktail, hot, tartar, rem, mustard, hnymust, bleucheese, BBQ }
 
-enum SeasoningChoice { regular, spicy, none }
+enum DressingChoice { ranch, caesar, bleu, house, thousand, honeymust, balsamic, raspberry, remoulade }
 
 enum IceCreamChoice { vanilla, chocolate, strawberry }
 

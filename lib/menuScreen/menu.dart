@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flying_burger/constants.dart';
 import 'package:flying_burger/menuScreen/components/bottomNav.dart';
 import 'package:flying_burger/menuScreen/components/menuItems.dart';
 import '../components/appbar.dart';
@@ -25,7 +24,7 @@ class MenuScreen extends StatelessWidget{
           childAspectRatio: 9/10,
           padding: const EdgeInsets.all(15),
           children: const <Widget>[
-            menuItem('FEATURED', ''), // Short desc unrequested so not added; only sides
+            menuItem('FEATURED', 'assets/images/combos/single-burger-combo.jpg'), // Short desc unrequested so not added; only sides
             menuItem('APPETIZERS', 'assets/images/appetizers/shrimp-app-12.jpg'), // 'assets/images/jpg_name.jpg' get jpgs.
             menuItem('COMBOS', 'assets/images/combos/single-burger-combo.jpg'),
             menuItem('A LA CARTE', 'assets/images/la-carte/single-burger.jpg'),
@@ -35,11 +34,11 @@ class MenuScreen extends StatelessWidget{
             menuItem('BOILED PLATTER', 'assets/images/boiled/boiled-shrimp.jpg'),
             menuItem('GRILLED PLATES', 'assets/images/grilled/catfish-plate.jpg'),
             menuItem('POORBOYS', 'assets/images/poorboys/catfish-poorboy.jpg'),
-            menuItem('BIG ORDERS', ''),
+            menuItem('BIG ORDERS', 'assets/images/combos/single-burger-combo.jpg'),
             menuItem('KIDS MEALS', 'assets/images/kids/kids-chick.jpg'),
             menuItem('SIDES', 'assets/images/salads/small-sal.jpg'),
             menuItem('DESSERTS', 'assets/images/desserts/cinnamon-roll.jpg'),
-            menuItem('DRINKS', ''),
+            menuItem('DRINKS', 'assets/images/combos/single-burger-combo.jpg'),
           ]
         ),
         bottomNavigationBar: navMenu(),
