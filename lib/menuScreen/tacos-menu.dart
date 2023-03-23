@@ -23,14 +23,15 @@ class TacosMenu extends StatelessWidget {
           body: GridView.count(
             crossAxisCount: 2,
             crossAxisSpacing: 10,
+            childAspectRatio: 9/10,
             padding: const EdgeInsets.all(15),
             children: const <Widget>[
-              menuItem('Fried Catfish', ''), // Short desc unrequested so not added; only sides
-              menuItem('Fried Shrimp', ''), // 'assets/images/jpg_name.jpg' get jpgs.
-              menuItem('Grilled Catfish', ''),
-              menuItem('Grilled Chicken', ''),
-              menuItem('Grilled Shrimp', ''),
-              menuItem('Grilled Tilapia', ''),
+              menuItem('Fried Catfish Tacos', 'assets/images/tacos/fried-cat-tacos.jpg'),
+              menuItem('Fried Shrimp Tacos', ''),
+              menuItem('Grilled Catfish Tacos', ''),
+              menuItem('Grilled Chicken Tacos', ''),
+              menuItem('Grilled Shrimp Tacos', ''),
+              menuItem('Grilled Tilapia Tacos', 'assets/'),
             ],
           ),
           bottomNavigationBar: navMenu(),

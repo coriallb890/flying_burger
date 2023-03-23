@@ -23,10 +23,11 @@ class DrinkMenu extends StatelessWidget {
           body: GridView.count(
             crossAxisCount: 2,
             crossAxisSpacing: 10,
+            childAspectRatio: 9/10,
             padding: const EdgeInsets.all(15),
             children: const <Widget>[
-              menuItem('Coffee', ''), // Short desc unrequested so not added; only sides
-              menuItem('Coke', ''), // 'assets/images/jpg_name.jpg' get jpgs.
+              menuItem('Coffee', ''), // Will make placement cards for drinks
+              menuItem('Coke', ''),
               menuItem('Diet Coke', ''),
               menuItem('Fanta', ''),
               menuItem('Lemonade', ''),
