@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flying_burger/profile-screen.dart';
 import '../constants.dart';
 
 class simpleAppBar extends StatelessWidget implements PreferredSizeWidget{
@@ -24,7 +25,9 @@ class simpleAppBar extends StatelessWidget implements PreferredSizeWidget{
         Padding(
             padding: EdgeInsets.only(right: 25),
             child: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> const ProfileScreen()));
+              },
               icon: const Icon(Icons.person, color: Colors.grey, size: 55),
             ))
       ],
