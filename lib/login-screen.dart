@@ -106,16 +106,6 @@ class _LogInScreen extends State<LogInScreen> {
                               return "Please enter password";
                             }
 
-                            else{
-                              bool result = validatePassword(value);
-                              if(result){
-                                //create account event
-                                return null;
-                              }
-                              else{
-                                return "Password should contain Captial, Lowercase, \nNumber, and Special Character and be \n8 characters long";
-                              }
-                            }
                           },
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),

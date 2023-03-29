@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flying_burger/constants.dart';
+import 'package:flying_burger/homeScreen/home-screen.dart';
 import 'package:flying_burger/login-screen.dart';
 import 'package:flying_burger/create-account.dart';
 
@@ -51,6 +52,18 @@ class StartScreen extends StatelessWidget{
                   padding: EdgeInsets.all(5),
                   child: Text('Create Account', style: style)
                 )
+              ),
+              SizedBox(height: 10),
+              ElevatedButton(
+                  onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const HomeScreen()));
+                  },
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: bluePrimaryColor),
+                  child: Padding(
+                      padding: EdgeInsets.all(5),
+                      child: Text('Continue As Guest', style: style)
+                  )
               )
             ],
           ),
