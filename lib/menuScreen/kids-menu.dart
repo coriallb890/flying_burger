@@ -26,10 +26,10 @@ class KidsMenu extends StatelessWidget {
             childAspectRatio: 9/10,
             padding: const EdgeInsets.all(15),
             children: const <Widget>[
-              menuItem('Kids Burger', ''),
-              menuItem('Grilled Cheese', ''),
+              menuItem('Kids Burger', 'assets/images/placeholder.png'),
+              menuItem('Grilled Cheese', 'assets/images/placeholder.png'),
               menuItem('2 Catfish Fillets', 'assets/images/kids/kids-fish.jpg'),
-              menuItem('2 Jumbo Shrimp', ''),
+              menuItem('2 Jumbo Shrimp', 'assets/images/placeholder.png'),
               menuItem('2 Chicken Strips', 'assets/images/kids/kids-chick.jpg'),
             ],
           ),

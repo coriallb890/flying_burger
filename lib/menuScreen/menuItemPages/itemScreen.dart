@@ -5,7 +5,6 @@ import 'package:flying_burger/menuScreen/components/bottomNav.dart';
 import 'package:flying_burger/menuScreen/menuItemPages/components/customizationDialog.dart';
 import 'package:flying_burger/menuScreen/menuItemPages/components/customizationLists.dart';
 import 'package:flying_burger/menuScreen/menuItemPages/components/itemAppBar.dart';
-import 'package:flying_burger/menuScreen/menuItemPages/itemScreen.dart';
 
 class ItemScreen extends StatefulWidget {
 
@@ -24,14 +23,14 @@ class ItemScreen extends StatefulWidget {
 
 class _ItemScreenState extends State<ItemScreen> {
 
-  DrinkChoice? _drink;
-  SideChoice? _side;
-  SizeChoice? _size;
-  SauceChoice? _sauce;
-  DressingChoice? _dressing;
-  IceCreamChoice? _icecream;
-  ShrimpChoice? _shrimp;
-  WingChoice? _wing;
+  String? _drink;
+  String? _side;
+  String _size = "Regular";
+  String? _sauce;
+  String? _dressing;
+  String? _icecream;
+  String? _shrimp;
+  String? _wing;
   bool? halfChecked = false;
 
   @override
@@ -206,30 +205,30 @@ class _ItemScreenState extends State<ItemScreen> {
       children: <Widget>[
         const Text('Drink Choice', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
         const Text('Must choose 1', style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.black54)),
-        drinkRadioItem("Coke", DrinkChoice.coke),
-        drinkCheck(DrinkChoice.coke),
-        drinkRadioItem("Diet Coke", DrinkChoice.dietcoke),
-        drinkCheck(DrinkChoice.dietcoke),
-        drinkRadioItem("Dr.Pepper", DrinkChoice.drpep),
-        drinkCheck(DrinkChoice.drpep),
-        drinkRadioItem("Diet Dr.Pepper", DrinkChoice.dietdrpep),
-        drinkCheck(DrinkChoice.dietdrpep),
-        drinkRadioItem("Lemonade", DrinkChoice.lemon),
-        drinkCheck(DrinkChoice.lemon),
-        drinkRadioItem("Sprite", DrinkChoice.sprite),
-        drinkCheck(DrinkChoice.sprite),
-        drinkRadioItem("Orange Fanta", DrinkChoice.orfanta),
-        drinkCheck(DrinkChoice.orfanta),
-        drinkRadioItem("Root Beer", DrinkChoice.rtbeer),
-        drinkCheck(DrinkChoice.rtbeer),
-        drinkRadioItem("Powerade", DrinkChoice.powerade),
-        drinkCheck(DrinkChoice.powerade),
-        drinkRadioItem("Hi-C Fruit Punch", DrinkChoice.punch),
-        drinkCheck(DrinkChoice.punch),
-        drinkRadioItem("Sweet Tea", DrinkChoice.swttea),
-        drinkCheck(DrinkChoice.swttea),
-        drinkRadioItem("Unsweet Tea", DrinkChoice.untea),
-        drinkCheck(DrinkChoice.untea),
+        drinkRadioItem("Coke"),
+        drinkCheck("Coke"),
+        drinkRadioItem("Diet Coke"),
+        drinkCheck("Diet Coke"),
+        drinkRadioItem("Dr.Pepper"),
+        drinkCheck("Dr.Pepper"),
+        drinkRadioItem("Diet Dr.Pepper"),
+        drinkCheck("Diet Dr.Pepper"),
+        drinkRadioItem("Lemonade"),
+        drinkCheck("Lemonade"),
+        drinkRadioItem("Sprite"),
+        drinkCheck("Sprite"),
+        drinkRadioItem("Orange Fanta"),
+        drinkCheck("Orange Fanta"),
+        drinkRadioItem("Root Beer"),
+        drinkCheck("Root Beer"),
+        drinkRadioItem("Powerade"),
+        drinkCheck("Powerade"),
+        drinkRadioItem("Hi-C Fruit Punch"),
+        drinkCheck("Hi-C Fruit Punch"),
+        drinkRadioItem("Sweet Tea"),
+        drinkCheck("Sweet Tea"),
+        drinkRadioItem("Unsweet Tea"),
+        drinkCheck("Unsweet Tea"),
         const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
       ],
     );
@@ -241,29 +240,29 @@ class _ItemScreenState extends State<ItemScreen> {
         children: <Widget>[
           const Text('Side Choice', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
           const Text('Must choose 1', style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.black54)),
-          sideRadioItem("Fries", SideChoice.fries, 0.0),
-          sideRadioItem("(3) Potatoes", SideChoice.potatoes, 0.0),
-          sideRadioItem("6 Hushpuppies", SideChoice.hushpuppies, 0.0),
-          sideRadioItem("Black Beans", SideChoice.blkbeans, 0.0),
-          sideRadioItem("Black Beans and Rice", SideChoice.beansrice, 0.0),
-          sideRadioItem("Cajun Fries", SideChoice.cajfries, 0.0),
-          sideRadioItem("Cheese Fries", SideChoice.chsfries, 1.00),
-          sideRadioItem("Bacon Cheese Fries", SideChoice.baknchsfries, 1.50),
-          sideRadioItem("Corn", SideChoice.cobcorn, 1.00),
-          sideRadioItem("Greens", SideChoice.greens, 0.0),
-          sideRadioItem("Grilled Zucchini & Squash", SideChoice.grzuc, 0.0),
-          sideRadioItem("Pickled Green Tomatoes", SideChoice.pickgrtom, 0.75),
-          sideRadioItem("Rice", SideChoice.rice, 0.0),
-          sideRadioItem("Cole Slaw", SideChoice.slaw, 0.0),
+          sideRadioItem("Fries",  0.0),
+          sideRadioItem("3 Potatoes",  0.0),
+          sideRadioItem("6 Hushpuppies", 0.0),
+          sideRadioItem("Black Beans", 0.0),
+          sideRadioItem("Black Beans and Rice", 0.0),
+          sideRadioItem("Cajun Fries", 0.0),
+          sideRadioItem("Cheese Fries", 1.00),
+          sideRadioItem("Bacon Cheese Fries", 1.50),
+          sideRadioItem("Corn", 1.00),
+          sideRadioItem("Greens", 0.0),
+          sideRadioItem("Grilled Zucchini & Squash", 0.0),
+          sideRadioItem("Pickled Green Tomatoes", 0.75),
+          sideRadioItem("Rice", 0.0),
+          sideRadioItem("Cole Slaw", 0.0),
 
           // The Radio Option for the Side Salad which is a little different
           Row(
               children: <Widget>[
-                Radio<SideChoice>(
+                Radio(
                   activeColor: bluePrimaryColor,
-                  value: SideChoice.sdsalad,
+                  value: "Side Salad",
                   groupValue: _side,
-                  onChanged: (SideChoice? value){
+                  onChanged: (String? value){
                     setState(() {
                       _side = value;
                     });
@@ -277,7 +276,7 @@ class _ItemScreenState extends State<ItemScreen> {
                     child: ElevatedButton(
                       onPressed: (){
                         (() {
-                          if (_side == SideChoice.sdsalad){
+                          if (_side == "Side Salad"){
                             return showDialog<String>(
                                 context: context,
                                 builder: (BuildContext context) => saladDialog()
@@ -294,7 +293,7 @@ class _ItemScreenState extends State<ItemScreen> {
                 ),
               ]
           ),
-          sideRadioItem("None", SideChoice.none, 0.0),
+          sideRadioItem("None", 0.0),
           const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
         ]
     );
@@ -306,19 +305,19 @@ class _ItemScreenState extends State<ItemScreen> {
       children: <Widget>[
         const Text('Sauce Choice', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
         const Text('Must choose 1', style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.black54)),
-        sauceRadioItem("Melted Butter", SauceChoice.meltbutter),
-        sauceRadioItem("Ranch", SauceChoice.ranch),
-        sauceRadioItem("Mayo", SauceChoice.mayo),
-        sauceRadioItem("White Gravy", SauceChoice.whtgravy),
-        sauceRadioItem("Brown Gravy", SauceChoice.brwngravy),
-        sauceRadioItem("Cocktail Sauce", SauceChoice.cocktail),
-        sauceRadioItem("Hot Sauce", SauceChoice.hot),
-        sauceRadioItem("Tartar Sauce", SauceChoice.tartar),
-        sauceRadioItem("Remoulaude", SauceChoice.rem),
-        sauceRadioItem("Mustard", SauceChoice.mustard),
-        sauceRadioItem("Honey Mustard", SauceChoice.hnymust),
-        sauceRadioItem("Bleu Cheese", SauceChoice.bleucheese),
-        sauceRadioItem("BBQ", SauceChoice.BBQ),
+        sauceRadioItem("Melted Butter"),
+        sauceRadioItem("Ranch"),
+        sauceRadioItem("Mayo"),
+        sauceRadioItem("White Gravy"),
+        sauceRadioItem("Brown Gravy"),
+        sauceRadioItem("Cocktail Sauce"),
+        sauceRadioItem("Hot Sauce"),
+        sauceRadioItem("Tartar Sauce"),
+        sauceRadioItem("Remoulaude"),
+        sauceRadioItem("Mustard"),
+        sauceRadioItem("Honey Mustard"),
+        sauceRadioItem("Bleu Cheese"),
+        sauceRadioItem("BBQ"),
         const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
       ],
     );
@@ -330,21 +329,20 @@ class _ItemScreenState extends State<ItemScreen> {
       children: <Widget>[
         const Text('Dressing Choice', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
         const Text('Must choose 1', style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.black54)),
-        dressingRadioItem("House Ranch", DressingChoice.ranch),
-        dressingRadioItem("Caesar", DressingChoice.caesar),
-        dressingRadioItem("Bleu Cheese", DressingChoice.bleu),
-        dressingRadioItem("House Italian", DressingChoice.house),
-        dressingRadioItem("Thousand Islands", DressingChoice.thousand),
-        dressingRadioItem("Honey Mustard", DressingChoice.honeymust),
-        dressingRadioItem("Balsamic Vinaigrette", DressingChoice.balsamic),
-        dressingRadioItem("Raspberry Vinaigrette", DressingChoice.raspberry),
-        dressingRadioItem("Remoulade", DressingChoice.remoulade),
+        dressingRadioItem("House Ranch"),
+        dressingRadioItem("Caesar"),
+        dressingRadioItem("Bleu Cheese"),
+        dressingRadioItem("House Italian"),
+        dressingRadioItem("Thousand Islands"),
+        dressingRadioItem("Honey Mustard"),
+        dressingRadioItem("Balsamic Vinaigrette"),
+        dressingRadioItem("Raspberry Vinaigrette"),
+        dressingRadioItem("Remoulade"),
 
         const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
       ],
     );
   }
-
 
   // Widget called to display the ice cream modifications
   Widget iceCreamMod(){
@@ -352,9 +350,9 @@ class _ItemScreenState extends State<ItemScreen> {
       children: <Widget>[
         const Text('Ice Cream Flavor Choice', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
         const Text('Must choose 1', style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.black54)),
-        iceCreamRadioItem("Vanilla", IceCreamChoice.vanilla),
-        iceCreamRadioItem("Chocolate", IceCreamChoice.chocolate),
-        iceCreamRadioItem("Strawberry", IceCreamChoice.strawberry),
+        iceCreamRadioItem("Vanilla"),
+        iceCreamRadioItem("Chocolate"),
+        iceCreamRadioItem("Strawberry"),
         const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
       ],
     );
@@ -390,9 +388,9 @@ class _ItemScreenState extends State<ItemScreen> {
       children: <Widget>[
         const Text('Wings Choice', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
         const Text('Must choose 1', style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.black54)),
-        wingRadioItem("Mixed", WingChoice.mixed, 0.0),
-        wingRadioItem("Flats Only", WingChoice.flats, 1.0),
-        wingRadioItem("Drums Only", WingChoice.drums, 1.0),
+        wingRadioItem("Mixed", 0.0),
+        wingRadioItem("Flats Only", 1.0),
+        wingRadioItem("Drums Only", 1.0),
         const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
       ],
     );
@@ -404,23 +402,23 @@ class _ItemScreenState extends State<ItemScreen> {
       children: <Widget>[
         const Text('Shrimp Choice', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
         const Text('Must choose 1', style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.black54)),
-        shrimpRadioItem("Fried", ShrimpChoice.fried),
-        shrimpRadioItem("Boiled", ShrimpChoice.boiled),
-        shrimpRadioItem("BBQ", ShrimpChoice.bbq),
+        shrimpRadioItem("Fried"),
+        shrimpRadioItem("Boiled"),
+        shrimpRadioItem("BBQ"),
         const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
       ],
     );
   }
 
   // Widget to build the drink radio items
-  Widget drinkRadioItem(String title, DrinkChoice choice){
+  Widget drinkRadioItem(String title){
     return Row(
       children: <Widget>[
-        Radio<DrinkChoice>(
+        Radio(
           activeColor: bluePrimaryColor,
-          value: choice,
+          value: title,
           groupValue: _drink,
-          onChanged: (DrinkChoice? value){
+          onChanged: (String? value){
             setState(() {
               _drink = value;
             });
@@ -432,14 +430,14 @@ class _ItemScreenState extends State<ItemScreen> {
   }
 
   // Widget to build the side radio items
-  Widget sideRadioItem(String title, SideChoice choice, double price){
+  Widget sideRadioItem(String title,  double price){
     return Row(
         children: <Widget>[
-          Radio<SideChoice>(
+          Radio(
             activeColor: bluePrimaryColor,
-            value: choice,
+            value: title,
             groupValue: _side,
-            onChanged: (SideChoice? value){
+            onChanged: (String? value){
               setState(() {
                 _side = value;
               });
@@ -461,20 +459,20 @@ class _ItemScreenState extends State<ItemScreen> {
     );
   }
 
-  Widget drinkCheck(DrinkChoice choice){
+  Widget drinkCheck(String choice){
     if (_drink == choice){
       return Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget> [
-          sizeChoice("Regular", SizeChoice.reg),
-          sizeChoice("Large +\$1.25", SizeChoice.lrg),
+          sizeChoice("Regular", "Regular"),
+          sizeChoice("Large +\$1.25", "Large"),
         ],
       );
     }
     return SizedBox(height:0);
   }
 
-  Widget sizeChoice(String text, SizeChoice choice){
+  Widget sizeChoice(String text, String choice){
     return ElevatedButton(
       onPressed: (){
         setState(() {
@@ -494,14 +492,14 @@ class _ItemScreenState extends State<ItemScreen> {
   }
 
   // Widget to build the sauce radio items
-  Widget sauceRadioItem(String title, SauceChoice choice){
+  Widget sauceRadioItem(String title){
     return Row(
       children: <Widget>[
-        Radio<SauceChoice>(
+        Radio(
           activeColor: bluePrimaryColor,
-          value: choice,
+          value: title,
           groupValue: _sauce,
-          onChanged: (SauceChoice? value){
+          onChanged: (String? value){
             setState(() {
               _sauce = value;
             });
@@ -513,14 +511,14 @@ class _ItemScreenState extends State<ItemScreen> {
   }
 
   // Widget to build the dressing radio items
-  Widget dressingRadioItem(String title, DressingChoice choice){
+  Widget dressingRadioItem(String title){
     return Row(
         children: <Widget>[
-          Radio<DressingChoice>(
+          Radio(
             activeColor: bluePrimaryColor,
-            value: choice,
+            value: title,
             groupValue: _dressing,
-            onChanged: (DressingChoice? value){
+            onChanged: (String? value){
               setState(() {
                 _dressing = value;
               });
@@ -532,14 +530,14 @@ class _ItemScreenState extends State<ItemScreen> {
   }
 
   // Widget to build the Ice Cream radio items
-  Widget iceCreamRadioItem(String title, IceCreamChoice choice){
+  Widget iceCreamRadioItem(String title){
     return Row(
         children: <Widget>[
-          Radio<IceCreamChoice>(
+          Radio(
             activeColor: bluePrimaryColor,
-            value: choice,
+            value: title,
             groupValue: _icecream,
-            onChanged: (IceCreamChoice? value){
+            onChanged: (String? value){
               setState(() {
                 _icecream = value;
               });
@@ -551,14 +549,14 @@ class _ItemScreenState extends State<ItemScreen> {
   }
 
   // Widget to build the wings radio items
-  Widget wingRadioItem(String title, WingChoice choice, double price){
+  Widget wingRadioItem(String title, double price){
     return Row(
         children: <Widget>[
-          Radio<WingChoice>(
+          Radio(
             activeColor: bluePrimaryColor,
-            value: choice,
+            value: title,
             groupValue: _wing,
-            onChanged: (WingChoice? value){
+            onChanged: (String? value){
               setState(() {
                 _wing = value;
               });
@@ -580,14 +578,14 @@ class _ItemScreenState extends State<ItemScreen> {
   }
 
   // Widget to build the shrimp radio items
-  Widget shrimpRadioItem(String title, ShrimpChoice choice){
+  Widget shrimpRadioItem(String title){
     return Row(
         children: <Widget>[
-          Radio<ShrimpChoice>(
+          Radio(
             activeColor: bluePrimaryColor,
-            value: choice,
+            value: title,
             groupValue: _shrimp,
-            onChanged: (ShrimpChoice? value){
+            onChanged: (String? value){
               setState(() {
                 _shrimp = value;
               });
@@ -608,7 +606,7 @@ class saladDialog extends StatefulWidget {
 
 class _saladDialogState extends State<saladDialog> {
 
-  DressingChoice? _dressing;
+  String? _dressing;
 
   final saladOptions = [
     CheckBoxState(title: "Tomatoes", price: 0.0, extraPrice: 0.5, value: true),
@@ -621,15 +619,6 @@ class _saladDialogState extends State<saladDialog> {
     CheckBoxState(title: "Bacon", price: 1.49, extraPrice: 0.5, value: false),
     CheckBoxState(title: "Grilled Onion", price: 0.39, extraPrice: 0.5, value: false),
     CheckBoxState(title: "Grilled Mushroom", price: 0.89, extraPrice: 0.5, value: false),
-  ];
-  final dressingOptions = [
-    CheckBoxState(title: "Ranch", price: 0.0, extraPrice: 0.0, value: false),
-    CheckBoxState(title: "House Italian", price: 0.0, extraPrice: 0.0, value: false),
-    CheckBoxState(title: "Caesar", price: 0.0, extraPrice: 0.0, value: false),
-    CheckBoxState(title: "Bleu Cheese", price: 0.0, extraPrice: 0.0, value: false),
-    CheckBoxState(title: "1000 Island", price: 0.0, extraPrice: 0.0, value: false),
-    CheckBoxState(title: "Balsamic Vinegar", price: 0.0, extraPrice: 0.0, value: false),
-    CheckBoxState(title: "Honey Mustard", price: 0.0, extraPrice: 0.0, value: false),
   ];
 
   @override
@@ -672,15 +661,15 @@ class _saladDialogState extends State<saladDialog> {
       children: <Widget>[
         const Text('Dressing Choice', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
         const Text('Must choose 1', style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.black54)),
-        dressingRadioItem("House Ranch", DressingChoice.ranch),
-        dressingRadioItem("Caesar", DressingChoice.caesar),
-        dressingRadioItem("Bleu Cheese", DressingChoice.bleu),
-        dressingRadioItem("House Italian", DressingChoice.house),
-        dressingRadioItem("Thousand Islands", DressingChoice.thousand),
-        dressingRadioItem("Honey Mustard", DressingChoice.honeymust),
-        dressingRadioItem("Balsamic Vinaigrette", DressingChoice.balsamic),
-        dressingRadioItem("Raspberry Vinaigrette", DressingChoice.raspberry),
-        dressingRadioItem("Remoulade", DressingChoice.remoulade),
+        dressingRadioItem("House Ranch"),
+        dressingRadioItem("Caesar"),
+        dressingRadioItem("Bleu Cheese"),
+        dressingRadioItem("House Italian"),
+        dressingRadioItem("Thousand Islands"),
+        dressingRadioItem("Honey Mustard"),
+        dressingRadioItem("Balsamic Vinaigrette"),
+        dressingRadioItem("Raspberry Vinaigrette"),
+        dressingRadioItem("Remoulade"),
 
         const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
       ],
@@ -688,14 +677,14 @@ class _saladDialogState extends State<saladDialog> {
   }
 
   // Widget to build the dressing radio items
-  Widget dressingRadioItem(String title, DressingChoice choice){
+  Widget dressingRadioItem(String title){
     return Row(
         children: <Widget>[
-          Radio<DressingChoice>(
+          Radio(
             activeColor: bluePrimaryColor,
-            value: choice,
+            value: title,
             groupValue: _dressing,
-            onChanged: (DressingChoice? value){
+            onChanged: (String? value){
               setState(() {
                 _dressing = value;
               });
