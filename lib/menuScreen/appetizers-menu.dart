@@ -35,9 +35,9 @@ class AppetMenu extends StatelessWidget {
               menuItem('Crawfish Tails', 'assets/images/baskets/crawfish-basket.jpg'), // Need to get an image of crawfish tails without fries
               menuItem('Seafood Gumbo Bowl', 'assets/images/appetizers/cup-gumbo.jpg'),
               menuItem('Seafood Gumbo Cup', 'assets/images/appetizers/cup-gumbo.jpg'),
-              menuItem('6 Wings', ''),
-              menuItem('12 Wings',''),
-              menuItem('24 Wings',''),
+              menuItem('6 Wings', 'assets/images/placeholder.png'),
+              menuItem('12 Wings','assets/images/placeholder.png'),
+              menuItem('24 Wings','assets/images/placeholder.png'),
             ],
           ),
           bottomNavigationBar: navMenu(),
