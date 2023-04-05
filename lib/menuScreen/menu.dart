@@ -6,8 +6,10 @@ import 'package:flying_burger/menuScreen/boiled-menu.dart';
 import 'package:flying_burger/menuScreen/combos-menu.dart';
 import 'package:flying_burger/menuScreen/components/bottomNav.dart';
 import 'package:flying_burger/menuScreen/components/menuItems.dart';
+import 'package:flying_burger/menuScreen/condiments-menu.dart';
 import 'package:flying_burger/menuScreen/desserts-menu.dart';
 import 'package:flying_burger/menuScreen/drink-menu.dart';
+import 'package:flying_burger/menuScreen/extras-menu.dart';
 import 'package:flying_burger/menuScreen/grilled-menu.dart';
 import 'package:flying_burger/menuScreen/kids-menu.dart';
 import 'package:flying_burger/menuScreen/la-carte-menu.dart';
@@ -52,6 +54,8 @@ class MenuScreen extends StatelessWidget{
             menuItem('SIDES', 'assets/images/salads/small-sal.jpg', SidesMenu()),
             menuItem('DESSERTS', 'assets/images/desserts/cinnamon-roll.jpg', DessertsMenu()),
             menuItem('DRINKS', 'assets/images/combos/single-burger-combo.jpg', DrinkMenu()),
+            menuItem('CONDIMENTS', 'assets/images/placeholder.png', CondimentsMenu()),
+            menuItem('EXTRAS', 'assets/images/placeholder.png', ExtrasMenu()),
           ]
         ),
         bottomNavigationBar: navMenu(),
