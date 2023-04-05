@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flying_burger/cartScreen/components/bottomNav.dart';
 import 'package:flying_burger/checkout-screen.dart';
 import 'package:flying_burger/components/appbar.dart';
+import 'package:flying_burger/components/cartItem.dart';
 import 'package:flying_burger/constants.dart';
 import 'package:flying_burger/menuScreen/menuItemPages/itemScreen.dart';
 import 'package:input_quantity/input_quantity.dart';
@@ -94,7 +95,8 @@ class _CartScreenState extends State<CartScreen> {
                             children: <Widget>[
                               ElevatedButton(
                                 onPressed: (){
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) => const ItemScreen(name: 'Double Burger Combo', img: 'assets/images/double-burger.jpg', price: 8.99, mainMods: ['Drink', 'Side'], dialogMods: ['BurgerMod', 'BurgerSauce'])));
+                                  print(orderList[0].customizations);
+                                  //Navigator.push(context, MaterialPageRoute(builder: (context) => const ItemScreen(name: 'Double Burger Combo', img: 'assets/images/double-burger.jpg', price: 8.99, mainMods: ['Drink', 'Side'], dialogMods: ['BurgerMod', 'BurgerSauce'])));
                                 },
                                 child: const Text('Edit', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
                                 style: ElevatedButton.styleFrom(

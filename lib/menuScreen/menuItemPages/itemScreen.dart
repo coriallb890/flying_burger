@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flying_burger/cartScreen/cart-screen.dart';
+import 'package:flying_burger/components/cartItem.dart';
 import 'package:flying_burger/constants.dart';
 import 'package:flying_burger/menuScreen/components/bottomNav.dart';
+import 'package:flying_burger/menuScreen/menuItemPages/components/SaladDialog.dart';
 import 'package:flying_burger/menuScreen/menuItemPages/components/customizationDialog.dart';
-import 'package:flying_burger/menuScreen/menuItemPages/components/customizationLists.dart';
 import 'package:flying_burger/menuScreen/menuItemPages/components/itemAppBar.dart';
 
 class ItemScreen extends StatefulWidget {
@@ -31,7 +32,7 @@ class _ItemScreenState extends State<ItemScreen> {
   String? _icecream;
   String? _shrimp;
   String? _wing;
-  bool? halfChecked = false;
+  bool? halfChecked;
 
   @override
   Widget build(BuildContext context) {
@@ -180,6 +181,9 @@ class _ItemScreenState extends State<ItemScreen> {
                   padding: const EdgeInsets.only(top:6, bottom: 12),
                   child: ElevatedButton(
                     onPressed: (){
+                      List<String> itemCustomizations = createCustomizations();
+                      CartItem addedItem = CartItem(name: widget.name, quantity: 1, price: widget.price, customizations: itemCustomizations);
+                      print("SOmething");
                       Navigator.push(context, MaterialPageRoute(builder: (context)=> CartScreen()));
                     },
                     style: ElevatedButton.styleFrom(
@@ -197,6 +201,22 @@ class _ItemScreenState extends State<ItemScreen> {
         bottomNavigationBar: navMenu(),
       )
     );
+  }
+
+  // Function to create list of customizations
+  List<String> createCustomizations(){
+    List<String> customizations = [];
+    if(_drink != null){
+      customizations.add("$_drink($_size)");
+    }
+    var radioChecks = [_side, _sauce, _dressing, _icecream, _shrimp, _wing];
+    for (var check in radioChecks) {
+      if(check != null){
+        customizations.add(check);
+      };
+    }
+    print(customizations);
+    return customizations;
   }
 
   // Widget called to display the drink modifications
@@ -593,212 +613,6 @@ class _ItemScreenState extends State<ItemScreen> {
           ),
           Text(title, style: const TextStyle(fontSize: 24)),
         ]
-    );
-  }
-}
-
-class saladDialog extends StatefulWidget {
-  const saladDialog({Key? key}) : super(key: key);
-
-  @override
-  State<saladDialog> createState() => _saladDialogState();
-}
-
-class _saladDialogState extends State<saladDialog> {
-
-  String? _dressing;
-
-  final saladOptions = [
-    CheckBoxState(title: "Tomatoes", price: 0.0, extraPrice: 0.5, value: true),
-    CheckBoxState(title: "Cucumber", price: 0.0, extraPrice: 0.5, value: true),
-    CheckBoxState(title: "Croutons", price: 0.0, extraPrice: 0.5, value: true),
-    CheckBoxState(title: "Dried Cranberries", price: 0.0 , extraPrice: 0.5, value: true),
-    CheckBoxState(title: "Hushpuppies", price: 0.0, extraPrice: 0.5, value: true),
-    CheckBoxState(title: "Onion", price: 0.0, extraPrice: 0.5, value: false),
-    CheckBoxState(title: "Jalapeno", price: 0.49, extraPrice: 0.5, value: false),
-    CheckBoxState(title: "Bacon", price: 1.49, extraPrice: 0.5, value: false),
-    CheckBoxState(title: "Grilled Onion", price: 0.39, extraPrice: 0.5, value: false),
-    CheckBoxState(title: "Grilled Mushroom", price: 0.89, extraPrice: 0.5, value: false),
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Dialog(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(
-          child: SingleChildScrollView(
-            child:Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Column(
-                  children: <Widget>[
-                    Text("Ingredients", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
-                    ...saladOptions.map(customOption).toList(),
-                  ],
-                ),
-                const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
-                (() {
-                  return dressingMod();
-                }()),
-                TextButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Text('Apply', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
-                ),
-              ],
-            ),
-          )
-        )
-      ),
-    );
-  }
-
-  Widget dressingMod(){
-    return Column(
-      children: <Widget>[
-        const Text('Dressing Choice', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-        const Text('Must choose 1', style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.black54)),
-        dressingRadioItem("House Ranch"),
-        dressingRadioItem("Caesar"),
-        dressingRadioItem("Bleu Cheese"),
-        dressingRadioItem("House Italian"),
-        dressingRadioItem("Thousand Islands"),
-        dressingRadioItem("Honey Mustard"),
-        dressingRadioItem("Balsamic Vinaigrette"),
-        dressingRadioItem("Raspberry Vinaigrette"),
-        dressingRadioItem("Remoulade"),
-
-        const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
-      ],
-    );
-  }
-
-  // Widget to build the dressing radio items
-  Widget dressingRadioItem(String title){
-    return Row(
-        children: <Widget>[
-          Radio(
-            activeColor: bluePrimaryColor,
-            value: title,
-            groupValue: _dressing,
-            onChanged: (String? value){
-              setState(() {
-                _dressing = value;
-              });
-            },
-          ),
-          Text(title, style: const TextStyle(fontSize: 24)),
-        ]
-    );
-  }
-
-  Widget customOption(CheckBoxState checkbox){
-    return Column(
-      children: <Widget>[
-        Row(
-          children: <Widget>[
-            Checkbox(
-                fillColor: MaterialStatePropertyAll<Color>(bluePrimaryColor),
-                value: checkbox.value,
-                onChanged: (bool? value){
-                  setState(() {
-                    checkbox.value = value!;
-                  });
-                }
-            ),
-            Text(checkbox.title, style: const TextStyle(fontSize: 20)),
-            Text(
-                (() {
-                  if (checkbox.price > 0){
-                    return "  +\$" + checkbox.price.toStringAsFixed(2);
-                  }
-                  return " ";
-                }()),
-                style: TextStyle(fontSize: 20, fontStyle: FontStyle.italic)
-            ),
-          ],
-        ),
-        (() {
-          if(checkbox.value == true){
-            return Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                ElevatedButton(
-                  onPressed: (){
-                    setState(() {
-                      checkbox.option = CustomChoice.regular;
-                    });
-                  },
-                  style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
-                      backgroundColor: (checkbox.option == CustomChoice.regular) ? bluePrimaryColor : Colors.white),
-                  child: Text(
-                    "Regular",
-                    style: TextStyle(
-                      color: (checkbox.option == CustomChoice.regular) ? Colors.white : Colors.black,
-                    ),
-                  ),
-                ),
-                SizedBox(width: 5),
-                ElevatedButton(
-                    onPressed: (){
-                      setState(() {
-                        checkbox.option = CustomChoice.extra;
-                      });
-                    },
-                    style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
-                        backgroundColor: (checkbox.option == CustomChoice.extra) ? bluePrimaryColor : Colors.white),
-                    child: Row(
-                        children: <Widget>[
-                          Text(
-                            "Extra",
-                            style: TextStyle(
-                              color: (checkbox.option == CustomChoice.extra) ? Colors.white : Colors.black,
-                            ),
-                          ),
-                          Text(
-                            (() {
-                              if (checkbox.extraPrice > 0){
-                                return "  +\$" + checkbox.extraPrice.toStringAsFixed(2);
-                              }
-                              return "";
-                            }()),
-                            style: TextStyle(
-                              color: (checkbox.option == CustomChoice.extra) ? Colors.white : Colors.black,
-                            ),
-                          )
-                        ]
-                    )
-                ),
-                SizedBox(width: 5),
-                ElevatedButton(
-                  onPressed: (){
-                    setState(() {
-                      checkbox.option = CustomChoice.onSide;
-                    });
-                  },
-                  style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
-                      backgroundColor: (checkbox.option == CustomChoice.onSide) ? bluePrimaryColor : Colors.white),
-                  child: Text(
-                    "On Side",
-                    style: TextStyle(
-                      color: (checkbox.option == CustomChoice.onSide) ? Colors.white : Colors.black,
-                    ),
-                  ),
-                ),
-              ],
-            );
-          }
-          else{
-            return SizedBox(height: 0,);
-          }
-        }())
-      ],
     );
   }
 }
