@@ -72,6 +72,7 @@ class CheckoutScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 125),
                     ElevatedButton(
+                      //Sara needs to add order information on press.
                         onPressed: () {
                           Navigator.push(context, MaterialPageRoute(builder: (context)=> const ConfirmationScreen()));
                         },
