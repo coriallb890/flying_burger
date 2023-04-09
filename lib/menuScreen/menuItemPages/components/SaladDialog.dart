@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flying_burger/constants.dart';
-import 'package:flying_burger/menuScreen/menuItemPages/components/customizationDialog.dart';
-import 'package:flying_burger/menuScreen/menuItemPages/components/customizationLists.dart';
+import 'package:flying_burger/menuScreen/menuItemPages/components/dialogCustomizationsLists.dart';
 
 class saladDialog extends StatefulWidget {
   const saladDialog({Key? key}) : super(key: key);
@@ -136,16 +135,16 @@ class _saladDialogState extends State<saladDialog> {
                 ElevatedButton(
                   onPressed: (){
                     setState(() {
-                      checkbox.option = CustomChoice.regular;
+                      checkbox.option = "Regular";
                     });
                   },
                   style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
-                      backgroundColor: (checkbox.option == CustomChoice.regular) ? bluePrimaryColor : Colors.white),
+                      backgroundColor: (checkbox.option == "Regular") ? bluePrimaryColor : Colors.white),
                   child: Text(
                     "Regular",
                     style: TextStyle(
-                      color: (checkbox.option == CustomChoice.regular) ? Colors.white : Colors.black,
+                      color: (checkbox.option == "Regular") ? Colors.white : Colors.black,
                     ),
                   ),
                 ),
@@ -153,18 +152,18 @@ class _saladDialogState extends State<saladDialog> {
                 ElevatedButton(
                     onPressed: (){
                       setState(() {
-                        checkbox.option = CustomChoice.extra;
+                        checkbox.option = "Extra";
                       });
                     },
                     style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
-                        backgroundColor: (checkbox.option == CustomChoice.extra) ? bluePrimaryColor : Colors.white),
+                        backgroundColor: (checkbox.option == "Extra") ? bluePrimaryColor : Colors.white),
                     child: Row(
                         children: <Widget>[
                           Text(
                             "Extra",
                             style: TextStyle(
-                              color: (checkbox.option == CustomChoice.extra) ? Colors.white : Colors.black,
+                              color: (checkbox.option == "Extra") ? Colors.white : Colors.black,
                             ),
                           ),
                           Text(
@@ -175,7 +174,7 @@ class _saladDialogState extends State<saladDialog> {
                               return "";
                             }()),
                             style: TextStyle(
-                              color: (checkbox.option == CustomChoice.extra) ? Colors.white : Colors.black,
+                              color: (checkbox.option == "Extra") ? Colors.white : Colors.black,
                             ),
                           )
                         ]
@@ -185,16 +184,16 @@ class _saladDialogState extends State<saladDialog> {
                 ElevatedButton(
                   onPressed: (){
                     setState(() {
-                      checkbox.option = CustomChoice.onSide;
+                      checkbox.option = "On Side";
                     });
                   },
                   style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
-                      backgroundColor: (checkbox.option == CustomChoice.onSide) ? bluePrimaryColor : Colors.white),
+                      backgroundColor: (checkbox.option == "On Side") ? bluePrimaryColor : Colors.white),
                   child: Text(
                     "On Side",
                     style: TextStyle(
-                      color: (checkbox.option == CustomChoice.onSide) ? Colors.white : Colors.black,
+                      color: (checkbox.option == "On Side") ? Colors.white : Colors.black,
                     ),
                   ),
                 ),
