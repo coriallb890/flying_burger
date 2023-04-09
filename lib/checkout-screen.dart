@@ -1,3 +1,4 @@
+import 'package:flying_burger/components/cartItem.dart';
 import 'package:flying_burger/confirmation-screen.dart';
 import 'package:flying_burger/constants.dart';
 import 'package:flutter/material.dart';
@@ -74,6 +75,7 @@ class CheckoutScreen extends StatelessWidget {
                     ElevatedButton(
                       //Sara needs to add order information on press.
                         onPressed: () {
+                          orderList.clear();
                           Navigator.push(context, MaterialPageRoute(builder: (context)=> const ConfirmationScreen()));
                         },
                         style: ElevatedButton.styleFrom(

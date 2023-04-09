@@ -1,4 +1,4 @@
-List<CartItem> orderList = [CartItem(name: "Burger", quantity: 1, price: 100.00, customizations: ["Coke", "Ketchup", "Cheese"])];
+List<CartItem> orderList = [];
 
 
 class CartItem{
