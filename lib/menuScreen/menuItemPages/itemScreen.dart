@@ -191,7 +191,7 @@ class _ItemScreenState extends State<ItemScreen> {
                   child: ElevatedButton(
                     onPressed: (){
                       List<String> itemCustomizations = createCustomizations();
-                      CartItem addedItem = CartItem(name: widget.name, quantity: 1, price: widget.price, customizations: itemCustomizations);
+                      CartItem addedItem = CartItem(name: widget.name, imgPath: widget.img,quantity: 1, price: widget.price, index: orderList.length ,customizations: itemCustomizations);
                       orderList.add(addedItem);
                       Navigator.push(context, MaterialPageRoute(builder: (context)=> CartScreen()));
                     },
