@@ -1,6 +1,6 @@
 import '../menuScreen/components/bottomNav.dart';
 import 'package:flutter/material.dart';
-import 'components/menuItems.dart';
+import 'package:flying_burger/menuScreen/menuItemPages/components/itemButton.dart';
 import 'package:flying_burger/menuScreen/menuItemPages/components/itemAppBar.dart';
 
 class SaladsMenu extends StatelessWidget {
@@ -26,24 +26,24 @@ class SaladsMenu extends StatelessWidget {
             childAspectRatio: 9/10,
             padding: const EdgeInsets.all(15),
             children: const <Widget>[
-              menuItem('Fried Catfish House Salad', 'assets/images/placeholder.png'),
-              menuItem('Fried Catfish Caesar Salad', 'assets/images/placeholder.png'),
-              menuItem('Grilled Catfish House Salad', 'assets/images/placeholder.png'),
-              menuItem('Grilled Catfish Caesar Salad', 'assets/images/placeholder.png'),
-              menuItem('Crawfish Caesar Salad', 'assets/images/placeholder.png'),
-              menuItem('Crawfish House Salad', 'assets/images/placeholder.png'),
-              menuItem('Fried Chicken House Salad', 'assets/images/salads/fried-chick-sal.jpg'),
-              menuItem('Fried Chicken Caesar Salad', 'assets/images/salads/fried-chick-sal.jpg'),
-              menuItem('Grilled Chicken House Salad', 'assets/images/salads/grilled-chick-sal.jpg'),
-              menuItem('Grilled Chicken Caesar Salad', 'assets/images/salads/grilled-chick-cae.jpg'),
-              menuItem('Salmon House Salad','assets/images/salads/salmon-sal.jpg'),
-              menuItem('Salmon Caesar Salad', 'assets/images/salads/salmon-sal.jpg'),
-              menuItem('Fried Shrimp House Salad', 'assets/images/placeholder.png'),
-              menuItem('Fried Shrimp Caesar Salad', 'assets/images/placeholder.png'),
-              menuItem('Grilled Shrimp House Salad', 'assets/images/salads/grilled-shrimp-sal.jpg'),
-              menuItem('Grilled Shrimp Caesar Salad', 'assets/images/salads/grilled_shrimp_cae.jpg'),
-              menuItem('Tilapia House Salad','assets/images/placeholder.png'),
-              menuItem('Tilapia Caesar Salad','assets/images/placeholder.png'),
+              itemButton('Fried Catfish House Salad', 'assets/images/placeholder.png',9.99,[],[]),
+              itemButton('Fried Catfish Caesar Salad', 'assets/images/placeholder.png',9.99,[],[]),
+              itemButton('Grilled Catfish House Salad', 'assets/images/placeholder.png',9.99,[],[]),
+              itemButton('Grilled Catfish Caesar Salad', 'assets/images/placeholder.png',9.99,[],[]),
+              itemButton('Crawfish Caesar Salad', 'assets/images/placeholder.png',9.99,[],[]),
+              itemButton('Crawfish House Salad', 'assets/images/placeholder.png',9.99,[],[]),
+              itemButton('Fried Chicken House Salad', 'assets/images/salads/fried-chick-sal.jpg',9.99,[],[]),
+              itemButton('Fried Chicken Caesar Salad', 'assets/images/salads/fried-chick-sal.jpg',9.99,[],[]),
+              itemButton('Grilled Chicken House Salad', 'assets/images/salads/grilled-chick-sal.jpg',9.99,[],[]),
+              itemButton('Grilled Chicken Caesar Salad', 'assets/images/salads/grilled-chick-cae.jpg',9.99,[],[]),
+              itemButton('Salmon House Salad','assets/images/salads/salmon-sal.jpg',9.99,[],[]),
+              itemButton('Salmon Caesar Salad', 'assets/images/salads/salmon-sal.jpg',9.99,[],[]),
+              itemButton('Fried Shrimp House Salad', 'assets/images/placeholder.png',9.99,[],[]),
+              itemButton('Fried Shrimp Caesar Salad', 'assets/images/placeholder.png',9.99,[],[]),
+              itemButton('Grilled Shrimp House Salad', 'assets/images/salads/grilled-shrimp-sal.jpg',9.99,[],[]),
+              itemButton('Grilled Shrimp Caesar Salad', 'assets/images/salads/grilled_shrimp_cae.jpg',9.99,[],[]),
+              itemButton('Tilapia House Salad','assets/images/placeholder.png',9.99,[],[]),
+              itemButton('Tilapia Caesar Salad','assets/images/placeholder.png',9.99,[],[]),
             ],
           ),
           bottomNavigationBar: navMenu(),

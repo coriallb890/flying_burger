@@ -1,6 +1,6 @@
 import '../menuScreen/components/bottomNav.dart';
 import 'package:flutter/material.dart';
-import 'components/menuItems.dart';
+import 'package:flying_burger/menuScreen/menuItemPages/components/itemButton.dart';
 import 'package:flying_burger/menuScreen/menuItemPages/components/itemAppBar.dart';
 
 class BasketsMenu extends StatelessWidget {
@@ -26,20 +26,20 @@ class BasketsMenu extends StatelessWidget {
             childAspectRatio: 9/10,
             padding: const EdgeInsets.all(15),
             children: const <Widget>[
-              menuItem('4 Catfish Basket', 'assets/images/baskets/catfish-basket.jpg'),
-              menuItem('5 Catfish Basket', 'assets/images/baskets/catfish-basket.jpg'),
-              menuItem('6 Catfish Basket', 'assets/images/baskets/catfish-basket.jpg'),
-              menuItem('6 Jumbo Shrimp Basket', 'assets/images/baskets/shrimp-basket.jpg'),
-              menuItem('12 Jumbo Shrimp Basket', 'assets/images/baskets/12-shrimp-basket.jpg'),
-              menuItem('18 Jumbo Shrimp Basket', 'assets/images/baskets/12-shrimp-basket.jpg'),
-              menuItem('Fried Crawfish Tails Basket', 'assets/images/baskets/crawfish-basket.jpg'),
-              menuItem('3 Chicken Strips Basket', 'assets/images/baskets/chicken-basket.jpg'),
-              menuItem('Country Fried Chicken Basket', 'assets/images/baskets/country-fried-basket.jpg'),
-              menuItem('2 Catfish Fillets & 1 Chicken Strip Basket', 'assets/images/placeholder.png'),
-              menuItem('2 Jumbo Shrimp & 1 Chicken Strip Basket', 'assets/images/placeholder.png'),
-              menuItem('4 Jumbo Shrimp & 2 Catfish Fillets Basket', 'assets/images/placeholder.png'),
-              menuItem('4 Jumbo Shrimp & 4 Catfish Fillets Basket', 'assets/images/placeholder.png'),
-              menuItem('6 Jumbo Shrimp & Crawfish Tails Basket', 'assets/images/placeholder.png'),
+              itemButton('4 Catfish Basket', 'assets/images/baskets/catfish-basket.jpg',10.99,["Single","Sauce"],[]),
+              itemButton('5 Catfish Basket', 'assets/images/baskets/catfish-basket.jpg',11.99,["Single","Sauce"],[]),
+              itemButton('6 Catfish Basket', 'assets/images/baskets/catfish-basket.jpg',12.99,["Single","Sauce"],[]),
+              itemButton('6 Jumbo Shrimp Basket', 'assets/images/baskets/shrimp-basket.jpg',12.99,["Single","Sauce","Shrimp"],[]),
+              itemButton('12 Jumbo Shrimp Basket', 'assets/images/baskets/12-shrimp-basket.jpg',22.99,["Single","Sauce","Shrimp"],[]),
+              itemButton('18 Jumbo Shrimp Basket', 'assets/images/baskets/12-shrimp-basket.jpg',30.49,["Single","Sauce","Shrimp"],[]),
+              itemButton('Fried Crawfish Tails Basket', 'assets/images/baskets/crawfish-basket.jpg',13.99,["Single","Sauce"],[]),
+              itemButton('3 Chicken Strips Basket', 'assets/images/baskets/chicken-basket.jpg',9.99,["Single","Sauce"],[]),
+              itemButton('Country Fried Chicken Basket', 'assets/images/baskets/country-fried-basket.jpg',9.99,["Single","Sauce"],[]),
+              itemButton('2 Catfish Fillets & 1 Chicken Strip Basket', 'assets/images/placeholder.png',9.99,["Single","Sauce"],[]),
+              itemButton('2 Jumbo Shrimp & 1 Chicken Strip Basket', 'assets/images/placeholder.png',9.99,["Single","Sauce","Shrimp"],[]),
+              itemButton('4 Jumbo Shrimp & 2 Catfish Fillets Basket', 'assets/images/placeholder.png',12.99,["Single","Sauce","Shrimp"],[]),
+              itemButton('4 Jumbo Shrimp & 4 Catfish Fillets Basket', 'assets/images/placeholder.png',14.99,["Single","Sauce","Shrimp"],[]),
+              itemButton('6 Jumbo Shrimp & Crawfish Tails Basket', 'assets/images/placeholder.png',20.99,["Single","Sauce","Shrimp"],[]),
             ],
           ),
           bottomNavigationBar: navMenu(),

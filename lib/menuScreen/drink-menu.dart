@@ -1,7 +1,8 @@
 import '../menuScreen/components/bottomNav.dart';
 import 'package:flutter/material.dart';
-import 'components/menuItems.dart';
+
 import 'package:flying_burger/menuScreen/menuItemPages/components/itemAppBar.dart';
+import 'package:flying_burger/menuScreen/menuItemPages/components/itemButton.dart';
 
 class DrinkMenu extends StatelessWidget {
   const DrinkMenu({super.key});
@@ -26,16 +27,16 @@ class DrinkMenu extends StatelessWidget {
             childAspectRatio: 9/10,
             padding: const EdgeInsets.all(15),
             children: const <Widget>[
-              menuItem('Coffee', 'assets/images/placeholder.png'), // Will make placement cards for drinks
-              menuItem('Coke', 'assets/images/placeholder.png'),
-              menuItem('Diet Coke', 'assets/images/placeholder.png'),
-              menuItem('Fanta', 'assets/images/placeholder.png'),
-              menuItem('Lemonade', 'assets/images/placeholder.png'),
-              menuItem('Powerade Mountain Berry', 'assets/images/placeholder.png'),
-              menuItem('Root Beer', 'assets/images/placeholder.png'),
-              menuItem('Sprite', 'assets/images/placeholder.png'),
-              menuItem('Sweet Tea', 'assets/images/placeholder.png'),
-              menuItem('Unsweet Tea', 'assets/images/placeholder.png'),
+              itemButton('Coffee', 'assets/images/placeholder.png',2.49,["Drink"],[]), // Will make placement cards for drinks
+              itemButton('Coke', 'assets/images/placeholder.png',2.49,["Drink"],[]),
+              itemButton('Diet Coke', 'assets/images/placeholder.png',2.49,["Drink"],[]),
+              itemButton('Fanta', 'assets/images/placeholder.png',2.49,["Drink"],[]),
+              itemButton('Lemonade', 'assets/images/placeholder.png',2.49,["Drink"],[]),
+              itemButton('Powerade Mountain Berry', 'assets/images/placeholder.png',2.49,["Drink"],[]),
+              itemButton('Root Beer', 'assets/images/placeholder.png',2.49,["Drink"],[]),
+              itemButton('Sprite', 'assets/images/placeholder.png',2.49,["Drink"],[]),
+              itemButton('Sweet Tea', 'assets/images/placeholder.png',2.49,["Drink"],[]),
+              itemButton('Unsweet Tea', 'assets/images/placeholder.png',2.49,["Drink"],[]),
             ],
           ),
           bottomNavigationBar: navMenu(),

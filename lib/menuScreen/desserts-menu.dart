@@ -1,7 +1,8 @@
 import '../menuScreen/components/bottomNav.dart';
 import 'package:flutter/material.dart';
-import 'components/menuItems.dart';
+
 import 'package:flying_burger/menuScreen/menuItemPages/components/itemAppBar.dart';
+import 'package:flying_burger/menuScreen/menuItemPages/components/itemButton.dart';
 
 class DessertsMenu extends StatelessWidget {
   const DessertsMenu({super.key});
@@ -26,10 +27,10 @@ class DessertsMenu extends StatelessWidget {
             childAspectRatio: 9/10,
             padding: const EdgeInsets.all(15),
             children: const <Widget>[
-              menuItem('Cake Cone', 'assets/images/desserts/cake-waffle-cone.jpg'),
-              menuItem('Cinnamon Roll', 'assets/images/desserts/cinnamon-roll.jpg'),
-              menuItem('Ice Cream Cup', 'assets/images/desserts/cake-waffle-cone.jpg'),
-              menuItem('Waffle Cone', 'assets/images/desserts/cake-waffle-cone.jpg'),
+              itemButton('Cake Cone', 'assets/images/desserts/cake-waffle-cone.jpg',1.99,["Ice Cream"],[]),
+              itemButton('Cinnamon Roll', 'assets/images/desserts/cinnamon-roll.jpg',2.99,[],[]),
+              itemButton('Ice Cream Cup', 'assets/images/desserts/cake-waffle-cone.jpg',2.59,["Ice Cream"],[]),
+              itemButton('Waffle Cone', 'assets/images/desserts/cake-waffle-cone.jpg',2.99,["Ice Cream"],[]),
             ],
           ),
           bottomNavigationBar: navMenu(),

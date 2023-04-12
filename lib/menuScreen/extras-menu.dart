@@ -1,6 +1,6 @@
 import '../menuScreen/components/bottomNav.dart';
 import 'package:flutter/material.dart';
-import 'components/menuItems.dart';
+import 'package:flying_burger/menuScreen/menuItemPages/components/itemButton.dart';
 import 'package:flying_burger/menuScreen/menuItemPages/components/itemAppBar.dart';
 
 class ExtrasMenu extends StatelessWidget {
@@ -26,18 +26,18 @@ class ExtrasMenu extends StatelessWidget {
             childAspectRatio: 9/10,
             padding: const EdgeInsets.all(15),
             children: const <Widget>[
-              menuItem('Boiled Shrimp', 'assets/images/placeholder.png'),
-              menuItem('Burger Patty', 'assets/images/placeholder.png'),
-              menuItem('Fried Catfish', 'assets/images/placeholder.png'),
-              menuItem('Chicken Patty', 'assets/images/placeholder.png'),
-              menuItem('Chicken Strip', 'assets/images/placeholder.png'),
-              menuItem('Fried Shrimp', 'assets/images/placeholder.png'),
-              menuItem('Grilled Catfish', 'assets/images/placeholder.png'),
-              menuItem('Grilled Chicken', 'assets/images/placeholder.png'),
-              menuItem('Grilled Salmon', 'assets/images/placeholder.png'),
-              menuItem('Grilled Shrimp', 'assets/images/placeholder.png'),
-              menuItem('Grilled Tilapia', 'assets/images/placeholder.png'),
-              menuItem('Crab Cluster', 'assets/images/placeholder.png'),
+              itemButton('Boiled Shrimp', 'assets/images/placeholder.png',9.99,[],[]),
+              itemButton('Burger Patty', 'assets/images/placeholder.png',9.99,[],[]),
+              itemButton('Fried Catfish', 'assets/images/placeholder.png',9.99,[],[]),
+              itemButton('Chicken Patty', 'assets/images/placeholder.png',9.99,[],[]),
+              itemButton('Chicken Strip', 'assets/images/placeholder.png',9.99,[],[]),
+              itemButton('Fried Shrimp', 'assets/images/placeholder.png',9.99,[],[]),
+              itemButton('Grilled Catfish', 'assets/images/placeholder.png',9.99,[],[]),
+              itemButton('Grilled Chicken', 'assets/images/placeholder.png',9.99,[],[]),
+              itemButton('Grilled Salmon', 'assets/images/placeholder.png',9.99,[],[]),
+              itemButton('Grilled Shrimp', 'assets/images/placeholder.png',9.99,[],[]),
+              itemButton('Grilled Tilapia', 'assets/images/placeholder.png',9.99,[],[]),
+              itemButton('Crab Cluster', 'assets/images/placeholder.png',9.99,[],[]),
             ],
           ),
           bottomNavigationBar: navMenu(),
