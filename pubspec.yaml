@@ -33,6 +33,9 @@ dependencies:
   carousel_slider: ^4.2.1
   flutter_pw_validator: ^1.5.0
   flutter_email_sender: ^5.0.2
+  another_brother: ^0.0.33
+  flutter_speed_dial: ^6.2.0
+  permission_handler: ^10.2.0
   flutter:
     sdk: flutter
 

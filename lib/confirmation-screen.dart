@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flying_burger/create-account.dart';
 import 'package:flying_burger/homeScreen/home-screen.dart';
 import 'package:flying_burger/constants.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:flying_burger/print_api.dart';
+import 'package:path_provider/path_provider.dart';
 
 
 class ConfirmationScreen extends StatelessWidget{
@@ -59,7 +63,21 @@ class ConfirmationScreen extends StatelessWidget{
             ],
           ),
         ),
-
+        floatingActionButton: SpeedDial(
+          icon: Icons.more_horiz,
+          activeIcon: Icons.close,
+          spaceBetweenChildren: 16,
+          children: [
+            SpeedDialChild(
+              child: const Icon(Icons.print),
+              onTap: () async {
+                await PrintAPI.printText(
+                    context, 'Order Successful: Thank you for your Order!');
+              },
+              label: 'Print text',
+            ),
+          ],
+        ),
       ),
     );
   }
