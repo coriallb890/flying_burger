@@ -32,6 +32,7 @@ dependencies:
   email_validator: ^2.1.16
   carousel_slider: ^4.2.1
   flutter_pw_validator: ^1.5.0
+  flutter_email_sender: ^5.0.2
   flutter:
     sdk: flutter
 
@@ -41,6 +42,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   input_quantity: ^1.1.4
   quantity_input: ^1.0.2
+  http: ^0.13.3
+
 
 dev_dependencies:
   flutter_test:
@@ -54,6 +57,8 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
   carousel_slider: ^4.2.1
+  flutter_email_sender: ^5.0.2
+
 
 
 # For information on the generic Dart part of this file, see the
@@ -83,6 +88,7 @@ flutter:
     - assets/images/salads/
     - assets/images/sides/
     - assets/images/tacos/
+    - assets/jsonfiles/loginInfo.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

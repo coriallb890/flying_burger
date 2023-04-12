@@ -4,6 +4,8 @@ import 'package:flying_burger/homeScreen/home-screen.dart';
 import 'package:flying_burger/forgot-password.dart';
 import 'package:flying_burger/start-screen.dart';
 import 'package:email_validator/email_validator.dart';
+import 'dart:convert';
+import 'package:flutter/services.dart';
 
 
 class LogInScreen extends StatefulWidget {
@@ -13,11 +15,22 @@ class LogInScreen extends StatefulWidget {
 }
 
 class _LogInScreen extends State<LogInScreen> {
+
+  List _userinfo = [];
+
+  Future<void> readJson() async {
+    final String response = await rootBundle.loadString('assets/jsonfiles/loginInfo.json');
+    final data = await json.decode(response);
+    setState(() {
+      _userinfo = data as List<dynamic>;
+    });
+  }
   var _passwordVisible;
   var _checkedValue;
   final _emailKey = GlobalKey<FormState>();
   final _passKey = GlobalKey<FormState>();
   final TextEditingController _pass = TextEditingController();
+  final TextEditingController _email = TextEditingController();
   RegExp pass_valid = RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
   bool validatePassword(String pass){
     String _password = pass.trim();
@@ -46,7 +59,7 @@ class _LogInScreen extends State<LogInScreen> {
                 repeat: ImageRepeat.repeat)),
         child: Scaffold (
             backgroundColor: Colors.transparent,
-            body: Center (
+            body: SingleChildScrollView (
                 child: Column (
                   children: <Widget>[
                     AppBar(
@@ -69,20 +82,22 @@ class _LogInScreen extends State<LogInScreen> {
                       child: Form(
                         key: _emailKey,
                         child: TextFormField(
+                          controller: _email,
                           validator: (value){
                             if(value!.isEmpty){
                               return "Please enter your email";
                             }
 
-                            else{
-                              bool result = EmailValidator.validate(value);
-                              if(result){
-                                //create account event
-                                return null;
-                              }
-                              else{
-                                return "Invalid email";
-                              }
+                            else {
+                                bool result = EmailValidator.validate(value) & _userinfo[2]["Email"].contains(value);
+
+                                if (result) {
+                                  //create account event
+                                  return null;
+                                }
+                                else {
+                                  return "Invalid email";
+                                }
                             }
                           },
                           decoration: InputDecoration(
@@ -106,6 +121,17 @@ class _LogInScreen extends State<LogInScreen> {
                               return "Please enter password";
                             }
 
+                            else {
+                              bool result = _userinfo[2]["Password"].contains(value);
+
+                              if (result) {
+                                //create account event
+                                return null;
+                              }
+                              else {
+                                return "Incorrect Password";
+                              }
+                            }
                           },
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
@@ -151,6 +177,7 @@ class _LogInScreen extends State<LogInScreen> {
                     const SizedBox(height: 10),
                     ElevatedButton(
                         onPressed: () {
+                          readJson();
                           if(_passKey.currentState!.validate() & _emailKey.currentState!.validate()) {
                             Navigator.push(context, MaterialPageRoute(builder: (context)=> const HomeScreen()));
                           };

@@ -1,0 +1,21 @@
+[
+{
+      "UserName": "Ryan Callicott",
+      "Email": "ryanscallicott@gmail.com",
+      "Password": "Password$12",
+      "Credit Card": "0123-4568-9876-5432"
+    },
+    {
+      "UserName": "Cori Allbritton",
+      "Email": "coriallbritton@gmail.com",
+      "Password": "Pa$$word12",
+      "Credit Card": "0123-4568-9876-5439"
+    },
+    {
+      "UserName": "Kyle Prather",
+      "Email": "IwishIhadHair@gmail.com",
+      "Password": "LorealParis#2023",
+      "Credit Card": "0123-4568-9876-5431"
+    }
+
+]
