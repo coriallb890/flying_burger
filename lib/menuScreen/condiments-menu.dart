@@ -1,7 +1,7 @@
 import '../menuScreen/components/bottomNav.dart';
 import 'package:flutter/material.dart';
-import 'components/menuItems.dart';
 import 'package:flying_burger/menuScreen/menuItemPages/components/itemAppBar.dart';
+import 'package:flying_burger/menuScreen/menuItemPages/components/itemButton.dart';
 
 class CondimentsMenu extends StatelessWidget {
   const CondimentsMenu({super.key});
@@ -26,26 +26,26 @@ class CondimentsMenu extends StatelessWidget {
             childAspectRatio: 9/10,
             padding: const EdgeInsets.all(15),
             children: const <Widget>[
-              menuItem('Balsamic', 'assets/images/placeholder.png'),
-              menuItem('Bleu Cheese', 'assets/images/placeholder.png'),
-              menuItem('BBQ', 'assets/images/placeholder.png'),
-              menuItem('Brown Gravy', 'assets/images/placeholder.png'),
-              menuItem('Butter Dill Sauce', 'assets/images/placeholder.png'),
-              menuItem('Caesar Dressing', 'assets/images/placeholder.png'),
-              menuItem('Cheese Sauce', 'assets/images/placeholder.png'),
-              menuItem('Cocktail Sauce', 'assets/images/placeholder.png'),
-              menuItem('Honey Mustard', 'assets/images/placeholder.png'),
-              menuItem('Hot Sauce', 'assets/images/placeholder.png'),
-              menuItem('House Italian', 'assets/images/placeholder.png'),
-              menuItem('House Ranch', 'assets/images/placeholder.png'),
-              menuItem('Ketchup', 'assets/images/placeholder.png'),
-              menuItem('Mayo', 'assets/images/placeholder.png'),
-              menuItem('Mustard', 'assets/images/placeholder.png'),
-              menuItem('Raspberry', 'assets/images/placeholder.png'),
-              menuItem('Remoulade', 'assets/images/placeholder.png'),
-              menuItem('Tartar Sauce', 'assets/images/placeholder.png'),
-              menuItem('Thousand Island', 'assets/images/placeholder.png'),
-              menuItem('White Gravy', 'assets/images/placeholder.png'),
+              itemButton('Balsamic', 'assets/images/placeholder.png',.25,[],[]),
+              itemButton('Bleu Cheese', 'assets/images/placeholder.png',.25,[],[]),
+              itemButton('BBQ', 'assets/images/placeholder.png',.25,[],[]),
+              itemButton('Brown Gravy', 'assets/images/placeholder.png',.25,[],[]),
+              itemButton('Butter Dill Sauce', 'assets/images/placeholder.png',.25,[],[]),
+              itemButton('Caesar Dressing', 'assets/images/placeholder.png',.25,[],[]),
+              itemButton('Cheese Sauce', 'assets/images/placeholder.png',.25,[],[]),
+              itemButton('Cocktail Sauce', 'assets/images/placeholder.png',.25,[],[]),
+              itemButton('Honey Mustard', 'assets/images/placeholder.png',.25,[],[]),
+              itemButton('Hot Sauce', 'assets/images/placeholder.png',.25,[],[]),
+              itemButton('House Italian', 'assets/images/placeholder.png',.25,[],[]),
+              itemButton('House Ranch', 'assets/images/placeholder.png',.25,[],[]),
+              itemButton('Ketchup', 'assets/images/placeholder.png',.25,[],[]),
+              itemButton('Mayo', 'assets/images/placeholder.png',.25,[],[]),
+              itemButton('Mustard', 'assets/images/placeholder.png',.25,[],[]),
+              itemButton('Raspberry', 'assets/images/placeholder.png',.25,[],[]),
+              itemButton('Remoulade', 'assets/images/placeholder.png',.25,[],[]),
+              itemButton('Tartar Sauce', 'assets/images/placeholder.png',.25,[],[]),
+              itemButton('Thousand Island', 'assets/images/placeholder.png',.25,[],[]),
+              itemButton('White Gravy', 'assets/images/placeholder.png',.25,[],[]),
             ],
           ),
           bottomNavigationBar: navMenu(),

@@ -1,8 +1,8 @@
 import '../menuScreen/components/bottomNav.dart';
 import 'package:flutter/material.dart';
-import 'components/menuItems.dart';
-import 'package:flying_burger/menuScreen/menuItemPages/components/itemAppBar.dart';
 
+import 'package:flying_burger/menuScreen/menuItemPages/components/itemAppBar.dart';
+import 'package:flying_burger/menuScreen/menuItemPages/components/itemButton.dart';
 class LaCarteMenu extends StatelessWidget {
   const LaCarteMenu({super.key});
 
@@ -26,13 +26,13 @@ class LaCarteMenu extends StatelessWidget {
             childAspectRatio: 9/10,
             padding: const EdgeInsets.all(15),
             children: const <Widget>[
-              menuItem('Single Burger', 'assets/images/la-carte/single-burger.jpg'),
-              menuItem('Double Burger', 'assets/images/la-carte/double-burger.jpg'),
-              menuItem('Mushroom Burger', 'assets/images/la-carte/mushroom-burger.jpg'),
-              menuItem('Fried Chicken Sandwich', 'assets/images/la-carte/fried-chick-sand.jpg'),
-              menuItem('Grilled Chicken Sandwich', 'assets/images/la-carte/grilled-chick-sand.jpg'),
-              menuItem('Single Hamburger Steak', 'assets/images/la-carte/hamburger-steak.jpg'),
-              menuItem('Double Hamburger Steak', 'assets/images/la-carte/hamburger-steak.jpg'),
+              itemButton('Single Burger', 'assets/images/la-carte/single-burger.jpg',9.99,[],[]),
+              itemButton('Double Burger', 'assets/images/la-carte/double-burger.jpg',9.99,[],[]),
+              itemButton('Mushroom Burger', 'assets/images/la-carte/mushroom-burger.jpg',9.99,[],[]),
+              itemButton('Fried Chicken Sandwich', 'assets/images/la-carte/fried-chick-sand.jpg',9.99,[],[]),
+              itemButton('Grilled Chicken Sandwich', 'assets/images/la-carte/grilled-chick-sand.jpg',9.99,[],[]),
+              itemButton('Single Hamburger Steak', 'assets/images/la-carte/hamburger-steak.jpg',9.99,[],[]),
+              itemButton('Double Hamburger Steak', 'assets/images/la-carte/hamburger-steak.jpg',9.99,[],[]),
             ],
           ),
           bottomNavigationBar: navMenu(),
