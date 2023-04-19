@@ -42,6 +42,7 @@ class _ItemScreenState extends State<ItemScreen> {
   List<CheckBoxState> hamSteakOptions = defaultHamSteakOptions.map((o) => CheckBoxState.clone(o)).toList();
   List<CheckBoxState> tacoOptions = defaultTacoOptions.map((o) => CheckBoxState.clone(o)).toList();
   List<CheckBoxState> extraScoopOptions = defaultExtraScoopOptions.map((o) => CheckBoxState.clone(o)).toList();
+  List<CheckBoxState> saladOptions = defaultSaladOptions.map((o) => CheckBoxState.clone(o)).toList();
 
   @override
   Widget build(BuildContext context) {
@@ -224,8 +225,11 @@ class _ItemScreenState extends State<ItemScreen> {
         customizations.add(check);
       }
     }
-    if (widget.dialogMods.contains('Burger')) {
-      customizations = customizations + (customizationsCheck(defaultBurgerOptions, burgerOptions));
+    var currentCustomizations = [burgerOptions, sandwichOptions, condimentOptions, gumboOptions, hamSteakOptions, tacoOptions, extraScoopOptions, saladOptions];
+    for(int i = 0; i < 8; i++){
+      if (widget.dialogMods.contains(dialogMods[i])) {
+        customizations = customizations + (customizationsCheck(defaultsList[i], currentCustomizations[i]));
+      }
     }
     return customizations;
   }
@@ -255,7 +259,7 @@ class _ItemScreenState extends State<ItemScreen> {
         }
       }
       else{
-        print("Something have gone horribly horribly wrong");
+        customs.add("Something bad happened");
       }
     }
     return customs;
@@ -294,6 +298,21 @@ class _ItemScreenState extends State<ItemScreen> {
                           children: <Widget>[
                             Text("Toppings", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
                             ...sandwichOptions.map(customOption).toList(),
+                            const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
+                          ],
+                        );
+                      }
+                      else{
+                        return SizedBox(height:0);
+                      }
+                    }()),
+                    // Check for salad customizations
+                    (() {
+                      if (widget.dialogMods.contains('Salad')){
+                        return Column(
+                          children: <Widget>[
+                            Text("Salad Options", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+                            ...saladOptions.map(customOption).toList(),
                             const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
                           ],
                         );
@@ -534,6 +553,8 @@ class _ItemScreenState extends State<ItemScreen> {
         drinkCheck("Sweet Tea"),
         drinkRadioItem("Unsweet Tea"),
         drinkCheck("Unsweet Tea"),
+        drinkRadioItem("Water"),
+        drinkCheck("Water"),
         const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
       ],
     );
@@ -643,7 +664,6 @@ class _ItemScreenState extends State<ItemScreen> {
         dressingRadioItem("Balsamic Vinaigrette"),
         dressingRadioItem("Raspberry Vinaigrette"),
         dressingRadioItem("Remoulade"),
-
         const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
       ],
     );
