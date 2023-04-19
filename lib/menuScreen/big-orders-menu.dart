@@ -1,7 +1,7 @@
 import '../menuScreen/components/bottomNav.dart';
 import 'package:flutter/material.dart';
-import 'components/menuItems.dart';
 import 'package:flying_burger/menuScreen/menuItemPages/components/itemAppBar.dart';
+import 'package:flying_burger/menuScreen/menuItemPages/components/itemButton.dart';
 
 class BigOrdersMenu extends StatelessWidget {
   const BigOrdersMenu({super.key});
@@ -26,19 +26,19 @@ class BigOrdersMenu extends StatelessWidget {
             childAspectRatio: 9/10,
             padding: const EdgeInsets.all(15),
             children: const <Widget>[
-              menuItem('12 Catfish', 'assets/images/placeholder.png'),
-              menuItem('24 Catfish', 'assets/images/placeholder.png'),
-              menuItem('36 Catfish', 'assets/images/placeholder.png'),
-              menuItem('12 Chicken', 'assets/images/placeholder.png'),
-              menuItem('24 Chicken', 'assets/images/placeholder.png'),
-              menuItem('36 Chicken', 'assets/images/placeholder.png'),
-              menuItem('Pan of French Fries', 'assets/images/placeholder.png'),
-              menuItem('Pan of Salad (Small)', 'assets/images/placeholder.png'),
-              menuItem('Pan of Salad (Large)', 'assets/images/placeholder.png'),
-              menuItem('Pan of Coleslaw (Large)', 'assets/images/placeholder.png'),
-              menuItem('Pan of Coleslaw (Small)', 'assets/images/placeholder.png'),
-              menuItem('Pan of Tarter', 'assets/images/placeholder.png'),
-              menuItem('Pan of Cinnamon Rolls', 'assets/images/big-orders/pan-cinnamon-rolls.jpg'),
+              itemButton('12 Catfish', 'assets/images/placeholder.png',24.99,["1/2 options","Sauce"],[]),
+              itemButton('24 Catfish', 'assets/images/placeholder.png',42.99,["1/2 options","Sauce"],[]),
+              itemButton('36 Catfish', 'assets/images/placeholder.png',52.99,["1/2 options","Sauce"],[]),
+              itemButton('12 Chicken', 'assets/images/placeholder.png',24.99,["1/2 options","Sauce"],[]),
+              itemButton('24 Chicken', 'assets/images/placeholder.png',42.99,["1/2 options","Sauce"],[]),
+              itemButton('36 Chicken', 'assets/images/placeholder.png',52.99,["1/2 options","Sauce"],[]),
+              itemButton('Pan of French Fries', 'assets/images/placeholder.png',52.99,[],[]),
+              itemButton('Pan of Salad (Small)', 'assets/images/placeholder.png',52.99,[],[]),
+              itemButton('Pan of Salad (Large)', 'assets/images/placeholder.png',52.99,[],[]),
+              itemButton('Pan of Coleslaw (Large)', 'assets/images/placeholder.png',52.99,[],[]),
+              itemButton('Pan of Coleslaw (Small)', 'assets/images/placeholder.png',52.99,[],[]),
+              itemButton('Pan of Tarter', 'assets/images/placeholder.png',52.99,[],[]),
+              itemButton('Pan of Cinnamon Rolls', 'assets/images/big-orders/pan-cinnamon-rolls.jpg',52.99,[],[]),
               ],
             ),
           bottomNavigationBar: navMenu(),

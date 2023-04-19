@@ -1,7 +1,7 @@
 import '../menuScreen/components/bottomNav.dart';
 import 'package:flutter/material.dart';
-import 'components/menuItems.dart';
 import 'package:flying_burger/menuScreen/menuItemPages/components/itemAppBar.dart';
+import 'package:flying_burger/menuScreen/menuItemPages/components/itemButton.dart';
 
 class BoiledMenu extends StatelessWidget {
   const BoiledMenu({super.key});
@@ -26,9 +26,9 @@ class BoiledMenu extends StatelessWidget {
             childAspectRatio: 9/10,
             padding: const EdgeInsets.all(15),
             children: const <Widget>[
-              menuItem('Boiled Shrimp (1/2lb)', 'assets/images/boiled/boiled-shrimp.jpg'),
-              menuItem('Boiled Shrimp (Lb)', 'assets/images/boiled/boiled-shrimp.jpg'),
-              menuItem('Snow Crab (Lb)', 'assets/images/boiled/crab-legs.jpg'),
+              itemButton('Boiled Shrimp (1/2lb)', 'assets/images/boiled/boiled-shrimp.jpg',12.99,["Seasoning","Single","Sauce"],[]),
+              itemButton('Boiled Shrimp (Lb)', 'assets/images/boiled/boiled-shrimp.jpg',21.99,["Seasoning","Single","Sauce"],[]),
+              itemButton('Snow Crab (Lb)', 'assets/images/boiled/crab-legs.jpg',25.99,["Single","Sauce"],[]),
             ],
           ),
           bottomNavigationBar: navMenu(),

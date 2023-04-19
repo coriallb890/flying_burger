@@ -1,7 +1,7 @@
 import '../menuScreen/components/bottomNav.dart';
 import 'package:flutter/material.dart';
-import 'components/menuItems.dart';
 import 'package:flying_burger/menuScreen/menuItemPages/components/itemAppBar.dart';
+import 'package:flying_burger/menuScreen/menuItemPages/components/itemButton.dart';
 
 class AppetMenu extends StatelessWidget {
   const AppetMenu({super.key});
@@ -26,18 +26,18 @@ class AppetMenu extends StatelessWidget {
             childAspectRatio: 9/10,
             padding: const EdgeInsets.all(15),
             children: const <Widget>[
-              menuItem('6 Chilled Shrimp', 'assets/images/appetizers/shrimp-app-6.jpg'),
-              menuItem('12 Chilled Shrimp', 'assets/images/appetizers/shrimp-app-12.jpg'),
-              menuItem('Bacon Cheese Fries', 'assets/images/appetizers/bacon-cheese-fries.jpg'),
-              menuItem('Cheese Fries', 'assets/images/appetizers/cheese-fries.jpg'),
-              menuItem('Chili', 'assets/images/appetizers/chili.jpg'),
-              menuItem('Chili Cheese Fries', 'assets/images/appetizers/chili-cheese-fries.jpg'),
-              menuItem('Crawfish Tails', 'assets/images/baskets/crawfish-basket.jpg'), // Need to get an image of crawfish tails without fries
-              menuItem('Seafood Gumbo Bowl', 'assets/images/appetizers/cup-gumbo.jpg'),
-              menuItem('Seafood Gumbo Cup', 'assets/images/appetizers/cup-gumbo.jpg'),
-              menuItem('6 Wings', 'assets/images/placeholder.png'),
-              menuItem('12 Wings','assets/images/placeholder.png'),
-              menuItem('24 Wings','assets/images/placeholder.png'),
+              itemButton('6 Chilled Shrimp', 'assets/images/appetizers/shrimp-app-6.jpg',8.99,["Sauce","Shrimp"],[]),
+              itemButton('12 Chilled Shrimp', 'assets/images/appetizers/shrimp-app-12.jpg',15.99,["Sauce","Shrimp"],[]),
+              itemButton('Bacon Cheese Fries', 'assets/images/appetizers/bacon-cheese-fries.jpg',7.99,[],[]),
+              itemButton('Cheese Fries', 'assets/images/appetizers/cheese-fries.jpg',7.99,[],[]),
+              itemButton('Chili', 'assets/images/appetizers/chili.jpg',7.99,[],[]),
+              itemButton('Chili Cheese Fries', 'assets/images/appetizers/chili-cheese-fries.jpg',7.99,[],[]),
+              itemButton('Crawfish Tails', 'assets/images/baskets/crawfish-basket.jpg',11.99,["Sauce"],[]), // Need to get an image of crawfish tails without fries
+              itemButton('Seafood Gumbo Bowl', 'assets/images/appetizers/cup-gumbo.jpg',7.99,[],[]),
+              itemButton('Seafood Gumbo Cup', 'assets/images/appetizers/cup-gumbo.jpg',5.49,[],[]),
+              itemButton('6 Wings', 'assets/images/placeholder.png',6.99,["Sauce","Wings"],[]),
+              itemButton('12 Wings','assets/images/placeholder.png',12.99,["Sauce","Wings"],[]),
+              itemButton('24 Wings','assets/images/placeholder.png',24.99,["Sauce","Wings"],[]),
             ],
           ),
           bottomNavigationBar: navMenu(),

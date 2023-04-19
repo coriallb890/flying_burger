@@ -263,7 +263,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                         ElevatedButton(
                             onPressed: () async {
                               if(_passKey.currentState!.validate() & _confirmPassKey.currentState!.validate() & _emailKey.currentState!.validate()
-                              & _firstNameKey.currentState!.validate() & _lastNameKey.currentState!.validate()) {
+                              & _firstNameKey.currentState!.validate() & _lastNameKey.currentState!.validate() & _checkedValue == true) {
                                 Navigator.push(context, MaterialPageRoute(builder: (context)=> const HomeScreen()));
                               };
                             },

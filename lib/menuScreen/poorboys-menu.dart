@@ -1,7 +1,7 @@
 import 'package:flying_burger/menuScreen/menuItemPages/components/itemAppBar.dart';
 import '../menuScreen/components/bottomNav.dart';
 import 'package:flutter/material.dart';
-import 'components/menuItems.dart';
+import 'package:flying_burger/menuScreen/menuItemPages/components/itemButton.dart';
 
 class PoorboysMenu extends StatelessWidget {
   const PoorboysMenu({super.key});
@@ -26,15 +26,15 @@ class PoorboysMenu extends StatelessWidget {
             childAspectRatio: 9/10,
             padding: const EdgeInsets.all(15),
             children: const <Widget>[
-              menuItem('Fried Catfish', 'assets/images/poorboys/catfish-poorboy.jpg'),
-              menuItem('Grilled Catfish', 'assets/images/placeholder.png'),
-              menuItem('Fried Chicken', 'assets/images/placeholder.png'),
-              menuItem('Grilled Chicken', 'assets/images/placeholder.png'),
-              menuItem('Crawfish', 'assets/images/placeholder.png'),
-              menuItem('BBQ Shrimp', 'assets/images/placeholder.png'),
-              menuItem('Fried Shrimp', 'assets/images/placeholder.png'),
-              menuItem('Grilled Shrimp', 'assets/images/placeholder.png'),
-              menuItem('Tilapia', 'assets/images/placeholder.png'),
+              itemButton('Fried Catfish', 'assets/images/poorboys/catfish-poorboy.jpg',10.99,["Single"],["Burger","Pro'boy bun Sauce"]),
+              itemButton('Grilled Catfish', 'assets/images/placeholder.png',11.99,["Single"],["Burger","Pro'boy bun Sauce"]),
+              itemButton('Fried Chicken', 'assets/images/placeholder.png',11.99,["Single"],["Burger","Pro'boy bun Sauce"]),
+              itemButton('Grilled Chicken', 'assets/images/placeholder.png',11.99,["Single"],["Burger","Pro'boy bun Sauce"]),
+              itemButton('Crawfish', 'assets/images/placeholder.png',10.99,["Single"],["Burger","Pro'boy bun Sauce"]),
+              itemButton('BBQ Shrimp', 'assets/images/placeholder.png',11.99,["Single"],["Burger","Pro'boy bun Sauce"]),
+              itemButton('Fried Shrimp', 'assets/images/placeholder.png',10.99,["Single"],["Burger","Pro'boy bun Sauce"]),
+              itemButton('Grilled Shrimp', 'assets/images/placeholder.png',11.99,["Single"],["Burger","Pro'boy bun Sauce"]),
+              itemButton('Tilapia', 'assets/images/placeholder.png',11.99,["Single"],["Burger","Pro'boy bun Sauce"]),
             ],
           ),
           bottomNavigationBar: navMenu(),
