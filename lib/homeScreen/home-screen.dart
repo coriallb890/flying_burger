@@ -168,14 +168,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       style: TextButton.styleFrom(
                         textStyle: const TextStyle(fontSize: 20),
                       ),
-                        onPressed: (){
-                          (() {
-                            return showDialog<String>(
-                              context: context,
-                              builder: (BuildContext context) => termsDialog()
-                            );
-                          }());
-                        },
+                      onPressed: (){
+                        (() {
+                          return showDialog<String>(
+                            context: context,
+                            builder: (BuildContext context) => termsDialog()
+                          );
+                        }());
+                      },
                       child: const Text("Terms of Use")
                     )
                   ],

@@ -34,8 +34,8 @@ class _ItemScreenState extends State<ItemScreen> {
   String? _wing;
   bool? halfChecked;
 
-  double? sidePrice;
-  double? wingPrice;
+  double sidePrice = 0.0;
+  double wingPrice = 0.0;
 
   double customPrice = 0;
 
@@ -192,20 +192,12 @@ class _ItemScreenState extends State<ItemScreen> {
                     maxLines: 10,
                   ),
                 ),
-                (() {
-                  if (_size == "Large"){
-                    customPrice += 1.25;
-                  }
-
-                  return SizedBox(height:0);
-
-                }()),
                 Padding(
                   padding: const EdgeInsets.only(top:6, bottom: 12),
                   child: ElevatedButton(
                     onPressed: (){
                       List<String> itemCustomizations = createCustomizations();
-                      CartItem addedItem = CartItem(name: widget.name, imgPath: widget.img,quantity: 1, price: widget.price, index: orderList.length ,customizations: itemCustomizations);
+                      CartItem addedItem = CartItem(name: widget.name, imgPath: widget.img,quantity: 1, price: widget.price + customPrice, index: orderList.length ,customizations: itemCustomizations);
                       orderList.add(addedItem);
                       Navigator.push(context, MaterialPageRoute(builder: (context)=> CartScreen()));
                     },
@@ -280,147 +272,151 @@ class _ItemScreenState extends State<ItemScreen> {
 
   // Widget called for the customizations dialog box
   Widget mainDialog(){
-    return Dialog(
-      child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Container(
-              child: SingleChildScrollView(
-                child:Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    // Check for burger customizations
-                    (() {
-                      if (widget.dialogMods.contains('Burger')){
-                        return Column(
-                          children: <Widget>[
-                            Text("Burger Toppings", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
-                            ...burgerOptions.map(customOption).toList(),
-                            const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
-                          ],
-                        );
-                      }
-                      else{
-                        return SizedBox(height:0);
-                      }
-                    }()),
-                    // Check for sandwich customizations
-                    (() {
-                      if (widget.dialogMods.contains('Sandwich')){
-                        return Column(
-                          children: <Widget>[
-                            Text("Toppings", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
-                            ...sandwichOptions.map(customOption).toList(),
-                            const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
-                          ],
-                        );
-                      }
-                      else{
-                        return SizedBox(height:0);
-                      }
-                    }()),
-                    // Check for salad customizations
-                    (() {
-                      if (widget.dialogMods.contains('Salad')){
-                        return Column(
-                          children: <Widget>[
-                            Text("Salad Options", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
-                            ...saladOptions.map(customOption).toList(),
-                            const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
-                          ],
-                        );
-                      }
-                      else{
-                        return SizedBox(height:0);
-                      }
-                    }()),
-                    // Check for condiments customizations
-                    (() {
-                      if (widget.dialogMods.contains('Condiments')){
-                        return Column(
-                          children: <Widget>[
-                            Text("Condiments", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
-                            ...condimentOptions.map(customOption).toList(),
-                            const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
-                          ],
-                        );
-                      }
-                      else{
-                        return SizedBox(height:0);
-                      }
-                    }()),
-                    // Check for gumbo customizations
-                    (() {
-                      if (widget.dialogMods.contains('Gumbo')){
-                        return Column(
-                          children: <Widget>[
-                            Text("Gumbo Options", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
-                            ...gumboOptions.map(customOption).toList(),
-                            const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
-                          ],
-                        );
-                      }
-                      else{
-                        return SizedBox(height:0);
-                      }
-                    }()),
-                    // Check for hamburger steak customization
-                    (() {
-                      if (widget.dialogMods.contains('HamSteak')){
-                        return Column(
-                          children: <Widget>[
-                            Text("Hamburger Steak Toppings", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
-                            ...hamSteakOptions.map(customOption).toList(),
-                            const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
-                          ],
-                        );
-                      }
-                      else{
-                        return SizedBox(height:0);
-                      }
-                    }()),
-                    // Check for taco customizations
-                    (() {
-                      if (widget.dialogMods.contains('Taco')){
-                        return Column(
-                          children: <Widget>[
-                            Text("Taco Toppings", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
-                            ...tacoOptions.map(customOption).toList(),
-                            const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
-                          ],
-                        );
-                      }
-                      else{
-                        return SizedBox(height:0);
-                      }
-                    }()),
-                    // Check for extra scoop customization
-                    (() {
-                      if (widget.dialogMods.contains('ExtraScoop')){
-                        return Column(
-                          children: <Widget>[
-                            Text("Extra scoops", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
-                            ...extraScoopOptions.map(customOption).toList(),
-                            const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
-                          ],
-                        );
-                      }
-                      else{
-                        return SizedBox(height:0);
-                      }
-                    }()),
-                    TextButton(
-                      onPressed: () {
-                        print(burgerOptions[0].option);
-                        Navigator.pop(context);
-                      },
-                      child: const Text('Apply', style: TextStyle(color: bluePrimaryColor, fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+    return StatefulBuilder(
+      builder: (context, setState){
+        return Dialog(
+          child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                  child: SingleChildScrollView(
+                    child:Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        // Check for burger customizations
+                        (() {
+                          if (widget.dialogMods.contains('Burger')){
+                            return Column(
+                              children: <Widget>[
+                                Text("Burger Toppings", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+                                ...burgerOptions.map(customOption).toList(),
+                                const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
+                              ],
+                            );
+                          }
+                          else{
+                            return SizedBox(height:0);
+                          }
+                        }()),
+                        // Check for sandwich customizations
+                        (() {
+                          if (widget.dialogMods.contains('Sandwich')){
+                            return Column(
+                              children: <Widget>[
+                                Text("Toppings", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+                                ...sandwichOptions.map(customOption).toList(),
+                                const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
+                              ],
+                            );
+                          }
+                          else{
+                            return SizedBox(height:0);
+                          }
+                        }()),
+                        // Check for salad customizations
+                        (() {
+                          if (widget.dialogMods.contains('Salad')){
+                            return Column(
+                              children: <Widget>[
+                                Text("Salad Options", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+                                ...saladOptions.map(customOption).toList(),
+                                const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
+                              ],
+                            );
+                          }
+                          else{
+                            return SizedBox(height:0);
+                          }
+                        }()),
+                        // Check for condiments customizations
+                        (() {
+                          if (widget.dialogMods.contains('Condiments')){
+                            return Column(
+                              children: <Widget>[
+                                Text("Condiments", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+                                ...condimentOptions.map(customOption).toList(),
+                                const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
+                              ],
+                            );
+                          }
+                          else{
+                            return SizedBox(height:0);
+                          }
+                        }()),
+                        // Check for gumbo customizations
+                        (() {
+                          if (widget.dialogMods.contains('Gumbo')){
+                            return Column(
+                              children: <Widget>[
+                                Text("Gumbo Options", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+                                ...gumboOptions.map(customOption).toList(),
+                                const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
+                              ],
+                            );
+                          }
+                          else{
+                            return SizedBox(height:0);
+                          }
+                        }()),
+                        // Check for hamburger steak customization
+                        (() {
+                          if (widget.dialogMods.contains('HamSteak')){
+                            return Column(
+                              children: <Widget>[
+                                Text("Hamburger Steak Toppings", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+                                ...hamSteakOptions.map(customOption).toList(),
+                                const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
+                              ],
+                            );
+                          }
+                          else{
+                            return SizedBox(height:0);
+                          }
+                        }()),
+                        // Check for taco customizations
+                        (() {
+                          if (widget.dialogMods.contains('Taco')){
+                            return Column(
+                              children: <Widget>[
+                                Text("Taco Toppings", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+                                ...tacoOptions.map(customOption).toList(),
+                                const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
+                              ],
+                            );
+                          }
+                          else{
+                            return SizedBox(height:0);
+                          }
+                        }()),
+                        // Check for extra scoop customization
+                        (() {
+                          if (widget.dialogMods.contains('ExtraScoop')){
+                            return Column(
+                              children: <Widget>[
+                                Text("Extra scoops", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+                                ...extraScoopOptions.map(customOption).toList(),
+                                const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
+                              ],
+                            );
+                          }
+                          else{
+                            return SizedBox(height:0);
+                          }
+                        }()),
+                        TextButton(
+                          onPressed: () {
+                            print(burgerOptions[0].option);
+                            Navigator.pop(context);
+                          },
+                          child: const Text('Apply', style: TextStyle(color: bluePrimaryColor, fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  )
               )
-          )
-      ),
+          ),
+        );
+      }
     );
   }
 
@@ -438,6 +434,12 @@ class _ItemScreenState extends State<ItemScreen> {
                     onChanged: (bool? value){
                       setState(() {
                         checkbox.value = value!;
+                        if(checkbox.value){
+                          customPrice += checkbox.price;
+                        }
+                        else{
+                          customPrice -= checkbox.price;
+                        }
                       });
                     }
                 ),
@@ -461,6 +463,9 @@ class _ItemScreenState extends State<ItemScreen> {
                     ElevatedButton(
                       onPressed: (){
                         setState(() {
+                          if(checkbox.option == "Extra"){
+                            customPrice -= checkbox.extraPrice;
+                          }
                           checkbox.option = "Regular";
                         });
                       },
@@ -479,6 +484,7 @@ class _ItemScreenState extends State<ItemScreen> {
                         onPressed: (){
                           setState(() {
                             checkbox.option = "Extra";
+                            customPrice += checkbox.extraPrice;
                           });
                         },
                         style: ElevatedButton.styleFrom(
@@ -510,6 +516,9 @@ class _ItemScreenState extends State<ItemScreen> {
                     ElevatedButton(
                       onPressed: (){
                         setState(() {
+                          if(checkbox.option == "Extra"){
+                            customPrice -= checkbox.extraPrice;
+                          }
                           checkbox.option = "On Side";
                         });
                       },
@@ -604,6 +613,9 @@ class _ItemScreenState extends State<ItemScreen> {
                   onChanged: (String? value){
                     setState(() {
                       _side = value;
+                      customPrice -= sidePrice;
+                      sidePrice = 1.0;
+                      customPrice += sidePrice;
                     });
                   },
                 ),
@@ -778,6 +790,9 @@ class _ItemScreenState extends State<ItemScreen> {
             onChanged: (String? value){
               setState(() {
                 _side = value;
+                customPrice -= sidePrice;
+                sidePrice = price;
+                customPrice += sidePrice;
               });
             },
 
@@ -816,6 +831,12 @@ class _ItemScreenState extends State<ItemScreen> {
       onPressed: (){
         setState(() {
           _size = choice;
+          if(choice == "Large"){
+            customPrice += 1.25;
+          }
+          else{
+            customPrice -= 1.25;
+          }
         });
       },
       style: ElevatedButton.styleFrom(
@@ -898,6 +919,9 @@ class _ItemScreenState extends State<ItemScreen> {
             onChanged: (String? value){
               setState(() {
                 _wing = value;
+                customPrice -= wingPrice;
+                wingPrice = price;
+                customPrice += wingPrice;
               });
             },
           ),

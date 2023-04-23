@@ -7,6 +7,8 @@ import 'package:flying_burger/components/cartItem.dart';
 import 'package:flying_burger/constants.dart';
 import 'package:input_quantity/input_quantity.dart';
 
+import '../menuScreen/menu.dart';
+
 class CartScreen extends StatefulWidget {
   const CartScreen({Key? key}) : super(key: key);
 
@@ -33,13 +35,45 @@ class _CartScreenState extends State<CartScreen> {
             child: Column (
               children: <Widget>[
                 const Divider(color: Colors.black38, indent: 10.0, endIndent: 10.0, thickness: 2,),
+                (() {
+                  if(orderList.isEmpty){
+                    return Column(
+                      children: <Widget>[
+                        const Text(
+                          "Your cart is empty",
+                          style: TextStyle
+                            (fontFamily: 'Bowlby',
+                            fontSize: 30,
+                            letterSpacing: 2,)
+                        ),
+                        TextButton(
+                          style: TextButton.styleFrom(
+                            textStyle: const TextStyle(
+                              fontFamily: 'Bowlby',
+                              fontSize: 25,
+                              letterSpacing: 2,
+                            ),
+                          ),
+                          onPressed: (){
+                            ((){Navigator.push(context, MaterialPageRoute(builder: (context)=> MenuScreen()));}());
+                          },
+                          child: const Text("Explore our menu"),
+                        ),
+                        const Divider(color: Colors.black38, indent: 10.0, endIndent: 10.0, thickness: 2,),
+                      ],
+                    );
+                  }
+                  else{
+                    return SizedBox(height:0);
+                  }
+                }()),
                 ...orderList.map(itemEntry).toList(),
                 const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text("  Subtotal", style: TextStyle(fontSize: 33, fontWeight: FontWeight.bold)),
-                    Text("\$16.97  ", style: TextStyle(fontSize: 33, fontWeight: FontWeight.bold))
+                    const Text("  Subtotal", style: TextStyle(fontSize: 33, fontWeight: FontWeight.bold)),
+                    Text("\$${orderPrice().toStringAsFixed(2)}  ", style: TextStyle(fontSize: 33, fontWeight: FontWeight.bold))
                   ]
                 ),
                 const SizedBox(height: 30),
@@ -72,6 +106,12 @@ class _CartScreenState extends State<CartScreen> {
     );
   }
 
+  double orderPrice(){
+    double ordertotal = 0.0;
+    orderList.forEach((item) => ordertotal += item.price * item.quantity);
+    return ordertotal;
+  }
+
   Widget itemEntry(CartItem item){
     return Column(
       children: [
@@ -90,7 +130,8 @@ class _CartScreenState extends State<CartScreen> {
                     return showDialog<String>(
                       context: context,
                       builder: (BuildContext context) => quantityDialog(item)
-                    ).then((_)=>setState((){}));
+                    ).then((_)=>setState((){
+                    }));
                   }());
                 },
                 style: const ButtonStyle (
@@ -160,7 +201,7 @@ class _CartScreenState extends State<CartScreen> {
             Expanded(
               flex: 3,
               child: Text(
-                "\$${item.price}",
+                "\$${(item.price * item.quantity).toStringAsFixed(2)}",
                 style: TextStyle(
                     fontSize: 30
                 ),
