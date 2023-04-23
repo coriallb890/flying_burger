@@ -34,6 +34,11 @@ class _ItemScreenState extends State<ItemScreen> {
   String? _wing;
   bool? halfChecked;
 
+  double? sidePrice;
+  double? wingPrice;
+
+  double customPrice = 0;
+
   List<CheckBoxState> defaults = [];
   List<CheckBoxState> burgerOptions = defaultBurgerOptions.map((o) => CheckBoxState.clone(o)).toList();
   List<CheckBoxState> sandwichOptions = defaultSandwichOptions.map((o) => CheckBoxState.clone(o)).toList();
@@ -187,6 +192,14 @@ class _ItemScreenState extends State<ItemScreen> {
                     maxLines: 10,
                   ),
                 ),
+                (() {
+                  if (_size == "Large"){
+                    customPrice += 1.25;
+                  }
+
+                  return SizedBox(height:0);
+
+                }()),
                 Padding(
                   padding: const EdgeInsets.only(top:6, bottom: 12),
                   child: ElevatedButton(
@@ -201,9 +214,9 @@ class _ItemScreenState extends State<ItemScreen> {
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
                       fixedSize: const Size(260, 60)
                     ),
-                    child: Text('Add to Cart | \$' + widget.price.toStringAsFixed(2), style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white)),
+                    child: Text('Add to Cart | \$${(customPrice + widget.price).toStringAsFixed(2)}', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white)),
                   )
-                )
+                ),
               ]
             ),
           ),
@@ -767,6 +780,7 @@ class _ItemScreenState extends State<ItemScreen> {
                 _side = value;
               });
             },
+
           ),
           Text(title, style: const TextStyle(fontSize: 24),),
           Text(
