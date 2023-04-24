@@ -28,10 +28,10 @@ class TacosMenu extends StatelessWidget {
             padding: const EdgeInsets.all(15),
             children: const <Widget>[
               itemButton('Fried Catfish Tacos', 'assets/images/tacos/fried-cat-tacos.jpg', 9.50, ['Side'], ['Taco']),
-              itemButton('Fried Shrimp Tacos', 'assets/images/tacos/fried-cat-tacos.jpg', 9.50, ['Side'], ['Taco']),
+              itemButton('Fried Shrimp Tacos', 'assets/images/tacos/fried-cat-tacos.jpg', 9.50, ['Side',"Shrimp"], ['Taco']),
               itemButton('Grilled Catfish Tacos', 'assets/images/tacos/fried-cat-tacos.jpg', 9.50, ['Side'], ['Taco']),
               itemButton('Grilled Chicken Tacos', 'assets/images/tacos/fried-cat-tacos.jpg', 9.50, ['Side'], ['Taco']),
-              itemButton('Grilled Shrimp Tacos', 'assets/images/tacos/fried-cat-tacos.jpg', 9.50, ['Side'], ['Taco']),
+              itemButton('Grilled Shrimp Tacos', 'assets/images/tacos/fried-cat-tacos.jpg', 9.50, ['Side',"Shrimp"], ['Taco']),
               itemButton('Grilled Tilapia Tacos', 'assets/images/tacos/fried-cat-tacos.jpg', 9.50, ['Side'], ['Taco']),
             ],
           ),

@@ -26,8 +26,8 @@ class BoiledMenu extends StatelessWidget {
             childAspectRatio: 9/10,
             padding: const EdgeInsets.all(15),
             children: const <Widget>[
-              itemButton('Boiled Shrimp (1/2lb)', 'assets/images/boiled/boiled-shrimp.jpg',12.99,["Seasoning","Single","Sauce"],[]),
-              itemButton('Boiled Shrimp (Lb)', 'assets/images/boiled/boiled-shrimp.jpg',21.99,["Seasoning","Single","Sauce"],[]),
+              itemButton('Boiled Shrimp (1/2lb)', 'assets/images/boiled/boiled-shrimp.jpg',12.99,["Seasoning","Single","Sauce","Shrimp"],[]),
+              itemButton('Boiled Shrimp (Lb)', 'assets/images/boiled/boiled-shrimp.jpg',21.99,["Seasoning","Single","Sauce","Shrimp"],[]),
               itemButton('Snow Crab (Lb)', 'assets/images/boiled/crab-legs.jpg',25.99,["Single","Sauce"],[]),
             ],
           ),
