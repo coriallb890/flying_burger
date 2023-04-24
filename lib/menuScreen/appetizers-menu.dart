@@ -33,8 +33,8 @@ class AppetMenu extends StatelessWidget {
               itemButton('Chili', 'assets/images/appetizers/chili.jpg',7.99,[],[]),
               itemButton('Chili Cheese Fries', 'assets/images/appetizers/chili-cheese-fries.jpg',7.99,[],[]),
               itemButton('Crawfish Tails', 'assets/images/baskets/crawfish-basket.jpg',11.99,["Sauce"],[]), // Need to get an image of crawfish tails without fries
-              itemButton('Seafood Gumbo Bowl', 'assets/images/appetizers/cup-gumbo.jpg',7.99,[],[]),
-              itemButton('Seafood Gumbo Cup', 'assets/images/appetizers/cup-gumbo.jpg',5.49,[],[]),
+              itemButton('Seafood Gumbo Bowl', 'assets/images/appetizers/cup-gumbo.jpg',7.99,[],["Gumbo"]),
+              itemButton('Seafood Gumbo Cup', 'assets/images/appetizers/cup-gumbo.jpg',5.49,[],["Gumbo"]),
               itemButton('6 Wings', 'assets/images/placeholder.png',6.99,["Sauce","Wings"],[]),
               itemButton('12 Wings','assets/images/placeholder.png',12.99,["Sauce","Wings"],[]),
               itemButton('24 Wings','assets/images/placeholder.png',24.99,["Sauce","Wings"],[]),
