@@ -20,7 +20,6 @@ class CheckBoxState{
     return CheckBoxState(title: source.title, price: source.price, extraPrice: source.extraPrice, value: source.value);
   }
 }
-
 final defaultBurgerOptions = [
   CheckBoxState(title: "Lettuce", price: 0.0, extraPrice: 0.0, value: true),
   CheckBoxState(title: "Pickles", price: 0.0, extraPrice: 0.0,  value: true),
@@ -87,3 +86,19 @@ final defaultExtraScoopOptions = [
   CheckBoxState(title: "Chocolate", price: 1.0, extraPrice: 1.0, value: false),
   CheckBoxState(title: "Strawberry", price: 1.0, extraPrice: 1.0, value: false),
 ];
+
+final defaultSaladOptions = [
+  CheckBoxState(title: "Tomatoes", price: 0.0, extraPrice: 0.5, value: true),
+  CheckBoxState(title: "Cucumber", price: 0.0, extraPrice: 0.5, value: true),
+  CheckBoxState(title: "Croutons", price: 0.0, extraPrice: 0.5, value: true),
+  CheckBoxState(title: "Dried Cranberries", price: 0.0 , extraPrice: 0.5, value: true),
+  CheckBoxState(title: "Hushpuppies", price: 0.0, extraPrice: 0.5, value: true),
+  CheckBoxState(title: "Onion", price: 0.0, extraPrice: 0.5, value: false),
+  CheckBoxState(title: "Jalapeno", price: 0.49, extraPrice: 0.5, value: false),
+  CheckBoxState(title: "Bacon", price: 1.49, extraPrice: 0.5, value: false),
+  CheckBoxState(title: "Grilled Onion", price: 0.39, extraPrice: 0.5, value: false),
+  CheckBoxState(title: "Grilled Mushroom", price: 0.89, extraPrice: 0.5, value: false),
+];
+
+var defaultsList = [defaultBurgerOptions, defaultSandwichOptions, defaultCondimentsOptions, defaultGumboOptions, defaultHamSteakOptions, defaultTacoOptions, defaultExtraScoopOptions, defaultSaladOptions];
+var dialogMods = ['Burger', 'Sandwich', 'Condiments', 'Gumbo', 'HamSteak', 'Taco', 'ExtraScoop', 'Salad'];
