@@ -28,7 +28,6 @@ class LaCarteMenu extends StatelessWidget {
             children: const <Widget>[
               itemButton('Single Burger', 'assets/images/la-carte/single-burger.jpg',9.99,[],["Burger"]),
               itemButton('Double Burger', 'assets/images/la-carte/double-burger.jpg',9.99,[],["Burger"]),
-              itemButton('Mushroom Burger', 'assets/images/la-carte/mushroom-burger.jpg',9.99,[],["Burger"]),
               itemButton('Fried Chicken Sandwich', 'assets/images/la-carte/fried-chick-sand.jpg',9.99,[],["Sandwich"]),
               itemButton('Grilled Chicken Sandwich', 'assets/images/la-carte/grilled-chick-sand.jpg',9.99,[],["Sandwich"]),
               itemButton('Single Hamburger Steak', 'assets/images/la-carte/hamburger-steak.jpg',9.99,[],["HamSteak"]),
