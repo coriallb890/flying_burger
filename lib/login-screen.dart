@@ -7,7 +7,6 @@ import 'package:email_validator/email_validator.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';
 
-
 class LogInScreen extends StatefulWidget {
   const LogInScreen({Key? key}) : super(key: key);
   @override
@@ -25,6 +24,8 @@ class _LogInScreen extends State<LogInScreen> {
       _userinfo = data as List<dynamic>;
     });
   }
+
+
   var _passwordVisible;
   var _checkedValue;
   final _emailKey = GlobalKey<FormState>();
@@ -42,6 +43,8 @@ class _LogInScreen extends State<LogInScreen> {
     }
   }
 
+
+
   @override
   void initState() {
     _passwordVisible = false;
@@ -51,6 +54,8 @@ class _LogInScreen extends State<LogInScreen> {
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     var style = theme.textTheme.headlineMedium!.copyWith(color: Colors.white);
+    readJson();
+
     return Container (
         constraints: const BoxConstraints.expand(),
         decoration: const BoxDecoration (
@@ -89,17 +94,17 @@ class _LogInScreen extends State<LogInScreen> {
                             }
 
                             else {
-                                bool result = EmailValidator.validate(value) & _userinfo[2]["Email"].contains(value);
-
-                                if (result) {
-                                  //create account event
-                                  return null;
-                                }
-                                else {
-                                  return "Invalid email";
-                                }
+                              readJson();
+                                bool result = EmailValidator.validate(value);
+                                  if (result){
+                                    //create account event
+                                    return null;
+                                  }
+                                  else {
+                                    return "Invalid email";
+                                  }
                             }
-                          },
+                            },
                           decoration: InputDecoration(
                               border: OutlineInputBorder(),
                               hintText: 'Enter a valid Email Adress'
@@ -122,7 +127,7 @@ class _LogInScreen extends State<LogInScreen> {
                             }
 
                             else {
-                              bool result = _userinfo[2]["Password"].contains(value);
+                              bool result = validatePassword(value);
 
                               if (result) {
                                 //create account event
@@ -177,11 +182,14 @@ class _LogInScreen extends State<LogInScreen> {
                     const SizedBox(height: 10),
                     ElevatedButton(
                         onPressed: () {
-                          readJson();
                           if(_passKey.currentState!.validate() & _emailKey.currentState!.validate()) {
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=> const HomeScreen()));
-                          };
-                        },
+                            for (var i = 0; i < _userinfo.length; i++) {
+                              if (_userinfo[i]["Email"].contains(_email.text) & _userinfo[i]["Password"].contains(_pass.text)) {
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=> const HomeScreen()));
+                              }
+                          }
+                          }
+                          },
                         style: ElevatedButton.styleFrom(
                             backgroundColor: bluePrimaryColor),
                         child: Padding(
