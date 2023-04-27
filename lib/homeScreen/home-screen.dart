@@ -4,9 +4,6 @@ import 'package:flying_burger/components/policy-dialogs.dart';
 import 'package:flying_burger/constants.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flying_burger/homeScreen/components/bottomNav.dart';
-import 'package:flying_burger/create-account.dart';
-import 'package:flying_burger/homeScreen/components/locationList.dart';
-
 import '../reorderScreen/recentorder-screen.dart';
 
 final List<String> photos = ["assets/images/banner1.jpg",

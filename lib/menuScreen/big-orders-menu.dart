@@ -26,7 +26,7 @@ class BigOrdersMenu extends StatelessWidget {
             childAspectRatio: 9/10,
             padding: const EdgeInsets.all(15),
             children: const <Widget>[
-              itemButton('12 Catfish', 'assets/images/placeholder.png',24.99,["Half","Sauce"],[]),
+              itemButton('12 Catfish', 'assets/images/placeholder.png',24.99,["Sauce"],[]),
               itemButton('24 Catfish', 'assets/images/placeholder.png',42.99,["Half","Sauce"],[]),
               itemButton('36 Catfish', 'assets/images/placeholder.png',52.99,["Half","Sauce"],[]),
               itemButton('12 Chicken', 'assets/images/placeholder.png',24.99,["Half","Sauce"],[]),

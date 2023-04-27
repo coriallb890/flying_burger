@@ -28,7 +28,7 @@ class DessertsMenu extends StatelessWidget {
             padding: const EdgeInsets.all(15),
             children: const <Widget>[
               itemButton('Cake Cone', 'assets/images/desserts/cake-waffle-cone.jpg',1.99,["IceCream"],["ExtraScoop"]),
-              itemButton('Cinnamon Roll', 'assets/images/desserts/cinnamon-roll.jpg',2.99,["IceCream"],["ExtraScoop"]),
+              itemButton('Cinnamon Roll', 'assets/images/desserts/cinnamon-roll.jpg',2.99,[],["ExtraScoop"]),
               itemButton('Ice Cream Cup', 'assets/images/desserts/cake-waffle-cone.jpg',2.59,["IceCream"],["ExtraScoop"]),
               itemButton('Waffle Cone', 'assets/images/desserts/cake-waffle-cone.jpg',2.99,["IceCream"],["ExtraScoop"]),
             ],
