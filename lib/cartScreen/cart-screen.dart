@@ -79,6 +79,7 @@ class _CartScreenState extends State<CartScreen> {
                 const SizedBox(height: 30),
                 ElevatedButton(
                   onPressed: () {
+                    printOrder();
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const CheckoutScreen()));
                   },
                   style: ElevatedButton.styleFrom(
@@ -202,7 +203,7 @@ class _CartScreenState extends State<CartScreen> {
               flex: 3,
               child: Text(
                 "\$${(item.price * item.quantity).toStringAsFixed(2)}",
-                style: TextStyle(
+                style: const TextStyle(
                     fontSize: 30
                 ),
               ),
@@ -336,4 +337,26 @@ class _CartScreenState extends State<CartScreen> {
         )
     );
   }
+
+  // TEMPORARY FUNCTION DELETE AFTER
+  void printOrder(){
+    orderList.forEach((element) =>
+      print("CartItem(name: '${element.name}', imgPath: '${element.imgPath}', "
+          "quantity: ${element.quantity}, price: ${element.price}, index: ${element.index}, customizations: [${customizations(element)}])")
+    );
+  }
+
+  //TEMPORARY FUNCTION DELETE AFTER
+  String customizations(CartItem element){
+    var customizations = "";
+    element.customizations.forEach((custom)
+    {
+      customizations += "'$custom',";
+    });
+
+    return customizations;
+  }
+
+
+
 }

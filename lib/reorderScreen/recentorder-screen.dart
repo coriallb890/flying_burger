@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flying_burger/components/cartItem.dart';
 import 'package:flying_burger/constants.dart';
 import 'package:flying_burger/create-account.dart';
 import 'package:flying_burger/menuScreen/components/bottomNav.dart';
 
 import '../components/appbar.dart';
 import 'components/bottomNav.dart';
+
+List<CartItem> reorderApril20Order = [CartItem(name: '', imgPath: '', quantity: 1, price: 8.99, index: 0, customizations: [])];
 
 class RecentOrderScreen extends StatelessWidget{
   @override
@@ -23,73 +26,75 @@ class RecentOrderScreen extends StatelessWidget{
         appBar: const simpleAppBar("REORDER"),
         body: Center(
           child: Column(
-            children: <Widget>[
-              Text(
-                'Easily reorder your favorite orders.',
-                textAlign: TextAlign.center, style: TextStyle(fontSize: 33, color: Colors.red),
+            children: const <Widget>[
+              const Divider(color: Colors.black54, indent: 10.0, endIndent: 10.0, thickness: 2,),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "   April 20, 2023",
+                  style: TextStyle(fontSize: 30),
+                  textAlign: TextAlign.left,
+                ),
               ),
-              SizedBox(height: 70),
-              Text(
-                'Two Catfish & One Chicken Strip Basket (10.99)',
-              textAlign: TextAlign.center, style: TextStyle(fontSize: 30, color: Colors.red),
-              ),
-              Text(
-                'w/ Fries & Mayo',
-                textAlign: TextAlign.center, style: TextStyle(fontSize: 25, color: Colors.red),
-              ),
-              SizedBox(height: 10),
-              ElevatedButton(
-                  onPressed: (){},
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: bluePrimaryColor),
-                  child: Padding(
-                      padding: EdgeInsets.all(5),
-                      child: Text('Order', style: style)
-                  )
-              ),
-              SizedBox(height: 50),
-              Text(
-                'Crab Leg Platter (29.99)',
-                textAlign: TextAlign.center, style: TextStyle(fontSize: 30, color: Colors.red),
-              ),
-              Text(
-                'w/ Cheese Fries (+1.00)',
-                textAlign: TextAlign.center, style: TextStyle(fontSize: 25, color: Colors.red),
-              ),
-              SizedBox(height: 10),
-              ElevatedButton(
-                  onPressed: (){},
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: bluePrimaryColor),
-                  child: Padding(
-                      padding: EdgeInsets.all(5),
-                      child: Text('Order', style: style)
-                  )
-              ),
-              SizedBox(height: 50),
-              Text(
-                'Large Salad (6.99)',
-                textAlign: TextAlign.center, style: TextStyle(fontSize: 30, color: Colors.red),
-              ),
-              Text(
-                'w/ Bacon (+1.49)',
-                textAlign: TextAlign.center, style: TextStyle(fontSize: 25, color: Colors.red),
-              ),
-              SizedBox(height: 10),
-              ElevatedButton(
-                  onPressed: (){},
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: bluePrimaryColor),
-                  child: Padding(
-                      padding: EdgeInsets.all(5),
-                      child: Text('Order', style: style)
-                  )
-              ),
+              const Divider(color: Colors.black54, indent: 15.0, endIndent: 15.0, thickness: 2,),
             ],
           ),
         ),
         bottomNavigationBar: navReorder(),
       ),
+    );
+  }
+
+  Widget itemEntry(CartItem item){
+    return Column(
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            const SizedBox(
+              width: 15
+            ),
+            Expanded(
+              flex: 6,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Flexible(
+                    child: Text(
+                      item.name,
+                      style: const TextStyle(fontSize: 33, fontWeight: FontWeight.bold)
+                    )
+                  ),
+
+                  ...item.customizations.map(modificaionList).toList(),
+                ]
+              ),
+            ),
+            Expanded(
+              flex: 3,
+              child: Text(
+                "\$${(item.price * item.quantity).toStringAsFixed(2)}",
+                style: const TextStyle(
+                  fontSize: 30
+                ),
+              ),
+            ),
+          ]
+        ),
+      ],
+    );
+  }
+
+  Widget modificaionList(String text){
+    return Flexible(
+        child: Text(
+          text,
+          style: const TextStyle(fontSize: 20, color: Colors.black38),
+          textAlign: TextAlign.start,
+        )
     );
   }
 }

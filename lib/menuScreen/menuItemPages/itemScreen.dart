@@ -122,7 +122,7 @@ class _ItemScreenState extends State<ItemScreen> {
                     return drinkMod();
                   }
                   else{
-                    return SizedBox(height:0);
+                    return const SizedBox(height:0);
                   }
                 }()),
                 // Radio options for the side
@@ -131,7 +131,7 @@ class _ItemScreenState extends State<ItemScreen> {
                     return sideMod();
                   }
                   else{
-                    return SizedBox(height:0);
+                    return const SizedBox(height:0);
                   }
                 }()),
 
@@ -141,7 +141,7 @@ class _ItemScreenState extends State<ItemScreen> {
                     return iceCreamMod();
                   }
                   else{
-                    return SizedBox(height:0);
+                    return const SizedBox(height:0);
                   }
                 }()),
                 // Radio options for the half checkbox
@@ -150,7 +150,7 @@ class _ItemScreenState extends State<ItemScreen> {
                     return halfMod();
                   }
                   else{
-                    return SizedBox(height:0);
+                    return const SizedBox(height:0);
                   }
                 }()),
                 // Radio options for the shrimp
@@ -159,7 +159,7 @@ class _ItemScreenState extends State<ItemScreen> {
                     return shrimpMod();
                   }
                   else{
-                    return SizedBox(height:0);
+                    return const SizedBox(height:0);
                   }
                 }()),
                 // Radio options for the sauce
@@ -168,7 +168,7 @@ class _ItemScreenState extends State<ItemScreen> {
                     return sauceMod();
                   }
                   else{
-                    return SizedBox(height:0);
+                    return const SizedBox(height:0);
                   }
                 }()),
                 // Radio options for the Dressing
@@ -177,7 +177,7 @@ class _ItemScreenState extends State<ItemScreen> {
                     return dressingMod();
                   }
                   else{
-                    return SizedBox(height:0);
+                    return const SizedBox(height:0);
                   }
                 }()),
                 const Text('Special Instructions', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
@@ -288,7 +288,7 @@ class _ItemScreenState extends State<ItemScreen> {
                           if (widget.dialogMods.contains('Burger')){
                             return Column(
                               children: <Widget>[
-                                Text("Burger Toppings", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+                                const Text("Burger Toppings", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
                                 ...burgerOptions.map(customOption).toList(),
                                 const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
                               ],
