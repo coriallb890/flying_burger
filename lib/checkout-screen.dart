@@ -1,4 +1,5 @@
 import 'package:flying_burger/components/cartItem.dart';
+import 'package:flying_burger/components/navAppBar.dart';
 import 'package:flying_burger/confirmation-screen.dart';
 import 'package:flying_burger/constants.dart';
 import 'package:flutter/material.dart';
@@ -78,38 +79,13 @@ class _CheckoutScreen extends State<CheckoutScreen> {
                 repeat: ImageRepeat.repeat)),
         child: Scaffold (
             backgroundColor: Colors.transparent,
-            appBar: AppBar(
-              backgroundColor: bluePrimaryColor,
-              leading: const BackButton(),
-            ),
+            appBar: const navAppBar(),
             body: Center (
                 child: Column (
                   children: <Widget>[
                     const SizedBox(height: 75),
-                    const Text('Choose your location:',
-                        style: TextStyle(fontSize: 20, color: bluePrimaryColor,
-                            fontWeight: FontWeight.bold)),
-                    const SizedBox(height: 10),
-                    TextButton(
-                        onPressed: () {
-                          // Location page
-                        },
-                        style: TextButton.styleFrom(
-                          fixedSize: const Size(100, 30),
-                          backgroundColor: Colors.transparent,
-                          padding: const EdgeInsets.all(5.0),
-                          side: const BorderSide(width: 1.0, color: bluePrimaryColor),
-                        ),
-                        child: Row (
-                          children: const <Widget>[
-                            Text('Locations', style: TextStyle(color: Colors.black), textAlign: TextAlign.center,),
-                            Icon(Icons.keyboard_arrow_right, color: Colors.black),
-                          ],
-                        )
-                    ),
-                    const SizedBox(height: 75),
                     const Text('Choose your payment method:',
-                        style: TextStyle(fontSize: 20, color: bluePrimaryColor,
+                        style: TextStyle(fontSize: 24, color: bluePrimaryColor,
                             fontWeight: FontWeight.bold)),
                     const SizedBox(height: 10),
                     TextButton(
@@ -117,7 +93,7 @@ class _CheckoutScreen extends State<CheckoutScreen> {
                           Navigator.push(context, MaterialPageRoute(builder: (context)=> const PaymentBilling()));
                         },
                         style: TextButton.styleFrom(
-                          fixedSize: const Size(105, 30),
+                          fixedSize: const Size(120, 40),
                           backgroundColor: Colors.transparent,
                           padding: const EdgeInsets.all(5.0),
                           side: const BorderSide(width: 1.0, color: bluePrimaryColor),
@@ -126,7 +102,7 @@ class _CheckoutScreen extends State<CheckoutScreen> {
 
                           children: const <Widget>[
                             Text('Add Method', style: TextStyle(color: Colors.black), textAlign: TextAlign.center,),
-                            Icon(Icons.add, color: Colors.black, size: 16,),
+                            Icon(Icons.add, color: Colors.black, size: 18,),
                           ],
                         )
                     ),
