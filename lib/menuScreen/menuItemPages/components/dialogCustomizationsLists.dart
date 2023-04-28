@@ -82,9 +82,9 @@ final defaultTacoOptions = [
 ];
 
 final defaultExtraScoopOptions = [
-  CheckBoxState(title: "Vanilla", price: 1.0, extraPrice: 1.0, value: false),
-  CheckBoxState(title: "Chocolate", price: 1.0, extraPrice: 1.0, value: false),
-  CheckBoxState(title: "Strawberry", price: 1.0, extraPrice: 1.0, value: false),
+  CheckBoxState(title: "Vanilla Scoop", price: 1.0, extraPrice: 1.0, value: false),
+  CheckBoxState(title: "Chocolate Scoop", price: 1.0, extraPrice: 1.0, value: false),
+  CheckBoxState(title: "Strawberry Scoop", price: 1.0, extraPrice: 1.0, value: false),
 ];
 
 final defaultSaladOptions = [

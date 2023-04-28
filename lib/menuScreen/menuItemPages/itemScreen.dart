@@ -32,10 +32,12 @@ class _ItemScreenState extends State<ItemScreen> {
   String? _icecream;
   String? _shrimp;
   String? _wing;
-  bool? halfChecked;
+  String? _drinkSize;
+  bool? halfChecked = false;
 
   double sidePrice = 0.0;
   double wingPrice = 0.0;
+  double sizePrice = 0.0;
 
   double customPrice = 0;
 
@@ -120,6 +122,15 @@ class _ItemScreenState extends State<ItemScreen> {
                 (() {
                   if (widget.mainMods.contains('Drink')){
                     return drinkMod();
+                  }
+                  else{
+                    return const SizedBox(height:0);
+                  }
+                }()),
+                // Radio option for size of drink from drink menu
+                (() {
+                  if (widget.mainMods.contains('Size')){
+                    return drinkSizeMod();
                   }
                   else{
                     return const SizedBox(height:0);
@@ -224,7 +235,10 @@ class _ItemScreenState extends State<ItemScreen> {
     if(_drink != null){
       customizations.add("$_drink ($_size)");
     }
-    var radioChecks = [_side, _sauce, _dressing, _icecream, _shrimp, _wing];
+    if(halfChecked == true){
+      customizations.add("1/2 Chicken & 1/2 Catfish");
+    }
+    var radioChecks = [_side, _sauce, _dressing, _icecream, _shrimp, _wing, _drinkSize];
     for (var check in radioChecks) {
       if(check != null){
         customizations.add(check);
@@ -700,9 +714,9 @@ class _ItemScreenState extends State<ItemScreen> {
       children: <Widget>[
         const Text('Ice Cream Flavor Choice', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
         const Text('Must choose 1', style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.black54)),
-        iceCreamRadioItem("Vanilla"),
-        iceCreamRadioItem("Chocolate"),
-        iceCreamRadioItem("Strawberry"),
+        iceCreamRadioItem("Vanilla Scoop"),
+        iceCreamRadioItem("Chocolate Scoop"),
+        iceCreamRadioItem("Strawberry Scoop"),
         const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
       ],
     );
@@ -743,6 +757,51 @@ class _ItemScreenState extends State<ItemScreen> {
         wingRadioItem("Drums Only", 1.0),
         const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
       ],
+    );
+  }
+
+  // Widget called to display the drink size modifications
+  Widget drinkSizeMod(){
+    return Column(
+      children: <Widget>[
+        const Text('Size Choice', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+        const Text('Must choose 1', style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.black54)),
+        drinkSizeRadioItem("Regular", 0.0),
+        drinkSizeRadioItem("Large", 0.5),
+        const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
+      ],
+    );
+  }
+
+  // Widget to build the drink siw radio items
+  Widget drinkSizeRadioItem(String title, double price){
+    return Row(
+        children: <Widget>[
+          Radio(
+            activeColor: bluePrimaryColor,
+            value: title,
+            groupValue: _drinkSize,
+            onChanged: (String? value){
+              setState(() {
+                _drinkSize = value;
+                customPrice -= sizePrice;
+                sizePrice = price;
+                customPrice += sizePrice;
+              });
+            },
+          ),
+          Text(title, style: const TextStyle(fontSize: 24)),
+          Text(
+              (() {
+                if (price > 0){
+                  return "  +\$" + price.toStringAsFixed(2);
+                }
+                return " ";
+              }()),
+              style: TextStyle(fontSize: 20, fontStyle: FontStyle.italic)
+
+          )
+        ]
     );
   }
 
