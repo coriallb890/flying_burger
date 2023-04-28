@@ -7,6 +7,8 @@ import 'package:email_validator/email_validator.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';
 
+var index;
+
 class LogInScreen extends StatefulWidget {
   const LogInScreen({Key? key}) : super(key: key);
   @override
@@ -24,7 +26,6 @@ class _LogInScreen extends State<LogInScreen> {
       _userinfo = data as List<dynamic>;
     });
   }
-
 
   var _passwordVisible;
   var _checkedValue;
@@ -184,8 +185,9 @@ class _LogInScreen extends State<LogInScreen> {
                         onPressed: () {
                           if(_passKey.currentState!.validate() & _emailKey.currentState!.validate()) {
                             for (var i = 0; i < _userinfo.length; i++) {
-                              if (_userinfo[i]["Email"].contains(_email.text) & _userinfo[i]["Password"].contains(_pass.text)) {
+                              if ((_userinfo[i]["Email"].contains(_email.text) & _userinfo[i]["Password"].contains(_pass.text))) {
                                 Navigator.push(context, MaterialPageRoute(builder: (context)=> const HomeScreen()));
+                                index = i;
                               }
                           }
                           }
