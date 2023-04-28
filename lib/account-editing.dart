@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flying_burger/constants.dart';
 import 'package:flying_burger/menuScreen/menuItemPages/components/itemAppBar.dart';
 import 'package:flying_burger/profile-screen.dart';
+import 'package:flying_burger/components/navAppBar.dart';
 
 
 class AcChangeScreen extends StatelessWidget {
@@ -19,7 +20,7 @@ class AcChangeScreen extends StatelessWidget {
                     repeat: ImageRepeat.repeat)),
           child: Scaffold(
               backgroundColor: Colors.transparent,
-              appBar: const menuAppBar(''),
+              appBar: const navAppBar(),
               body: Center (
                   child: Column(
                       children: <Widget>[

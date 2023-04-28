@@ -37,7 +37,7 @@ class ResetPassword extends StatelessWidget {
                 ),
               )),
               const SizedBox(height: 50),
-              const Text('Confirm your new passwrod:',
+              const Text('Confirm your new password:',
                 style: TextStyle(fontSize: 20, color: Colors.black),
                 textAlign: TextAlign.center,
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flying_burger/components/navAppBar.dart';
 import 'package:flying_burger/constants.dart';
 import 'package:flying_burger/homeScreen/home-screen.dart';
 import 'package:flying_burger/forgot-password.dart';
@@ -65,19 +66,10 @@ class _LogInScreen extends State<LogInScreen> {
                 repeat: ImageRepeat.repeat)),
         child: Scaffold (
             backgroundColor: Colors.transparent,
+            appBar: const navAppBar(),
             body: SingleChildScrollView (
                 child: Column (
                   children: <Widget>[
-                    AppBar(
-                        leading: Padding(
-                            padding: EdgeInsets.only(left: 7),
-                            child: IconButton(
-                              onPressed: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=> const StartScreen()));
-                              },
-                              icon: const Icon(Icons.arrow_circle_left_rounded, color: redPrimaryColor, size: 50),
-                            )
-                        )),
                     const SizedBox(height: 150),
                     const Text ('Welcome Back', style: TextStyle(fontSize: 32, color: bluePrimaryColor,
                         fontWeight: FontWeight.bold)),

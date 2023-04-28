@@ -4,6 +4,7 @@ import 'package:flying_burger/components/appbar.dart';
 import 'package:flying_burger/constants.dart';
 import 'package:flying_burger/homeScreen/components/bottomNav.dart';
 import 'package:flying_burger/start-screen.dart';
+import 'package:flying_burger/components/navAppBar.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -21,7 +22,7 @@ class ProfileScreen extends StatelessWidget {
                 repeat: ImageRepeat.repeat)),
         child: Scaffold (
             backgroundColor: Colors.transparent,
-            appBar: const simpleAppBar(''),
+            appBar: const navAppBar(),
             body: SingleChildScrollView(
                 child: Center (
                     child: Column (
