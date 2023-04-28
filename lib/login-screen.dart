@@ -7,8 +7,6 @@ import 'package:email_validator/email_validator.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';
 
-String customName = '';
-String customEmail = '';
 var index;
 
 class LogInScreen extends StatefulWidget {
@@ -190,9 +188,7 @@ class _LogInScreen extends State<LogInScreen> {
                               if ((_userinfo[i]["Email"].contains(_email.text) & _userinfo[i]["Password"].contains(_pass.text))) {
                                 Navigator.push(context, MaterialPageRoute(builder: (context)=> const HomeScreen()));
                                 index = i;
-                                String customEmail = _email.text;
                               }
-                              String customEmail = _email.text;
                           }
                           }
                           },
