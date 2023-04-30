@@ -1,10 +1,14 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flying_burger/components/appbar.dart';
 import 'package:flying_burger/components/policy-dialogs.dart';
 import 'package:flying_burger/constants.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flying_burger/homeScreen/components/bottomNav.dart';
 import '../reorderScreen/recentorder-screen.dart';
+import 'package:flying_burger/login-screen.dart';
 
 final List<String> photos = ["assets/images/banner1.jpg",
   "assets/images/banner2.jpg",
@@ -14,6 +18,8 @@ final List<String> photos = ["assets/images/banner1.jpg",
 
 String? _location = "Ruston";
 
+
+
 class HomeScreen extends StatefulWidget{
   const HomeScreen({Key? key}) : super(key: key);
   @override
@@ -21,35 +27,44 @@ class HomeScreen extends StatefulWidget{
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  List _userinfo = [];
 
+  Future<void> readJson() async {
+    final String response = await rootBundle.loadString('assets/jsonfiles/loginInfo.json');
+    final data = await json.decode(response);
+    setState(() {
+      _userinfo = data as List<dynamic>;
+    });
+  }
   int _current = 0;
   final CarouselController _controller = CarouselController();
   final List<Widget> imageSliders = photos.map((item) => Container(
     margin: EdgeInsets.all(5.0),
     child: ClipRRect(
-      borderRadius: BorderRadius.all(Radius.circular(5.0)),
-      child: Stack(
-        children: <Widget>[
-          Image.asset(
-            item,
-            fit: BoxFit.cover,
-          ),
-        ],
-      )
+        borderRadius: BorderRadius.all(Radius.circular(5.0)),
+        child: Stack(
+          children: <Widget>[
+            Image.asset(
+              item,
+              fit: BoxFit.cover,
+            ),
+          ],
+        )
     ),
   )).toList();
 
   @override
   Widget build(BuildContext context){
+    readJson();
     var theme = Theme.of(context);
     var style = theme.textTheme.headlineMedium!.copyWith(color: Colors.white);
     return Container(
       constraints: const BoxConstraints.expand(),
       decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(
-            "assets/images/bgBody.jpg"),
-          repeat:ImageRepeat.repeat)),
+          image: DecorationImage(
+              image: AssetImage(
+                  "assets/images/bgBody.jpg"),
+              repeat:ImageRepeat.repeat)),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: const simpleAppBar("HOME"),
@@ -58,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               children: <Widget>[
                 Text(
-                  'Welcome to Flying Burger [NAME]!',
+                  'Welcome to Flying Burger ${_userinfo[index]['UserName']}!',
                   textAlign: TextAlign.center, style: TextStyle(fontSize: 25, color: redPrimaryColor),
                 ),
                 Text(
@@ -136,7 +151,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           fit: BoxFit.cover,
                         ),
                         SizedBox(width: 10,),
-                        Text("Order your recent \nfaves again!",
+                        Text("Order your recent \nfavorites again!",
                             textAlign: TextAlign.center,
                             style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.white)),
                       ],
