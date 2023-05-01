@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flying_burger/constants.dart';
 import 'package:flying_burger/menuScreen/menuItemPages/itemScreen.dart';
 
-
+// Custom card button to display the name and image of menu item and redirect to the item's specific page
 class itemButton extends StatelessWidget {
   final String name;
   final String imagePath;
@@ -21,12 +21,10 @@ class itemButton extends StatelessWidget {
     return Card(
       elevation: 0,
       color: Colors.transparent,
-      // Add image & text
       child: GestureDetector(
         onTap: () {
           Navigator.push(context, MaterialPageRoute(builder: (context)=> ItemScreen(name: this.name, img: this.imagePath, price: this.price, mainMods: this.mainMods, dialogMods: this.dialogMods)));
         },
-        // Add image & text
         child: Column(
           children: [
             Material(
@@ -41,8 +39,8 @@ class itemButton extends StatelessWidget {
                   fit: BoxFit.cover,
                   image:  AssetImage(imagePath)),
             ),
-            SizedBox(height: 10,),
-            Text(name, style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 10,),
+            Text(name, style: const TextStyle(fontSize: 21, fontWeight: FontWeight.bold)),
           ],
         ),
       ),

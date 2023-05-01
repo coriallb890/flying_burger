@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flying_burger/menuScreen/menuItemPages/components/itemAppBar.dart';
 
+// Placeholder screen for any pages not yet built
 class NothingScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context){
@@ -12,7 +12,7 @@ class NothingScreen extends StatelessWidget{
           image: AssetImage(
             "assets/images/bgBody.jpg"),
           repeat:ImageRepeat.repeat)),
-      child: Scaffold(
+      child: const Scaffold(
         backgroundColor: Colors.transparent,
         appBar: menuAppBar("Nothing"),
         body: Text("Nothing here")

@@ -11,16 +11,16 @@ import 'package:flying_burger/homeScreen/components/bottomNav.dart';
 import '../reorderScreen/recentorder-screen.dart';
 import 'package:flying_burger/login-screen.dart';
 
+// Placeholder images for the scrolling banner in the home screen
 final List<String> photos = ["assets/images/banner1.jpg",
   "assets/images/banner2.jpg",
   "assets/images/banner3.jpg",
   "assets/images/banner4.jpg"];
 
-
+// The global variable storing the location for the order
 String? _location = "Ruston";
 
-
-
+// Widget for the home screen
 class HomeScreen extends StatefulWidget{
   const HomeScreen({Key? key}) : super(key: key);
   @override
@@ -52,9 +52,9 @@ class _HomeScreenState extends State<HomeScreen> {
   int _current = 0;
   final CarouselController _controller = CarouselController();
   final List<Widget> imageSliders = photos.map((item) => Container(
-    margin: EdgeInsets.all(5.0),
+    margin: const EdgeInsets.all(5.0),
     child: ClipRRect(
-        borderRadius: BorderRadius.all(Radius.circular(5.0)),
+        borderRadius: const BorderRadius.all(Radius.circular(5.0)),
         child: Stack(
           children: <Widget>[
             Image.asset(
@@ -87,13 +87,13 @@ class _HomeScreenState extends State<HomeScreen> {
               children: <Widget>[
                 Text(
                   'Welcome to Flying Burger ${pickName()}!',
-                  textAlign: TextAlign.center, style: TextStyle(fontSize: 25, color: redPrimaryColor),
+                  textAlign: TextAlign.center, style: const TextStyle(fontSize: 25, color: redPrimaryColor),
                 ),
                 Text(
                   'You are currently ordering from: \n$_location',
-                  textAlign: TextAlign.center, style: TextStyle(fontSize: 25, color: redPrimaryColor),
+                  textAlign: TextAlign.center, style: const TextStyle(fontSize: 25, color: redPrimaryColor),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 ElevatedButton(
                   onPressed: (){
                     (() {
@@ -106,11 +106,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: bluePrimaryColor),
                   child: Padding(
-                    padding: EdgeInsets.all(5),
+                    padding: const EdgeInsets.all(5),
                     child: Text('Change Location', style: style)
                   )
                 ),
-                SizedBox(height: 5),
+                const SizedBox(height: 5),
+
                 // The carousel slider showing off promotions or current specials
                 CarouselSlider(
                   items: imageSliders,
@@ -127,6 +128,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     }
                   ),
                 ),
+
                 // Indicator and controller for the promotions banners
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -136,7 +138,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Container(
                         width: 12.0,
                         height: 12.0,
-                        margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
+                        margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
                         decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             color: (Theme.of(context).brightness == Brightness.dark
@@ -147,10 +149,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     );
                   }).toList(),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
+
+                // Button to show image of item from a recent order that redirects to the reorder screen
                 Card(
-                  margin: EdgeInsets.all(15),
+                  margin: const EdgeInsets.all(15),
                   elevation: 0,
                   color: bluePrimaryColor,
                   child: GestureDetector(
@@ -171,6 +175,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     )
                   ),
                 ),
+
+                // Text buttons for the Privacy Policy and the Terms of Use and Conditions
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -188,7 +194,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                       child: const Text("Privacy Policy")
                     ),
-                    Text("|"),
+                    const Text("|"),
                     TextButton(
                       style: TextButton.styleFrom(
                         textStyle: const TextStyle(fontSize: 20),
@@ -215,6 +221,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
+// Dialog box for choosing the location for the order
 class locationDialog extends StatefulWidget {
   const locationDialog({Key? key}) : super(key: key);
 
@@ -232,22 +239,22 @@ class _locationDialogState extends State<locationDialog> {
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                Text("Locations", style: redTitle),
+                const Text("Locations", style: redTitle),
                 const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
                 locationRadio("Bossier",  "3127 Airline Dr \n Bossier City, LA"),
-                SizedBox(height:5),
+                const SizedBox(height:5),
                 locationRadio("El Dorado",  "704 S. Timberlane Dr \n El Dorado, AR"),
-                SizedBox(height:5),
+                const SizedBox(height:5),
                 locationRadio("Caddo Valley",  "167 Valley St. \n Caddo Valley, AR"),
-                SizedBox(height:5),
+                const SizedBox(height:5),
                 locationRadio("Longview", "322 E. Hawkins Pkwy \n Longview, TX"),
-                SizedBox(height:5),
+                const SizedBox(height:5),
                 locationRadio("Magnolia", "1898 E University St. \n Magnolia, AR"),
-                SizedBox(height:5),
+                const SizedBox(height:5),
                 locationRadio("Ruston", "1108 Tech Dr \n Ruston, LA"),
-                SizedBox(height:5),
+                const SizedBox(height:5),
                 locationRadio("Texarkana", "5302 Summerhill \n Texarkana, TX"),
-                SizedBox(height:5),
+                const SizedBox(height:5),
                 const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
                 TextButton(
                   onPressed: () {
@@ -263,6 +270,8 @@ class _locationDialogState extends State<locationDialog> {
     );
   }
 
+
+  // Widget to create a radio button for all of the locations
   Widget locationRadio(String city, String address){
     return Row(
       children: <Widget>[
@@ -276,9 +285,9 @@ class _locationDialogState extends State<locationDialog> {
             });
           },
         ),
-        Text(city, style: TextStyle(fontSize: 23)),
-        SizedBox(width: 10,),
-        Text(address,style: TextStyle(fontSize: 16)),
+        Text(city, style: const TextStyle(fontSize: 23)),
+        const SizedBox(width: 10,),
+        Text(address,style: const TextStyle(fontSize: 16)),
       ],
     );
   }

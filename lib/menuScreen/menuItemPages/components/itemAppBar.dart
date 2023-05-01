@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flying_burger/constants.dart';
 
+
+// App bar for the menu pages to navigate back to previous page in menus
 class menuAppBar extends StatelessWidget implements PreferredSizeWidget{
 
   final String title;
@@ -14,7 +16,7 @@ class menuAppBar extends StatelessWidget implements PreferredSizeWidget{
   Widget build(BuildContext context) {
     return AppBar(
       leading: Padding(
-        padding: EdgeInsets.only(left: 7),
+        padding: const EdgeInsets.only(left: 7),
         child: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -31,7 +33,7 @@ class menuAppBar extends StatelessWidget implements PreferredSizeWidget{
       toolbarHeight: 63,
       actions: <Widget>[
         Padding(
-            padding: EdgeInsets.only(right: 25),
+            padding: const EdgeInsets.only(right: 25),
             child: IconButton(
               onPressed: () {},
               icon: const Icon(Icons.person, color: Colors.grey, size: 55),

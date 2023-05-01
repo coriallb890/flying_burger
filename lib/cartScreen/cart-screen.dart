@@ -10,6 +10,8 @@ import '../menuScreen/menu.dart';
 
 var totalOrder;
 
+
+// Widget to display the customer's current cart and order
 class CartScreen extends StatefulWidget {
   const CartScreen({Key? key}) : super(key: key);
 
@@ -81,7 +83,6 @@ class _CartScreenState extends State<CartScreen> {
                 ElevatedButton(
                   onPressed: () {
                     finalOrder();
-                    printOrder();
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const CheckoutScreen()));
                   },
                   style: ElevatedButton.styleFrom(
@@ -115,6 +116,7 @@ class _CartScreenState extends State<CartScreen> {
     return ordertotal;
   }
 
+  // Widget to create entry in the cart for an item in the order list
   Widget itemEntry(CartItem item){
     return Column(
       children: [
@@ -169,16 +171,18 @@ class _CartScreenState extends State<CartScreen> {
                   ),
 
                   ...item.customizations.map(modificaionList).toList(),
+
+                  // Buttons to edit or remove items in order list
                   Row(
                     children: <Widget>[
                       ElevatedButton(
                         onPressed: (){
                         },
-                        child: const Text('Edit', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: bluePrimaryColor,
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0))
                         ),
+                        child: const Text('Edit', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
                       ),
                       SizedBox(width: 15),
                       ElevatedButton(
@@ -190,11 +194,11 @@ class _CartScreenState extends State<CartScreen> {
                             ).then((_)=>setState((){}));
                           }());
                         },
-                        child: const Text('Remove', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: redPrimaryColor,
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0))
                         ),
+                        child: const Text('Remove', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
                       ),
                     ],
                   )
@@ -217,16 +221,18 @@ class _CartScreenState extends State<CartScreen> {
     );
   }
 
+  // Widget to display the modifications of the item
   Widget modificaionList(String text){
     return Flexible(
       child: Text(
         text,
-        style: TextStyle(fontSize: 20, color: Colors.black38),
+        style: const TextStyle(fontSize: 20, color: Colors.black38),
         textAlign: TextAlign.start,
       )
     );
   }
 
+  // Dialog widget to change quantity of the items in car
   Widget quantityDialog(CartItem item){
     return Dialog(
         child: Padding(
@@ -292,6 +298,7 @@ class _CartScreenState extends State<CartScreen> {
     );
   }
 
+  // Dialog box to remove items from order
   Widget removeDialog(CartItem item){
     return Dialog(
         child: Padding(
@@ -314,11 +321,11 @@ class _CartScreenState extends State<CartScreen> {
                         onPressed: (){
                           Navigator.pop(context);
                         },
-                        child: const Text('Go Back', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
                         style: ElevatedButton.styleFrom(
                             backgroundColor: bluePrimaryColor,
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0))
                         ),
+                        child: const Text('Go Back', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
                       ),
                       const SizedBox(width: 15),
                       ElevatedButton(
@@ -326,11 +333,11 @@ class _CartScreenState extends State<CartScreen> {
                           orderList.removeWhere((element) => element == item);
                           Navigator.pop(context);
                         },
-                        child: const Text('Confirm', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
                         style: ElevatedButton.styleFrom(
                             backgroundColor: redPrimaryColor,
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0))
                         ),
+                        child: const Text('Confirm', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
                       ),
                     ],
                   )
@@ -340,7 +347,7 @@ class _CartScreenState extends State<CartScreen> {
     );
   }
 
- finalOrder() {
+  finalOrder() {
     totalOrder = '';
     orderList.forEach((element) => totalOrder +=
         ("Item: ${element.name} \n "
@@ -348,18 +355,9 @@ class _CartScreenState extends State<CartScreen> {
     );
     totalOrder += ("Total Price: \$${orderPrice().toStringAsFixed(2)}");
     return totalOrder;
-    }
-
-
-  // TEMPORARY FUNCTION DELETE AFTER
-  void printOrder(){
-    orderList.forEach((element) =>
-      print("CartItem(name: '${element.name}', imgPath: '${element.imgPath}', "
-          "quantity: ${element.quantity}, price: ${element.price}, index: ${element.index}, customizations: [${customizations(element)}])")
-    );
   }
 
-  //TEMPORARY FUNCTION DELETE AFTER
+  // Function to create string of customizations
   String customizations(CartItem element){
     var customizations = "";
     element.customizations.forEach((custom)
@@ -374,7 +372,4 @@ class _CartScreenState extends State<CartScreen> {
       return customizations;
     }
   }
-
-
-
 }

@@ -3,15 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flying_burger/components/nothingScreen.dart';
 import '../../constants.dart';
 
+// Widget to create a button for each of the menu categories with the name and image of the category
 class menuItem extends StatelessWidget {
   final String name;
   final String imagePath;
   final Widget? page;
 
   const menuItem(this.name, this.imagePath, [this.page]);
-
-  //@override
-  //Size get preferredSize => const Size.fromHeight(55);
 
   @override
   Widget build(BuildContext context) {
@@ -38,8 +36,8 @@ class menuItem extends StatelessWidget {
                   fit: BoxFit.cover,
                   image:  AssetImage(imagePath)),
             ),
-            SizedBox(height: 10,),
-            Text(name, style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 10,),
+            Text(name, style: const TextStyle(fontSize: 21, fontWeight: FontWeight.bold)),
           ],
         ),
       ),

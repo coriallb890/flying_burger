@@ -19,7 +19,7 @@ import 'package:flying_burger/menuScreen/sides-menu.dart';
 import 'package:flying_burger/menuScreen/tacos-menu.dart';
 import '../components/appbar.dart';
 
-
+// Widget for the main menu page which has all of the buttons to navigate to all of the different specific category menus
 class MenuScreen extends StatelessWidget{
 
   @override

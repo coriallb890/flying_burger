@@ -76,7 +76,7 @@ class _ItemScreenState extends State<ItemScreen> {
                       fit: BoxFit.fitWidth
                     ),
                     const SizedBox(height: 10),
-                    Text(widget.name,style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold), textAlign: TextAlign.start,),
+                    Text(widget.name,style: const TextStyle(fontSize: 32, fontWeight: FontWeight.bold), textAlign: TextAlign.start,),
                   ]
                 ),
                 const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness:2),
@@ -106,7 +106,7 @@ class _ItemScreenState extends State<ItemScreen> {
                     );
                   }
                   else{
-                    return SizedBox(height:0);
+                    return const SizedBox(height:0);
                   }
                 }()),
                 // Radio options for the wings
@@ -115,7 +115,7 @@ class _ItemScreenState extends State<ItemScreen> {
                     return wingsMod();
                   }
                   else{
-                    return SizedBox(height:0);
+                    return const SizedBox(height:0);
                   }
                 }()),
                 // Radio options for the drink
@@ -217,7 +217,7 @@ class _ItemScreenState extends State<ItemScreen> {
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
                       fixedSize: const Size(260, 60)
                     ),
-                    child: Text('Add to Cart | \$${(customPrice + widget.price).toStringAsFixed(2)}', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white)),
+                    child: Text('Add to Cart | \$${(customPrice + widget.price).toStringAsFixed(2)}', style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white)),
                   )
                 ),
               ]
@@ -297,6 +297,7 @@ class _ItemScreenState extends State<ItemScreen> {
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
+
                         // Check for burger customizations
                         (() {
                           if (widget.dialogMods.contains('Burger')){
@@ -309,117 +310,123 @@ class _ItemScreenState extends State<ItemScreen> {
                             );
                           }
                           else{
-                            return SizedBox(height:0);
+                            return const SizedBox(height:0);
                           }
                         }()),
+
                         // Check for sandwich customizations
                         (() {
                           if (widget.dialogMods.contains('Sandwich')){
                             return Column(
                               children: <Widget>[
-                                Text("Toppings", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+                                const Text("Toppings", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
                                 ...sandwichOptions.map(customOption).toList(),
                                 const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
                               ],
                             );
                           }
                           else{
-                            return SizedBox(height:0);
+                            return const SizedBox(height:0);
                           }
                         }()),
+
                         // Check for salad customizations
                         (() {
                           if (widget.dialogMods.contains('Salad')){
                             return Column(
                               children: <Widget>[
-                                Text("Salad Options", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+                                const Text("Salad Options", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
                                 ...saladOptions.map(customOption).toList(),
                                 const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
                               ],
                             );
                           }
                           else{
-                            return SizedBox(height:0);
+                            return const SizedBox(height:0);
                           }
                         }()),
+
                         // Check for condiments customizations
                         (() {
                           if (widget.dialogMods.contains('Condiments')){
                             return Column(
                               children: <Widget>[
-                                Text("Condiments", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+                                const Text("Condiments", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
                                 ...condimentOptions.map(customOption).toList(),
                                 const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
                               ],
                             );
                           }
                           else{
-                            return SizedBox(height:0);
+                            return const SizedBox(height:0);
                           }
                         }()),
+
                         // Check for gumbo customizations
                         (() {
                           if (widget.dialogMods.contains('Gumbo')){
                             return Column(
                               children: <Widget>[
-                                Text("Gumbo Options", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+                                const Text("Gumbo Options", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
                                 ...gumboOptions.map(customOption).toList(),
                                 const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
                               ],
                             );
                           }
                           else{
-                            return SizedBox(height:0);
+                            return const SizedBox(height:0);
                           }
                         }()),
+
                         // Check for hamburger steak customization
                         (() {
                           if (widget.dialogMods.contains('HamSteak')){
                             return Column(
                               children: <Widget>[
-                                Text("Hamburger Steak Toppings", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+                                const Text("Hamburger Steak Toppings", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
                                 ...hamSteakOptions.map(customOption).toList(),
                                 const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
                               ],
                             );
                           }
                           else{
-                            return SizedBox(height:0);
+                            return const SizedBox(height:0);
                           }
                         }()),
+
                         // Check for taco customizations
                         (() {
                           if (widget.dialogMods.contains('Taco')){
                             return Column(
                               children: <Widget>[
-                                Text("Taco Toppings", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+                                const Text("Taco Toppings", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
                                 ...tacoOptions.map(customOption).toList(),
                                 const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
                               ],
                             );
                           }
                           else{
-                            return SizedBox(height:0);
+                            return const SizedBox(height:0);
                           }
                         }()),
+
                         // Check for extra scoop customization
                         (() {
                           if (widget.dialogMods.contains('ExtraScoop')){
                             return Column(
                               children: <Widget>[
-                                Text("Extra scoops", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+                                const Text("Extra scoops", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
                                 ...extraScoopOptions.map(customOption).toList(),
                                 const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
                               ],
                             );
                           }
                           else{
-                            return SizedBox(height:0);
+                            return const SizedBox(height:0);
                           }
                         }()),
                         TextButton(
                           onPressed: () {
-                            print(burgerOptions[0].option);
                             Navigator.pop(context);
                           },
                           child: const Text('Apply', style: TextStyle(color: bluePrimaryColor, fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
@@ -443,7 +450,7 @@ class _ItemScreenState extends State<ItemScreen> {
             Row(
               children: <Widget>[
                 Checkbox(
-                    fillColor: MaterialStatePropertyAll<Color>(bluePrimaryColor),
+                    fillColor: const MaterialStatePropertyAll<Color>(bluePrimaryColor),
                     value: checkbox.value,
                     onChanged: (bool? value){
                       setState(() {
@@ -460,16 +467,19 @@ class _ItemScreenState extends State<ItemScreen> {
                 Text(checkbox.title, style: const TextStyle(fontSize: 20)),
                 Text(
                     (() {
+                      // Check for if the customization has some extra price that needs to be shown
                       if (checkbox.price > 0){
-                        return "  +\$" + checkbox.price.toStringAsFixed(2);
+                        return "  +\$${checkbox.price.toStringAsFixed(2)}";
                       }
                       return " ";
                     }()),
-                    style: TextStyle(fontSize: 20, fontStyle: FontStyle.italic)
+                    style: const TextStyle(fontSize: 20, fontStyle: FontStyle.italic)
                 ),
               ],
             ),
             (() {
+
+              // Check to see if the checkbox is checked and give radio options for regular, extra, or on side
               if(checkbox.value == true){
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -493,7 +503,7 @@ class _ItemScreenState extends State<ItemScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(width: 5),
+                    const SizedBox(width: 5),
                     ElevatedButton(
                         onPressed: (){
                           setState(() {
@@ -515,7 +525,7 @@ class _ItemScreenState extends State<ItemScreen> {
                               Text(
                                 (() {
                                   if (checkbox.extraPrice > 0){
-                                    return "  +\$" + checkbox.extraPrice.toStringAsFixed(2);
+                                    return "  +\$${checkbox.extraPrice.toStringAsFixed(2)}";
                                   }
                                   return "";
                                 }()),
@@ -526,7 +536,7 @@ class _ItemScreenState extends State<ItemScreen> {
                             ]
                         )
                     ),
-                    SizedBox(width: 5),
+                    const SizedBox(width: 5),
                     ElevatedButton(
                       onPressed: (){
                         setState(() {
@@ -550,7 +560,7 @@ class _ItemScreenState extends State<ItemScreen> {
                 );
               }
               else{
-                return SizedBox(height: 0,);
+                return const SizedBox(height: 0,);
               }
             }())
           ],
@@ -633,9 +643,9 @@ class _ItemScreenState extends State<ItemScreen> {
                     });
                   },
                 ),
-                Text("Side Salad", style: const TextStyle(fontSize: 24),),
-                Text("  +\$1.00", style: TextStyle(fontSize: 20, fontStyle: FontStyle.italic)),
-                Spacer(),
+                const Text("Side Salad", style: TextStyle(fontSize: 24),),
+                const Text("  +\$1.00", style: TextStyle(fontSize: 20, fontStyle: FontStyle.italic)),
+                const Spacer(),
                 Padding(
                     padding: const EdgeInsets.only(right: 8.0),
                     child: ElevatedButton(
@@ -649,11 +659,11 @@ class _ItemScreenState extends State<ItemScreen> {
                           }
                         }());
                       },
-                      child: const Text('Customize', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
                       style: ElevatedButton.styleFrom(
                           backgroundColor: bluePrimaryColor,
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0))
                       ),
+                      child: const Text('Customize', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
                     )
                 ),
               ]
@@ -726,11 +736,11 @@ class _ItemScreenState extends State<ItemScreen> {
   Widget halfMod(){
     return Column(
       children: <Widget> [
-        Text("1/2 Chicken & 1/2 Catfish?", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+        const Text("1/2 Chicken & 1/2 Catfish?", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
         Row(
           children: <Widget> [
             Checkbox(
-                fillColor: MaterialStatePropertyAll<Color>(bluePrimaryColor),
+                fillColor: const MaterialStatePropertyAll<Color>(bluePrimaryColor),
                 value: halfChecked,
                 onChanged: (bool? value){
                   setState(() {
@@ -738,7 +748,7 @@ class _ItemScreenState extends State<ItemScreen> {
                   });
                 }
             ),
-            Text("Yes", style: const TextStyle(fontSize: 24)),
+            const Text("Yes", style: TextStyle(fontSize: 24)),
           ],
         ),
         const Divider(color: redPrimaryColor, indent: 10.0, endIndent: 10.0, thickness: 2,),
@@ -794,11 +804,11 @@ class _ItemScreenState extends State<ItemScreen> {
           Text(
               (() {
                 if (price > 0){
-                  return "  +\$" + price.toStringAsFixed(2);
+                  return "  +\$${price.toStringAsFixed(2)}";
                 }
                 return " ";
               }()),
-              style: TextStyle(fontSize: 20, fontStyle: FontStyle.italic)
+              style: const TextStyle(fontSize: 20, fontStyle: FontStyle.italic)
 
           )
         ]
@@ -860,11 +870,11 @@ class _ItemScreenState extends State<ItemScreen> {
           Text(
             (() {
               if (price > 0){
-                return "  +\$" + price.toStringAsFixed(2);
+                return "  +\$${price.toStringAsFixed(2)}";
               }
               return " ";
             }()),
-            style: TextStyle(fontSize: 20, fontStyle: FontStyle.italic)
+            style: const TextStyle(fontSize: 20, fontStyle: FontStyle.italic)
 
           )
 
@@ -872,6 +882,7 @@ class _ItemScreenState extends State<ItemScreen> {
     );
   }
 
+  // Widget for drink item pages to give option between regular or large drink
   Widget drinkCheck(String choice){
     if (_drink == choice){
       return Row(
@@ -882,9 +893,10 @@ class _ItemScreenState extends State<ItemScreen> {
         ],
       );
     }
-    return SizedBox(height:0);
+    return const SizedBox(height:0);
   }
 
+  // Widget to build the radio buttons for the drink size choice page
   Widget sizeChoice(String text, String choice){
     return ElevatedButton(
       onPressed: (){
@@ -988,11 +1000,11 @@ class _ItemScreenState extends State<ItemScreen> {
           Text(
               (() {
                 if (price > 0){
-                  return "  +\$" + price.toStringAsFixed(2);
+                  return "  +\$${price.toStringAsFixed(2)}";
                 }
                 return " ";
               }()),
-              style: TextStyle(fontSize: 20, fontStyle: FontStyle.italic)
+              style: const TextStyle(fontSize: 20, fontStyle: FontStyle.italic)
 
           )
         ]

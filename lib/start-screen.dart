@@ -3,6 +3,7 @@ import 'package:flying_burger/constants.dart';
 import 'package:flying_burger/login-screen.dart';
 import 'package:flying_burger/create-account.dart';
 
+// Widget for the starting page on the app that has buttons for logging in and creating an account
 class StartScreen extends StatelessWidget{
   const StartScreen({super.key});
 
