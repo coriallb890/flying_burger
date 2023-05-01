@@ -30,7 +30,7 @@ class ProfileScreen extends StatelessWidget {
                             const SizedBox(height: 75),
                             const Text('Profile', style: TextStyle(fontSize: 32, color: bluePrimaryColor,
                                 fontWeight: FontWeight.bold)),
-                            const SizedBox(height: 25),
+                            const SizedBox(height: 50),
                             const Text('Customer First Name', style: TextStyle(fontSize: 20, color: bluePrimaryColor)),
                             const SizedBox(height: 10),
                             const Text('first-name-here', style: TextStyle(fontSize: 20, color: Colors.grey,

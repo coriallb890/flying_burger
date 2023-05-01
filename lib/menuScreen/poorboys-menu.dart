@@ -27,7 +27,7 @@ class PoorboysMenu extends StatelessWidget {
             padding: const EdgeInsets.all(15),
             children: const <Widget>[
               itemButton('Fried Catfish Poorboy', 'assets/images/poorboys/catfish-poorboy.jpg',10.99,["Side"],["Sandwich","Sauce"]),
-              itemButton('Grilled Catfish Poorboy', 'assets/images/placeholder.png',11.99,["Side"],["Sandwich","Sauce"]),
+              itemButton('Grilled Catfish Poorboy', 'assets/images/poorboys/catfish-poorboy.jpg',11.99,["Side"],["Sandwich","Sauce"]),
               itemButton('Fried Chicken Poorboy', 'assets/images/placeholder.png',11.99,["Side"],["Sandwich","Sauce"]),
               itemButton('Grilled Chicken Poorboy', 'assets/images/placeholder.png',11.99,["Side"],["Sandwich","Sauce"]),
               itemButton('Crawfish Poorboy', 'assets/images/placeholder.png',10.99,["Side"],["Sandwich","Sauce"]),
