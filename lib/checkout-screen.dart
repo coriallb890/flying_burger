@@ -1,9 +1,11 @@
 import 'dart:io';
 import 'package:flying_burger/components/cartItem.dart';
+import 'package:flying_burger/cartScreen/cart-screen.dart';
 import 'package:flying_burger/components/navAppBar.dart';
 import 'package:flying_burger/confirmation-screen.dart';
 import 'package:flying_burger/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flying_burger/create-account.dart';
 import 'package:flying_burger/payment-billing.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -19,6 +21,8 @@ class CheckoutScreen extends StatefulWidget {
 
 class _CheckoutScreen extends State<CheckoutScreen> {
 
+  var finalReceipt;
+
   List _userinfo = [];
 
   Future<void> readJson() async {
@@ -33,8 +37,8 @@ class _CheckoutScreen extends State<CheckoutScreen> {
   Future sendEmail({
     String customerName = 'Ryan',
     String customerEmail = 'ryanscallicott@gmail.com',
-    String subject = 'Hello its me',
-    String receipt = '',
+    String subject = 'Flying Burger & Seafood Order Confirmation',
+    String receipt = 'Empty Order',
     String toName = 'Joshua',
   }) async{
 
@@ -64,6 +68,30 @@ class _CheckoutScreen extends State<CheckoutScreen> {
 
     print(response.body);
 
+  }
+
+  pickName() {
+    var overallName = '';
+    if (index == null) {
+      overallName = customerName;
+      return overallName;
+    }
+    else {
+      overallName = _userinfo[index]["UserName"];
+      return overallName;
+    }
+  }
+
+  pickEmail() {
+    var overallEmail = '';
+    if (index == null) {
+      overallEmail = createAccount;
+      return overallEmail;
+    }
+    else {
+      overallEmail = _userinfo[index]["Email"];
+      return overallEmail;
+    }
   }
 
   @override
@@ -115,8 +143,10 @@ class _CheckoutScreen extends State<CheckoutScreen> {
                           orderList.clear();
                           Navigator.push(context, MaterialPageRoute(builder: (context)=> const ConfirmationScreen()));
                           sendEmail(
-                            customerName: _userinfo[index]["UserName"],
-                            customerEmail: _userinfo[index]["Email"],
+                            customerName: pickName(),
+                            customerEmail: pickEmail(),
+                            receipt: totalOrder
+
                           );
                         },
                         style: ElevatedButton.styleFrom(
