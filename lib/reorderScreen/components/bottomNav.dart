@@ -1,12 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flying_burger/constants.dart';
 import 'package:flying_burger/homeScreen/home-screen.dart';
 import 'package:flying_burger/menuScreen/menu.dart';
-
 import '../../cartScreen/cart-screen.dart';
 import '../recentorder-screen.dart';
 
+// This is the bottom navigation bar for the cart screen
 class navReorder extends StatelessWidget{
 
   @override
@@ -31,58 +30,66 @@ class navReorder extends StatelessWidget{
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
+
+          // The blue, unselected "Home" button
           Column(
             children: <Widget> [
-              SizedBox(height: 2),
+              const SizedBox(height: 2),
               IconButton(
                 icon: const Icon(Icons.home),
                 onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));},
                 color: Colors.white,
                 iconSize: 50,
                 padding: EdgeInsets.zero,
-                constraints: BoxConstraints(),
+                constraints: const BoxConstraints(),
               ),
               const Text('Home', style: TextStyle(color: Colors.white, fontFamily: 'Bowlby', fontSize: 15, letterSpacing: 1)),
             ],
           ),
+
+          // The blue, unselected "Menu" button
           Column(
             children: <Widget> [
-              SizedBox(height: 3),
+              const SizedBox(height: 3),
               IconButton(
                 icon: const Icon(Icons.fastfood),
                 onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=> MenuScreen()));},
                 color: Colors.white,
                 iconSize: 50,
                 padding: EdgeInsets.zero,
-                constraints: BoxConstraints(),
+                constraints: const BoxConstraints(),
               ),
               const Text('Menu', style: TextStyle(color: Colors.white, fontFamily: 'Bowlby', fontSize: 15, letterSpacing: 1)),
             ],
           ),
+
+          // The red, selected "Reorder" button
           Column(
             children: <Widget> [
-              SizedBox(height: 3),
+              const SizedBox(height: 3),
               IconButton(
                 icon: const Icon(Icons.receipt_long_outlined),
                 onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=> RecentOrderScreen()));},
                 color: redPrimaryColor,
                 iconSize: 50,
                 padding: EdgeInsets.zero,
-                constraints: BoxConstraints(),
+                constraints: const BoxConstraints(),
               ),
               const Text('Reorder', style: TextStyle(color: redPrimaryColor, fontFamily: 'Bowlby', fontSize: 15, letterSpacing: 1)),
             ],
           ),
+
+          // The blue, unselected "Cart" button
           Column(
             children: <Widget> [
-              SizedBox(height: 3),
+              const SizedBox(height: 3),
               IconButton(
                 icon: const Icon(Icons.shopping_cart_outlined),
                 onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=> CartScreen()));},
                 color: Colors.white,
                 iconSize: 50,
                 padding: EdgeInsets.zero,
-                constraints: BoxConstraints(),
+                constraints: const BoxConstraints(),
               ),
               const Text('Cart', style: TextStyle(color: Colors.white, fontFamily: 'Bowlby', fontSize: 15, letterSpacing: 1)),
             ],

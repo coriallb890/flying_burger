@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flying_burger/constants.dart';
-import 'package:flying_burger/menuScreen/menuItemPages/components/dialogCustomizationsLists.dart';
-
+// Custom checkbox state that stores the title, price, extra price, option, and value of the checkboxes
 class CheckBoxState{
   String title;
   double price;
@@ -20,6 +17,8 @@ class CheckBoxState{
     return CheckBoxState(title: source.title, price: source.price, extraPrice: source.extraPrice, value: source.value);
   }
 }
+
+// Default list for burger options
 final defaultBurgerOptions = [
   CheckBoxState(title: "Lettuce", price: 0.0, extraPrice: 0.0, value: true),
   CheckBoxState(title: "Pickles", price: 0.0, extraPrice: 0.0,  value: true),
@@ -34,6 +33,7 @@ final defaultBurgerOptions = [
   CheckBoxState(title: "Jalapenos", price: 0.99, extraPrice: 0.5, value: false),
 ];
 
+// Default list for sandwich options
 final defaultSandwichOptions = [
   CheckBoxState(title: "Lettuce", price: 0.0, extraPrice: 0.0, value: true),
   CheckBoxState(title: "Pickles", price: 0.0, extraPrice: 0.0,  value: true),
@@ -47,6 +47,7 @@ final defaultSandwichOptions = [
   CheckBoxState(title: "Jalapenos", price: 0.99, extraPrice: 0.5, value: false),
 ];
 
+// Default list for condiment options
 final defaultCondimentsOptions = [
   CheckBoxState(title: "Ketchup", price: 0.0, extraPrice: 0.0, value: true),
   CheckBoxState(title: "Mustard", price: 0.0, extraPrice: 0.0, value: true),
@@ -57,11 +58,13 @@ final defaultCondimentsOptions = [
   CheckBoxState(title: "Honey Mustard", price: 0.0, extraPrice: 0.0, value: false),
 ];
 
+// Default list for gumbo options
 final defaultGumboOptions = [
   CheckBoxState(title: "Rice", price: 0.0, extraPrice: 1.0, value: true),
   CheckBoxState(title: "Green Onion", price: 0.0, extraPrice: 0.0, value: true),
 ];
 
+// Default list for hamburger steak options
 final defaultHamSteakOptions = [
   CheckBoxState(title: "Grilled Onions", price: 0.0, extraPrice: 0.5, value: true),
   CheckBoxState(title: "Onions", price: 0.0, extraPrice: 0.0, value: false),
@@ -74,6 +77,7 @@ final defaultHamSteakOptions = [
   CheckBoxState(title: "Brown Gravy", price: 0.0, extraPrice: 0.99, value: false),
 ];
 
+// Default list for taco options
 final defaultTacoOptions = [
   CheckBoxState(title: "Tartar Sauce", price: 0.0, extraPrice: 0.0, value: true),
   CheckBoxState(title: "Cole Slaw", price: 0.0, extraPrice: 0.0, value: true),
@@ -81,12 +85,14 @@ final defaultTacoOptions = [
   CheckBoxState(title: "Chives", price: 0.0, extraPrice: 0.0, value: true),
 ];
 
+// Default list for extra ice cream scoop options
 final defaultExtraScoopOptions = [
   CheckBoxState(title: "Vanilla Scoop", price: 1.0, extraPrice: 1.0, value: false),
   CheckBoxState(title: "Chocolate Scoop", price: 1.0, extraPrice: 1.0, value: false),
   CheckBoxState(title: "Strawberry Scoop", price: 1.0, extraPrice: 1.0, value: false),
 ];
 
+// Default list for salad options
 final defaultSaladOptions = [
   CheckBoxState(title: "Tomatoes", price: 0.0, extraPrice: 0.5, value: true),
   CheckBoxState(title: "Cucumber", price: 0.0, extraPrice: 0.5, value: true),
@@ -100,5 +106,6 @@ final defaultSaladOptions = [
   CheckBoxState(title: "Grilled Mushroom", price: 0.89, extraPrice: 0.5, value: false),
 ];
 
+// default lists to be used to compare item customizations
 var defaultsList = [defaultBurgerOptions, defaultSandwichOptions, defaultCondimentsOptions, defaultGumboOptions, defaultHamSteakOptions, defaultTacoOptions, defaultExtraScoopOptions, defaultSaladOptions];
 var dialogMods = ['Burger', 'Sandwich', 'Condiments', 'Gumbo', 'HamSteak', 'Taco', 'ExtraScoop', 'Salad'];

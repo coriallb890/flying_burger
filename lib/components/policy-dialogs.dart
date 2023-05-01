@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+// Dialog box for the pirvacy policy
 class privacyDialog extends StatelessWidget {
   const privacyDialog({Key? key}) : super(key: key);
 
@@ -117,7 +117,7 @@ class privacyDialog extends StatelessWidget {
   }
 }
 
-
+// Dialog box for the terms of use and conditions
 class termsDialog extends StatelessWidget {
   const termsDialog({Key? key}) : super(key: key);
 

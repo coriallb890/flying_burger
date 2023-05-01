@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flying_burger/constants.dart';
 import 'package:flying_burger/menuScreen/menuItemPages/components/dialogCustomizationsLists.dart';
 
+
+// Widget to display the salad customizations for side salads
 class saladDialog extends StatefulWidget {
   const saladDialog({Key? key}) : super(key: key);
 
@@ -40,7 +42,7 @@ class _saladDialogState extends State<saladDialog> {
                   children: <Widget>[
                     Column(
                       children: <Widget>[
-                        Text("Ingredients", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+                        const Text("Ingredients", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
                         ...saladOptions.map(customOption).toList(),
                       ],
                     ),
@@ -101,13 +103,14 @@ class _saladDialogState extends State<saladDialog> {
     );
   }
 
+  // Widget to create checkboxes for all of the customizations
   Widget customOption(CheckBoxState checkbox){
     return Column(
       children: <Widget>[
         Row(
           children: <Widget>[
             Checkbox(
-                fillColor: MaterialStatePropertyAll<Color>(bluePrimaryColor),
+                fillColor: const MaterialStatePropertyAll<Color>(bluePrimaryColor),
                 value: checkbox.value,
                 onChanged: (bool? value){
                   setState(() {
@@ -119,15 +122,17 @@ class _saladDialogState extends State<saladDialog> {
             Text(
                 (() {
                   if (checkbox.price > 0){
-                    return "  +\$" + checkbox.price.toStringAsFixed(2);
+                    return "  +\$${checkbox.price.toStringAsFixed(2)}";
                   }
                   return " ";
                 }()),
-                style: TextStyle(fontSize: 20, fontStyle: FontStyle.italic)
+                style: const TextStyle(fontSize: 20, fontStyle: FontStyle.italic)
             ),
           ],
         ),
         (() {
+
+          // Check for if checkbox is clicked and displays radio button options for the topping to be regular, extra, or on side
           if(checkbox.value == true){
             return Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -148,7 +153,7 @@ class _saladDialogState extends State<saladDialog> {
                     ),
                   ),
                 ),
-                SizedBox(width: 5),
+                const SizedBox(width: 5),
                 ElevatedButton(
                     onPressed: (){
                       setState(() {
@@ -169,7 +174,7 @@ class _saladDialogState extends State<saladDialog> {
                           Text(
                             (() {
                               if (checkbox.extraPrice > 0){
-                                return "  +\$" + checkbox.extraPrice.toStringAsFixed(2);
+                                return "  +\$${checkbox.extraPrice.toStringAsFixed(2)}";
                               }
                               return "";
                             }()),
@@ -180,7 +185,7 @@ class _saladDialogState extends State<saladDialog> {
                         ]
                     )
                 ),
-                SizedBox(width: 5),
+                const SizedBox(width: 5),
                 ElevatedButton(
                   onPressed: (){
                     setState(() {
@@ -201,7 +206,7 @@ class _saladDialogState extends State<saladDialog> {
             );
           }
           else{
-            return SizedBox(height: 0,);
+            return const SizedBox(height: 0,);
           }
         }())
       ],
