@@ -5,6 +5,8 @@ import 'package:flying_burger/start-screen.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flying_burger/components/navAppBar.dart';
 
+var createAccount;
+var customerName;
 
 class CreateAccountScreen extends StatefulWidget {
   const CreateAccountScreen({Key? key}) : super(key: key);
@@ -257,6 +259,8 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                               if(_passKey.currentState!.validate() & _confirmPassKey.currentState!.validate() & _emailKey.currentState!.validate()
                               & _firstNameKey.currentState!.validate() & _lastNameKey.currentState!.validate() & _checkedValue == true) {
                                 Navigator.push(context, MaterialPageRoute(builder: (context)=> const HomeScreen()));
+                                createAccount = _email.text;
+                                customerName = _firstName.text;
                               };
                             },
                             style: ElevatedButton.styleFrom(

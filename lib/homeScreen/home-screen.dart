@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flying_burger/create-account.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flying_burger/components/appbar.dart';
@@ -35,6 +36,18 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {
       _userinfo = data as List<dynamic>;
     });
+  }
+
+  pickName(){
+    var overallName = '';
+    if(index == null){
+      overallName = customerName;
+      return overallName;
+    }
+    else{
+      overallName = _userinfo[index]["UserName"];
+      return overallName;
+    }
   }
   int _current = 0;
   final CarouselController _controller = CarouselController();
@@ -73,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               children: <Widget>[
                 Text(
-                  'Welcome to Flying Burger ${_userinfo[index]['UserName']}!',
+                  'Welcome to Flying Burger ${pickName()}!',
                   textAlign: TextAlign.center, style: TextStyle(fontSize: 25, color: redPrimaryColor),
                 ),
                 Text(
