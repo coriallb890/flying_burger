@@ -3,7 +3,10 @@ import 'package:flying_burger/constants.dart';
 import 'package:flying_burger/homeScreen/home-screen.dart';
 import 'package:flying_burger/start-screen.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:flying_burger/components/navAppBar.dart';
 
+var createAccount;
+var customerName;
 
 class CreateAccountScreen extends StatefulWidget {
   const CreateAccountScreen({Key? key}) : super(key: key);
@@ -62,20 +65,11 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
 
         child: Scaffold (
             backgroundColor: Colors.transparent,
+            appBar: const navAppBar(),
             body: SingleChildScrollView(
                 child: Center(
                     child: Column (
                       children: <Widget>[
-                        AppBar(
-                            leading: Padding(
-                                padding: EdgeInsets.only(left: 7),
-                                child: IconButton(
-                                  onPressed: () {
-                                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const StartScreen()));
-                                  },
-                                  icon: const Icon(Icons.arrow_circle_left_rounded, color: redPrimaryColor, size: 50),
-                                )
-                            )),
                         const SizedBox(height: 100), //How high or low the text will lie on the page
                         const Text ('Create an Account', style: TextStyle(fontSize: 40, color: bluePrimaryColor,
                             fontWeight: FontWeight.bold)),
@@ -265,6 +259,8 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                               if(_passKey.currentState!.validate() & _confirmPassKey.currentState!.validate() & _emailKey.currentState!.validate()
                               & _firstNameKey.currentState!.validate() & _lastNameKey.currentState!.validate() & _checkedValue == true) {
                                 Navigator.push(context, MaterialPageRoute(builder: (context)=> const HomeScreen()));
+                                createAccount = _email.text;
+                                customerName = _firstName.text;
                               };
                             },
                             style: ElevatedButton.styleFrom(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flying_burger/create-account.dart';
 import 'package:flying_burger/homeScreen/home-screen.dart';
 import 'package:flying_burger/constants.dart';
+import 'package:flying_burger/components/navAppBar.dart';
 
 
 class ConfirmationScreen extends StatelessWidget{
@@ -20,31 +21,18 @@ class ConfirmationScreen extends StatelessWidget{
               repeat:ImageRepeat.repeat)),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          title: Center(
-            child: Text('Flying Burger', style:style),
-          ),
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(
-                Icons.account_circle_outlined,
-                color: Colors.white,
-              ),
-              onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> const CreateAccountScreen()));},
-            )
-          ],
-        ),
+        appBar: const navAppBar(),
         body: Center(
           child: Column(
             children: <Widget>[
-              SizedBox(height:200),
-              Icon(Icons.fastfood_outlined, size: 120),
-              Text('Order Successful',
+              const SizedBox(height:100),
+              const Icon(Icons.fastfood_outlined, size: 120),
+              const Text('Order Successful',
                   textAlign: TextAlign.center, style: TextStyle(fontSize: 30, color: Colors.red)),
-              SizedBox(height: 50),
-              Text('Thank you for dinning with us. Your order will be ready in a few minutes',
+              const SizedBox(height: 50),
+              const Text('Thank you for dinning with us. Your order will be ready in a few minutes',
                   textAlign: TextAlign.center, style: TextStyle(fontSize: 30, color: Colors.red)),
-              SizedBox(height: 50),
+              const SizedBox(height: 50),
               ElevatedButton(
                   onPressed: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context)=> const HomeScreen()));
@@ -52,7 +40,7 @@ class ConfirmationScreen extends StatelessWidget{
                   style: ElevatedButton.styleFrom(
                       backgroundColor: bluePrimaryColor),
                   child: Padding(
-                      padding: EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(5),
                       child: Text('Return to Home', style: style)
                   )
               ),

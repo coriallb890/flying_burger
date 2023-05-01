@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flying_burger/constants.dart';
 import 'package:flying_burger/menuScreen/menuItemPages/components/itemAppBar.dart';
 import 'package:flying_burger/profile-screen.dart';
+import 'package:flying_burger/components/navAppBar.dart';
 
 
 class AcChangeScreen extends StatelessWidget {
@@ -19,7 +20,7 @@ class AcChangeScreen extends StatelessWidget {
                     repeat: ImageRepeat.repeat)),
           child: Scaffold(
               backgroundColor: Colors.transparent,
-              appBar: const menuAppBar(''),
+              appBar: const navAppBar(),
               body: Center (
                   child: Column(
                       children: <Widget>[
@@ -30,19 +31,27 @@ class AcChangeScreen extends StatelessWidget {
                           const SizedBox(height: 50),
                           const Text('Change your first name here:', style: TextStyle(fontSize: 20, color: Colors.black)),
                           const SizedBox(height: 10),
-                          const TextField(
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(),
-                              hintText: "Enter your new first name"
+                          Container(
+                            width: 300,
+                            padding: EdgeInsets.all(0.0),
+                            child: TextFormField(
+                              decoration: const InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  hintText: "Enter your new last name"
+                              ),
                             ),
                           ),
                           const SizedBox(height: 50),
                           const Text('Change your last name here:', style: TextStyle(fontSize: 20, color: Colors.black)),
                           const SizedBox(height: 10),
-                          const TextField(
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                hintText: "Enter your new last name"
+                          Container(
+                            width: 300,
+                            padding: EdgeInsets.all(0.0),
+                            child: TextFormField(
+                              decoration: const InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  hintText: "Enter your new last name"
+                              ),
                             ),
                           ),
                           const SizedBox(height: 40),

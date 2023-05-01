@@ -6,8 +6,9 @@ import 'package:flying_burger/components/appbar.dart';
 import 'package:flying_burger/components/cartItem.dart';
 import 'package:flying_burger/constants.dart';
 import 'package:input_quantity/input_quantity.dart';
-
 import '../menuScreen/menu.dart';
+
+var totalOrder;
 
 class CartScreen extends StatefulWidget {
   const CartScreen({Key? key}) : super(key: key);
@@ -79,6 +80,7 @@ class _CartScreenState extends State<CartScreen> {
                 const SizedBox(height: 30),
                 ElevatedButton(
                   onPressed: () {
+                    finalOrder();
                     printOrder();
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const CheckoutScreen()));
                   },
@@ -338,6 +340,17 @@ class _CartScreenState extends State<CartScreen> {
     );
   }
 
+ finalOrder() {
+    totalOrder = '';
+    orderList.forEach((element) => totalOrder +=
+        ("Item: ${element.name} \n "
+            "Quantity: ${element.quantity}\n Price: \$${element.price} \n Customizations: ${customizations(element)}\n\n")
+    );
+    totalOrder += ("Total Price: \$${orderPrice().toStringAsFixed(2)}");
+    return totalOrder;
+    }
+
+
   // TEMPORARY FUNCTION DELETE AFTER
   void printOrder(){
     orderList.forEach((element) =>
@@ -351,10 +364,15 @@ class _CartScreenState extends State<CartScreen> {
     var customizations = "";
     element.customizations.forEach((custom)
     {
-      customizations += "'$custom',";
+      customizations += "'$custom', ";
     });
-
-    return customizations;
+    if(customizations.isEmpty){
+      customizations = "None";
+      return customizations;
+    }
+    else {
+      return customizations;
+    }
   }
 
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flying_burger/confirm-reset.dart';
 import 'package:flying_burger/constants.dart';
+import 'package:flying_burger/components/navAppBar.dart';
 
 class ForgotPassword extends StatelessWidget {
   const ForgotPassword({super.key});
@@ -18,14 +19,12 @@ class ForgotPassword extends StatelessWidget {
                 repeat: ImageRepeat.repeat)),
     child: Scaffold (
         backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          backgroundColor: bluePrimaryColor,
-        ),
+        appBar: const navAppBar(),
         body: Center (
           child: Column (
             children: <Widget>[
-              const SizedBox(height: 150),
-              const Text("In order for you to reset your password, please enter your email address.",
+              const SizedBox(height: 100),
+              const Text("In order for you to reset your password,\nplease enter your email address.",
                 style: TextStyle(fontSize: 20, color: Colors.black),
                 textAlign: TextAlign.center,
               ),

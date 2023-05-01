@@ -1,5 +1,6 @@
 import 'package:flying_burger/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flying_burger/components/navAppBar.dart';
 
 class PaymentBilling extends StatelessWidget {
   const PaymentBilling({super.key});
@@ -17,10 +18,7 @@ class PaymentBilling extends StatelessWidget {
                 repeat: ImageRepeat.repeat)),
     child: Scaffold (
         backgroundColor: Colors.transparent,
-        appBar: AppBar(
-            backgroundColor: bluePrimaryColor,
-            leading: const BackButton(),
-        ),
+        appBar: const navAppBar(),
         body: Center (
             child: Column (
                 children: <Widget>[
