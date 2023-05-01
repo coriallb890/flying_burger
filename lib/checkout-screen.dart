@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flying_burger/components/cartItem.dart';
 import 'package:flying_burger/components/navAppBar.dart';
 import 'package:flying_burger/confirmation-screen.dart';
@@ -37,9 +38,9 @@ class _CheckoutScreen extends State<CheckoutScreen> {
     String toName = 'Joshua',
   }) async{
 
-    final serviceId = 'service_kgt24ud';
-    final templateId = 'template_5eiaeyl';
-    final userId = 'LdNACH34wSWjSspCj';
+    final serviceId = 'service_dr67ala';
+    final templateId = 'template_o3x3d6m';
+    final userId = 'y2a3iJILaNCNYxTsg';
 
     final url = Uri.parse('https://api.emailjs.com/api/v1.0/email/send');
     final response = await http.post(
@@ -110,11 +111,12 @@ class _CheckoutScreen extends State<CheckoutScreen> {
                     ElevatedButton(
                       //Sara needs to add order information on press.
                         onPressed: () {
+                          //String contents = File('lib/components/test.txt').readAsStringSync();
                           orderList.clear();
                           Navigator.push(context, MaterialPageRoute(builder: (context)=> const ConfirmationScreen()));
                           sendEmail(
                             customerName: _userinfo[index]["UserName"],
-                            customerEmail: _userinfo[index]["Email"]
+                            customerEmail: _userinfo[index]["Email"],
                           );
                         },
                         style: ElevatedButton.styleFrom(
