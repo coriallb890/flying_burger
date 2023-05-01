@@ -31,19 +31,27 @@ class AcChangeScreen extends StatelessWidget {
                           const SizedBox(height: 50),
                           const Text('Change your first name here:', style: TextStyle(fontSize: 20, color: Colors.black)),
                           const SizedBox(height: 10),
-                          const TextField(
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(),
-                              hintText: "Enter your new first name"
+                          Container(
+                            width: 300,
+                            padding: EdgeInsets.all(0.0),
+                            child: TextFormField(
+                              decoration: const InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  hintText: "Enter your new last name"
+                              ),
                             ),
                           ),
                           const SizedBox(height: 50),
                           const Text('Change your last name here:', style: TextStyle(fontSize: 20, color: Colors.black)),
                           const SizedBox(height: 10),
-                          const TextField(
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                hintText: "Enter your new last name"
+                          Container(
+                            width: 300,
+                            padding: EdgeInsets.all(0.0),
+                            child: TextFormField(
+                              decoration: const InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  hintText: "Enter your new last name"
+                              ),
                             ),
                           ),
                           const SizedBox(height: 40),
