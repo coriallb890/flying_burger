@@ -33,12 +33,11 @@ dependencies:
   carousel_slider: ^4.2.1
   flutter_pw_validator: ^1.5.0
   flutter_email_sender: ^5.0.2
-  searchbase: ^3.1.0
-  flutter_secure_storage: ^8.0.0
-  io: any
+  another_brother: ^0.0.33
+  flutter_speed_dial: ^6.2.0
+  permission_handler: ^10.2.0
   flutter:
     sdk: flutter
-
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -92,8 +91,6 @@ flutter:
     - assets/images/salads/
     - assets/images/sides/
     - assets/images/tacos/
-    - assets/images/drinks/
-    - assets/images/condiments/
     - assets/jsonfiles/loginInfo.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
