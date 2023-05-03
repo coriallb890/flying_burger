@@ -23,9 +23,8 @@ class BigOrdersMenu extends StatelessWidget {
           body: GridView.count(
             crossAxisCount: 2,
             crossAxisSpacing: 10,
-            mainAxisSpacing: 13,
             childAspectRatio: 9/10,
-            padding: const EdgeInsets.only(top: 15, left: 15, right: 15, bottom: 30),
+            padding: const EdgeInsets.all(15),
             children: const <Widget>[
               itemButton('12 Catfish', 'assets/images/big-orders/12-catfish.png',24.99,["Sauce"],[]),
               itemButton('24 Catfish', 'assets/images/big-orders/12-catfish.png',42.99,["Half","Sauce"],[]),
