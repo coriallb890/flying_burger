@@ -9,10 +9,8 @@ class SaladsMenu extends StatelessWidget {
   @override
 
   Widget build(BuildContext context) {
-    //var theme = Theme.of(context);
-    //var style = theme.textTheme.headlineMedium!.copyWith(color: Colors.white);
     return Container (
-        constraints: const BoxConstraints.expand(),
+        //constraints: const BoxConstraints.expand(),
         decoration: const BoxDecoration (
             image: DecorationImage (
                 image: AssetImage ("assets/images/bgBody.jpg"),
@@ -23,8 +21,9 @@ class SaladsMenu extends StatelessWidget {
           body: GridView.count(
             crossAxisCount: 2,
             crossAxisSpacing: 10,
+            mainAxisSpacing: 13,
             childAspectRatio: 9/10,
-            padding: const EdgeInsets.all(15),
+            padding: const EdgeInsets.only(top: 15, left: 15, right: 15, bottom: 30),
             children: const <Widget>[
               itemButton('Fried Catfish House Salad', 'assets/images/salads/new-salad-large.jpg',9.99,["Dressing"],["Salad"]),
               itemButton('Fried Catfish Caesar Salad', 'assets/images/salads/new-caesar-large.jpg',9.99,["Dressing"],["Salad"]),

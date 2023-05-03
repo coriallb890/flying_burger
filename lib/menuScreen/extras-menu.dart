@@ -23,8 +23,9 @@ class ExtrasMenu extends StatelessWidget {
           body: GridView.count(
             crossAxisCount: 2,
             crossAxisSpacing: 10,
+            mainAxisSpacing: 13,
             childAspectRatio: 9/10,
-            padding: const EdgeInsets.all(15),
+            padding: const EdgeInsets.only(top: 15, left: 15, right: 15, bottom: 30),
             children: const <Widget>[
               itemButton('Boiled Shrimp', 'assets/images/placeholder.png',9.99,["Shrimp"],[]),
               itemButton('Burger Patty', 'assets/images/placeholder.png',9.99,[],[]),

@@ -23,8 +23,9 @@ class AppetMenu extends StatelessWidget {
           body: GridView.count(
             crossAxisCount: 2,
             crossAxisSpacing: 10,
+            mainAxisSpacing: 13,
             childAspectRatio: 9/10,
-            padding: const EdgeInsets.all(15),
+            padding: const EdgeInsets.only(top: 15, left: 15, right: 15, bottom: 30),
             children: const <Widget>[
               itemButton('6 Chilled Shrimp', 'assets/images/appetizers/shrimp-app-6.jpg',8.99,["Sauce","Shrimp"],[]),
               itemButton('12 Chilled Shrimp', 'assets/images/appetizers/shrimp-app-12.jpg',15.99,["Sauce","Shrimp"],[]),

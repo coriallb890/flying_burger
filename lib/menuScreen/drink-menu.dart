@@ -24,8 +24,9 @@ class DrinkMenu extends StatelessWidget {
           body: GridView.count(
             crossAxisCount: 2,
             crossAxisSpacing: 10,
+            mainAxisSpacing: 13,
             childAspectRatio: 9/10,
-            padding: const EdgeInsets.all(15),
+            padding: const EdgeInsets.only(top: 15, left: 15, right: 15, bottom: 30),
             children: const <Widget>[
               itemButton('Coffee', 'assets/images/drinks/coffee.png',2.49,["Size"],[]), // Will make placement cards for drinks
               itemButton('Coke', 'assets/images/drinks/coca-cola.png',2.49,["Size"],[]),

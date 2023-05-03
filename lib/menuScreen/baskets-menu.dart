@@ -23,8 +23,9 @@ class BasketsMenu extends StatelessWidget {
           body: GridView.count(
             crossAxisCount: 2,
             crossAxisSpacing: 10,
-            childAspectRatio: 8/10,
-            padding: const EdgeInsets.all(15),
+            mainAxisSpacing: 13,
+            childAspectRatio: 9/10,
+            padding: const EdgeInsets.only(top: 15, left: 15, right: 15, bottom: 30),
             children: const <Widget>[
               itemButton('4 Catfish Basket', 'assets/images/baskets/catfish-basket.jpg',10.99,["Side","Sauce"],[]),
               itemButton('5 Catfish Basket', 'assets/images/baskets/catfish-basket.jpg',11.99,["Side","Sauce"],[]),
