@@ -30,7 +30,7 @@ class DrinkMenu extends StatelessWidget {
             children: const <Widget>[
               itemButton('Coffee', 'assets/images/drinks/coffee.png',2.49,["Size"],[]), // Will make placement cards for drinks
               itemButton('Coke', 'assets/images/drinks/coca-cola.png',2.49,["Size"],[]),
-              itemButton('Diet Coke', 'assets/images/drinks/diet-cola.png',2.49,["Size"],[]),
+              itemButton('Diet Coke', 'assets/images/drinks/diet-coke.png',2.49,["Size"],[]),
               itemButton('Fanta', 'assets/images/drinks/fanta.png',2.49,["Size"],[]),
               itemButton('Lemonade', 'assets/images/drinks/lemonade.png',2.49,["Size"],[]),
               itemButton('Powerade Mountain Berry', 'assets/images/drinks/powerade.png',2.49,["Size"],[]),

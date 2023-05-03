@@ -53,8 +53,8 @@ class MenuScreen extends StatelessWidget{
             menuItem('KIDS MEALS', 'assets/images/kids/kids-chick.jpg', KidsMenu()),
             menuItem('SIDES', 'assets/images/salads/new-small-salad.jpg', SidesMenu()),
             menuItem('DESSERTS', 'assets/images/desserts/cinnamon-roll.jpg', DessertsMenu()),
-            menuItem('DRINKS', 'assets/images/combos/single-burger-combo.jpg', DrinkMenu()),
-            menuItem('CONDIMENTS', 'assets/images/condiments-ranch.jpg', CondimentsMenu()),
+            menuItem('DRINKS', 'assets/images/drinks/root-beer.png', DrinkMenu()),
+            menuItem('CONDIMENTS', 'assets/images/condiments/ranch.jpg', CondimentsMenu()),
             menuItem('EXTRAS', 'assets/images/catfish.jpg', ExtrasMenu()),
           ]
         ),

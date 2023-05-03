@@ -92,6 +92,8 @@ flutter:
     - assets/images/salads/
     - assets/images/sides/
     - assets/images/tacos/
+    - assets/images/drinks/
+    - assets/images/condiments/
     - assets/jsonfiles/loginInfo.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
