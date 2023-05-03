@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flying_burger/account-editing.dart';
-import 'package:flying_burger/components/appbar.dart';
 import 'package:flying_burger/constants.dart';
 import 'package:flying_burger/homeScreen/components/bottomNav.dart';
 import 'package:flying_burger/start-screen.dart';
@@ -73,7 +72,11 @@ class ProfileScreen extends StatelessWidget {
                             const SizedBox(height: 40),
                             TextButton(
                                 onPressed: () {
-                                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const StartScreen()));
+                                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (BuildContext context){
+                                    return StartScreen();
+                                  }), (r){
+                                    return false;
+                                  });
                                 },
                                 style: TextButton.styleFrom(
                                     backgroundColor: redPrimaryColor),

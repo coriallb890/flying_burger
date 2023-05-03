@@ -23,8 +23,9 @@ class BoiledMenu extends StatelessWidget {
           body: GridView.count(
             crossAxisCount: 2,
             crossAxisSpacing: 10,
+            mainAxisSpacing: 13,
             childAspectRatio: 9/10,
-            padding: const EdgeInsets.all(15),
+            padding: const EdgeInsets.only(top: 15, left: 15, right: 15, bottom: 30),
             children: const <Widget>[
               itemButton('Boiled Shrimp (1/2lb)', 'assets/images/boiled/boiled-shrimp.jpg',12.99,["Seasoning","Single","Sauce","Shrimp"],[]),
               itemButton('Boiled Shrimp (Lb)', 'assets/images/boiled/boiled-shrimp.jpg',21.99,["Seasoning","Single","Sauce","Shrimp"],[]),
