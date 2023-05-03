@@ -22,9 +22,8 @@ import '../menuScreen/components/bottomNav.dart';
           body: GridView.count(
               crossAxisCount: 2,
               crossAxisSpacing: 10,
-              mainAxisSpacing: 13,
               childAspectRatio: 9/10,
-              padding: const EdgeInsets.only(top: 15, left: 15, right: 15, bottom: 30),
+              padding: const EdgeInsets.all(15),
               children: const <Widget>[
                 itemButton('Single Burger Meal', 'assets/images/combos/single-burger-combo.jpg', 9.49, ['Drink', 'Side'], ['Burger', 'Condiments']),
                 itemButton('Double Burger Meal', 'assets/images/combos/double-burger-combo.jpg', 10.49, ['Drink', 'Side'], ['Burger', 'Condiments']),

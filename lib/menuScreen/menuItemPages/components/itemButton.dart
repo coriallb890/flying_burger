@@ -35,7 +35,7 @@ class itemButton extends StatelessWidget {
               ),
               child: Ink.image(
                   width: double.infinity,
-                  height: 135,
+                  height: 120,
                   fit: BoxFit.cover,
                   image:  AssetImage(imagePath)),
             ),

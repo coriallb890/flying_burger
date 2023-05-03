@@ -24,9 +24,8 @@ class SidesMenu extends StatelessWidget {
         body: GridView.count(
           crossAxisCount: 2,
           crossAxisSpacing: 10,
-          mainAxisSpacing: 13,
           childAspectRatio: 9/10,
-          padding: const EdgeInsets.only(top: 15, left: 15, right: 15, bottom: 30),
+          padding: const EdgeInsets.all(15),
           children: const <Widget>[
             itemButton('Beans', 'assets/images/placeholder.png',2.25,[],[]),
             itemButton('Coleslaw', 'assets/images/sides/new-coleslaw.jpg',2.25,[],[]),

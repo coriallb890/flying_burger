@@ -24,9 +24,8 @@ class KidsMenu extends StatelessWidget {
           body: GridView.count(
             crossAxisCount: 2,
             crossAxisSpacing: 10,
-            mainAxisSpacing: 13,
             childAspectRatio: 9/10,
-            padding: const EdgeInsets.only(top: 15, left: 15, right: 15, bottom: 30),
+            padding: const EdgeInsets.all(15),
             children: const <Widget>[
               itemButton('Kids Burger', 'assets/images/combos/single-burger-combo.jpg',5.99,["Side","Drink"],[]),
               itemButton('Grilled Cheese', 'assets/images/combos/single-burger-combo.jpg',5.99,["Side","Drink"],[]),
