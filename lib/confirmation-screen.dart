@@ -5,7 +5,7 @@ import 'package:flying_burger/constants.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:flying_burger/print_api.dart';
-import 'package:path_provider/path_provider.dart';
+
 
 
 class ConfirmationScreen extends StatelessWidget{
@@ -71,10 +71,9 @@ class ConfirmationScreen extends StatelessWidget{
             SpeedDialChild(
               child: const Icon(Icons.print),
               onTap: () async {
-                await PrintAPI.printText(
-                    context, 'Order Successful: Thank you for your Order!');
+                await PrintAPI.printText(context,'Order Successful: Thank you for your Order!');
               },
-              label: 'Print text',
+              label: 'Print recipe',
             ),
           ],
         ),
